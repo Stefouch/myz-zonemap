@@ -1,0 +1,351 @@
+{
+	"rotLvl": {
+		"roll": "D66",
+		"data": {
+			"11": 0,
+			"13": 1,
+			"56": 2
+		}
+	},
+	"threats": {
+		"roll": "D6",
+		"data": {
+			"1": {
+				"roll": "D66",
+				"define": "Humanoids",
+				"data": {
+					"11": "Amnésique",
+					"12": "Bêtes mutantes",
+					"14": "Cannibales",
+					"21": "Cultistes de l’Apocalypse",
+					"23": "Mutants exilés",
+					"26": "Expédition d’une autre Arche",
+					"33": "Helldrivers",
+					"36": "Morlocks",
+					"43": "Cultistes de Nova",
+					"45": "Patrouille de l’Arche",
+					"51": "Oracle de ferraille",
+					"53": "Vagabonds",
+					"55": "Vendeur d’eau",
+					"61": "Piégeurs",
+					"63": "Goules de la Zone"
+				}
+			},
+			"3": {
+				"roll": "D66",
+				"define": "Monsters",
+				"data": {
+					"11": "Herbe corrosive",
+					"13": "Méduses volantes",
+					"14": "Automate",
+					"15": "Bête corrosive",
+					"21": "Ver de mort",
+					"23": "Dévoreur",
+					"25": "Brouteurs",
+					"31": "Poisson des boyaux (eau souillée)",
+					"32": "Arbre tueur",
+					"33": "Moustiques mentaux",
+					"34": "Fleurs de cauchemar",
+					"35": "Champignon parasite",
+					"36": "Razorback",
+					"41": "Fourmis de la Souillure",
+					"43": "Poisson de la Souillure",
+					"44": "Corbeaux de ferraille",
+					"46": "Faucon des ordures",
+					"51": "Nuée de vers",
+					"52": "Chiens de la Zone",
+					"55": "Sangsues de la Zone",
+					"61": "Rats de la Zone",
+					"64": "Araignée de la Zone",
+					"65": "Guêpes de la Zone"
+				}
+			},
+			"6": {
+				"roll": "D66",
+				"define": "Phenomenons",
+				"data": {
+					"11": "(Phénomène) Pluie acide",
+					"14": "(Phénomène) Tempête de cendres",
+					"16": "(Phénomène) Tornade de poussière",
+					"22": "(Phénomène) Orage électrique",
+					"24": "(Phénomène) Lumières fantômes",
+					"25": "(Phénomène) Champ d’inertie",
+					"26": "(Phénomène) Champ magnétique",
+					"32": "(Phénomène) Mirage",
+					"33": "(Phénomène) Flaques de boue",
+					"35": "(Phénomène) Lumières nocturnes",
+					"41": "(Phénomène) Obélisque",
+					"42": "(Phénomène) Pilier de lumière",
+					"44": "(Phénomène) Épicentre de Souillure",
+					"51": "(Phénomène) Vent de Souillure",
+					"53": "(Phénomène) Doline",
+					"55": "(Phénomène) Chute de température/Vague de chaleur",
+					"61": "(Phénomène) Obus ou mine",
+					"63": "(Phénomène) Vide",
+					"64": "(Phénomène) Brouillard de la Zone"
+				}
+			}
+		}
+	},
+	"environments": {
+		"roll": "D66",
+		"data": {
+					"11": "Bois épais",
+					"13": "Brousse",
+					"16": "Marécages",
+					"22": "Bois morts",
+					"25": "Désert de cendres",
+					"31": "Immense cratère",
+					"32": "Terre vitrifiée",
+					"33": "Ruines luxuriantes",
+					"36": "Ruines croulantes",
+					"43": "Ruines délabrées",
+					"52": "Ruines intactes",
+					"61": "Usines abandonnées",
+					"65": "Colonie"
+		}
+	},
+	"normalRuins": {
+		"roll": "D66",
+		"data": {
+			"11": [
+				"Épave d'avion",
+				""
+			],
+			"12": [
+				"Parc d'attraction",
+				""
+			],
+			"13": [
+				"Champ de bataille",
+				""
+			],
+			"14": [
+				"Gare routière",
+				""
+			],
+			"15": [
+				"Parking",
+				""
+			],
+			"16": [
+				"Église",
+				""
+			],
+			"21": [
+				"Cinéma",
+				""
+			],
+			"22": [
+				"Cratère",
+				""
+			],
+			"23": [
+				"Manoire délabré",
+				""
+			],
+			"24": [
+				"Fast Food",
+				""
+			],
+			"25": [
+				"Station-service",
+				""
+			],
+			"26": [
+				"Autoroute",
+				""
+			],
+			"31": [
+				"Hôpital",
+				""
+			],
+			"32": [
+				"Magasin de chasse",
+				""
+			],
+			"33": [
+				"Centre commercial",
+				""
+			],
+			"34": [
+				"Port de plaisance",
+				""
+			],
+			"35": [
+				"Musée",
+				""
+			],
+			"36": [
+				"Bureaux",
+				""
+			],
+			"41": [
+				"Parc luxuriant",
+				""
+			],
+			"42": [
+				"Aire de jeux",
+				""
+			],
+			"43": [
+				"Commissariat",
+				""
+			],
+			"44": [
+				"Station de radio",
+				""
+			],
+			"45": [
+				"Lotissement résidentiel",
+				""
+			],
+			"46": [
+				"Tunnel",
+				""
+			],
+			"51": [
+				"Pont en ruine",
+				""
+			],
+			"52": [
+				"École",
+				""
+			],
+			"53": [
+				"Abri",
+				""
+			],
+			"54": [
+				"Gratte-ciel",
+				""
+			],
+			"55": [
+				"Centre sportif",
+				""
+			],
+			"56": [
+				"Banlieue résidentielle",
+				""
+			],
+			"61": [
+				"Station de métro",
+				""
+			],
+			"62": [
+				"Supermarché",
+				""
+			],
+			"63": [
+				"Piscine",
+				""
+			],
+			"64": [
+				"Tank",
+				""
+			],
+			"65": [
+				"Théatre",
+				""
+			],
+			"66": [
+				"Gare ferroviare",
+				""
+			]
+		}
+	},
+	"industrialRuins": {
+		"roll": "D66",
+		"data": {
+			"11": [
+				"Usine",
+				""
+			],
+			"14": [
+				"Base militaire",
+				""
+			],
+			"21": [
+				"Réservoir de pétrole",
+				""
+			],
+			"24": [
+				"Pipeline",
+				""
+			],
+			"31": [
+				"Station d'épuration",
+				""
+			],
+			"34": [
+				"Lignes à haute tension",
+				""
+			],
+			"41": [
+				"Antenne radio",
+				""
+			],
+			"44": [
+				"Raffinerie",
+				""
+			],
+			"51": [
+				"Décharge",
+				""
+			],
+			"54": [
+				"Épave de bateau",
+				""
+			],
+			"61": [
+				"Champ de tir",
+				""
+			],
+			"64": [
+				"Éolienne",
+				""
+			]
+		}
+	},
+	"moods": {
+		"roll": "D66",
+		"data": {
+			"11": "(Humanoïde) Vagabonds. Quelques silhouettes au lointain... Qui marche dans la Zone ?",
+			"12": "(Humanoïde) Campement. Les restes d’un campement, peut-être que des braises sont encore chaudes dans le foyer.",
+			"13": "(Humanoïde) Dernier repos. D6 tombes improvisées, avec des morceaux de débris comme pierre tombale. Qui est enterré ici ?",
+			"14": "(Humanoïde) Victime. Un cadavre, pendu ou attaché à un poteau. Qui a fait cela, et pourquoi ?",
+			"15": "(Humanoïde) Message. Quelqu’un a écrit quelque chose sur un mur. Qu’est-ce que cela dit, et est-ce récent ?",
+			"16": "(Humanoïde) Traces. Elles s’enfoncent dans la Zone. Qui est passé par ici et où sont-ils allés ?",
+			"21": "(Nature) Gros rocher. Un immense rocher. Une protection contre les vents de la Zone ou un bon point d’observation ?",
+			"22": "(Nature) Arbre. Un vieil arbre solitaire qui tient bon dans la Zone. Cache-t-il un quelconque secret ?",
+			"23": "(Nature) Cours d’eau. Un mince ruisseau coule à travers le paysage. Est-ce une source de vie ou de mort par la Souillure ?",
+			"24": "(Nature) Fleurs de la Zone. Voilà qui n’est pas à sa place dans la morosité de la Zone, un champ d’étranges fleurs aux couleurs chatoyantes.",
+			"25": "(Nature) Chardons. D’épaisses plantes à épines recouvrent le secteur. Les bottes et l’équipement se prennent dedans. Est-ce que les plus gros buissons cachent des secrets ?",
+			"26": "(Nature) Plantes grimpantes. Il y a beaucoup de lierre recouvrant les ruines par ici. Est-ce que ces plantes sont mortes ou encore bien vivantes ?",
+			"31": "(Météo) Pluies torrentielles. Une soudaine et violente averse, ou chute de neige, s’abat sur les PJ. Ils feraient bien de trouver un abri rapidement.",
+			"32": "(Météo) Brouillard. Une brume épaisse recouvre la zone. La visibilité est réduite à quelques mètres et les sons, étouffés. Qu’est-ce qui peut rôder dans le brouillard ?",
+			"33": "(Météo) Soleil brûlant. D’ardents rayons du soleil frappent les PJ. Leur peau brûle et leurs vêtements sont trempés de sueur.",
+			"34": "(Météo) Ciel bleu. La brume qui d’ordinaire est omniprésente dans la zone s’évapore et laisse voir un ciel d’un bleu immaculé. C’est un spectacle à la fois magnifique et terrifiant.",
+			"35": "Nuages noirs. Le ciel s’obscurcit et le vent se lève. Des nuages de poussière s’élèvent du sol. Une tempête se prépare.",
+			"36": "Tonnerre. Le bruit sourd du tonnerre monte du lointain. Des éclairs s’abattent au milieu des ruines.",
+			"41": "(Restes) Panneau. Un vieux panneau de métal tient encore debout, datant des Temps d’Avant. Est-ce qu’il donne le chemin vers quelque chose, ou est-ce qu’il prévient d’un danger ?",
+			"42": "(Restes) Épave. Les restes d’un vieux véhicule, rouillé et irréparable. Sa carcasse de métal est encore intacte. Est-ce que quelqu’un s’est abrité ici ?",
+			"43": "(Restes) Poster de film. Un vieux poster des Temps d’Avant, froissé et presque effacé par le temps. Il montre une scène étrange. Qu’est-ce que les PJ vont en penser ?",
+			"44": "(Restes) Les morts. D6 squelettes blanchis, qui datent des Temps d’Avant. Quelle histoire pourrait raconter ces ossements ?",
+			"45": "(Restes) Point de contrôle. Un blocage routier des Temps d’Avant, datant sans doute de la fin du monde. Peut-être qu’il y a encore des débris utiles ?",
+			"46": "(Restes) Voie de chemin de fer. Ces vieilles voies rouillées sont envahies par la végétation. Où mènent-elles ?",
+			"51": "(Évènement) Trou. Il y a un trou sombre et profond au sol, devant les PJ. Est-ce un vieux puits, ou un passage vers des tunnels en dessous ?",
+			"52": "(Évènement) Hurlement. Un cri long et inhumain résonne dans la Zone. Est-ce que quelqu’un a besoin d’aide, où bien un monstre rôde-t-il dans les environs ?",
+			"53": "(Évènement) Effondrement. Un bâtiment en ruines s’effondre soudainement dans un bruit assourdissant. Peut-être que ça aura révélé quelque chose d’intéressant ?",
+			"54": "(Évènement) Oiseaux. Un groupe de petits oiseaux de la Zone s’envole subitement. Est-ce que quelque chose leur a fait peur ?",
+			"55": "(Évènement) Bruit. Un bruit sourd, comme un profond mugissement résonne à travers la Zone. Il se répète quelques fois, puis s’arrête.",
+			"56": "(Évènement) Hutte. Quelqu’un a construit un petit abri ou une hutte à partir de débris. Est-ce qu’il y a quelqu’un ?",
+			"61": "(Terrain) Lac. Un petit lac noir peut se discerner derrière un banc de brume. Que peut-il y avoir sous sa surface opaque ?",
+			"62": "(Terrain) Pente raide. Un escarpement très raide est devant les PJ. Comment vont-ils descendre, et qu’est-ce qui les attend en bas ?",
+			"63": "(Terrain) Faille. Une profonde fissure, de plusieurs mètres de large, traverse le paysage. Comment la traverser ?",
+			"64": "(Terrain) Marécages. De l’eau complètement Souillée a recouvert cette zone, submergeant les vieilles rues fissurées. Une eau sombre et froide s’infiltre dans les chaussures des PJ.",
+			"65": "(Terrain) Taillis. De sombres taillis d’arbres morts et noircis projettent de l’ombre sur le PJ. Qu’est-ce qui pourrait se cacher à l’intérieur ?",
+			"66": "(Terrain) Colline. Une colline abrupte se dresse au milieu de la Zone. Qu’est-ce que c’est, et qu’y a-t-il en haut ?"
+		}
+	}
+}
