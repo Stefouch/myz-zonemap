@@ -14,9 +14,9 @@
 		<p><b>Mutant: Find My Path</b> is a web application for managing the Map of the Zone for the <i>Mutant:&nbsp;Year&nbsp;Zero</i> tabletop roleplaying game.</p>
 
 		<div class="map-buttons">
-			<a id="new-map" class="btn btn-lg btn-outline-light" href="#new-map-panel"><i class="fas fa-file"></i>Create a new Map</a>
-			<a id="open-map" class="btn btn-lg btn-outline-light" href="#open-map-panel"><i class="fas fa-folder-open"></i>Open an existing Map</a>
-			<a id="previous-map" class="btn btn-lg btn-outline-light" style="display: none;" href="./zonemap.php"><i class="fas fa-road"></i>Load last Map</a>
+			<a id="new-map" class="btn btn-lg btn-outline-light"><i class="fas fa-file"></i>Create a new Map</a>
+			<a id="open-map" class="btn btn-lg btn-outline-light"><i class="fas fa-folder-open"></i>Open an existing Map</a>
+			<a id="previous-map" class="btn btn-lg btn-outline-light"><i class="fas fa-road"></i>Load last Map</a>
 		</div>
 
 		<h5>Notifications</h5>
@@ -28,10 +28,10 @@
 		<div class="alert alert-danger mb-1"><i class="fas fa-times-circle"></i> Not compatible with Internet Explorer.</div>
 
 		<h5>Build</h5>	
-		<p class="ml-4"><b>{{ version }}</b>.{{ Date.now() }}</p>
+		<p class="ml-4"><b>{{ this.$root.version }}</b></p>
 
 		<h5>Version Log</h5>
-		<p class="ml-4" v-for="log in versionLog">{{ log }}</p>
+		<p class="ml-4" v-for="(log, index) in this.$root.versionLog" :key="index">{{ log }}</p>
 
 	</div><!--/.Container-->
 </div>
@@ -39,14 +39,10 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+// import HelloWorld from '@/components/HelloWorld.vue';
 
 export default {
 	name: 'home',
-	props: ['version', 'versionLog'],
-	components: {
-		HelloWorld
-	}
 };
 </script>
 
@@ -57,7 +53,8 @@ export default {
 	font-size: 1rem;
 	color: #fff!important;
 	min-height: 70vh;
-	margin-top: 6rem;
+	padding-top: 6rem;
+	padding-bottom: 6rem;
 }
 
 #main h1 {
@@ -87,6 +84,7 @@ export default {
 	justify-content: center;
 	align-items: center;
 	margin: 2rem;
+	cursor: pointer;
 }
 
 @media (min-width: 992px) { #main .map-buttons { flex-direction: row; } }
@@ -108,6 +106,12 @@ export default {
 #main .map-buttons a i {
 	min-width: 32px;
 	margin: 0 12px;
+}
+
+img#myz-logo {
+	width: 80%;
+	max-width: 600px;
+	/* margin: 24px 6em 6px 6em; */
 }
 
 /* BACKGROUNDS ============================================================= */
