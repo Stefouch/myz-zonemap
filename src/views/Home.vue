@@ -27,7 +27,7 @@
 
 		<div class="alert alert-danger mb-1"><i class="fas fa-times-circle"></i> Not compatible with Internet Explorer.</div>
 
-		<h5>Build</h5>	
+		<h5>Build</h5>
 		<p class="ml-4"><b>{{ this.$root.version }}</b></p>
 
 		<h5>Version Log</h5>
@@ -36,9 +36,18 @@
 	</div>
 
 	<!-- NEW MAP PANEL ======================================================== -->
-	<v-dialog v-model="newMapDialog" dark width="600px">
-		<h2>Create a new Map</h2>
-		<p>Choose the dimensions of the Zone and hit «&nbsp;Create&nbsp;». Beware that the width and the height of the map cannot be changed afterwards.</p>
+	<v-dialog v-model="newMapDialog" width="600px">
+		<v-container class="modal-content">
+			<v-layout column>
+				<h2>Create a new Map</h2>
+				<p>Choose the dimensions of the Zone and hit «&nbsp;Create&nbsp;». Beware that the width and the height of the map cannot be changed afterwards.</p>
+				<v-form v-model="isNewMapValid">
+					<v-text-field v-model="title" :rules="titleRules" label="Map title" required></v-text-field>
+					<v-flex row>
+
+				</v-form>
+			</v-layout>
+		</v-container>
 	</v-dialog>
 
 	<!-- FOOTER =========================================================== -->
@@ -55,12 +64,15 @@ import ZonemapStorage from '@/zonemap/ZonemapStorage';
 
 export default {
 	name: 'home',
-	data() {
-		return {
-			newMapDialog: false,
-			openMapDialog: false
-		}
-	},
+	data: () => ({
+		newMapDialog: true,
+		isNewMapValid: false,
+		title: '',
+		titleRules: [
+			v => !!v || 'Title is required'
+		],
+		openMapDialog: false
+	}),
 	methods: {
 		previousMap() {
 			const loaded = ZonemapStorage.load();
@@ -150,5 +162,10 @@ img#myz-logo {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+}
+
+/* DIALOGS ================================================================= */
+.modal-content {
+	background-color: #fff;
 }
 </style>
