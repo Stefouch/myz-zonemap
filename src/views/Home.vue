@@ -14,9 +14,9 @@
 		<p><b>Mutant: Find My Path</b> is a web application for managing the Map of the Zone for the <i>Mutant:&nbsp;Year&nbsp;Zero</i> tabletop roleplaying game.</p>
 
 		<div class="map-buttons">
-			<a id="new-map" class="btn btn-lg btn-outline-light" @click="createNewZonemap()"><i class="fas fa-file"></i>Create a new Map</a>
-			<a id="open-map" class="btn btn-lg btn-outline-light"><i class="fas fa-folder-open"></i>Open an existing Map</a>
-			<a id="previous-map" class="btn btn-lg btn-outline-light"><i class="fas fa-road"></i>Load last Map</a>
+			<a id="new-map" class="btn btn-lg btn-outline-light" @click="newMapDialog = true"><i class="fas fa-file"></i>Create a new Map</a>
+			<a id="open-map" class="btn btn-lg btn-outline-light" @click="openMapDialog = true"><i class="fas fa-folder-open"></i>Open an existing Map</a>
+			<a id="previous-map" class="btn btn-lg btn-outline-light" @click="previousMap()"><i class="fas fa-road"></i>Load last Map</a>
 		</div>
 
 		<h5>Notifications</h5>
@@ -33,36 +33,54 @@
 		<h5>Version Log</h5>
 		<p class="ml-4" v-for="(log, index) in this.$root.versionLog" :key="index">{{ log }}</p>
 
-	</div><!--/.Container-->
+	</div>
+
+	<!-- NEW MAP PANEL ======================================================== -->
+	<v-dialog v-model="newMapDialog" dark width="600px">
+		<h2>Create a new Map</h2>
+		<p>Choose the dimensions of the Zone and hit «&nbsp;Create&nbsp;». Beware that the width and the height of the map cannot be changed afterwards.</p>
+	</v-dialog>
+
+	<!-- FOOTER =========================================================== -->
+	<zm-footer/>
 </div>
 </template>
 
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue';
+import zmFooter from '@/components/Footer.vue';
 import ZoneMap from '@/zonemap/ZoneMap';
+import ZonemapStorage from '@/zonemap/ZonemapStorage';
 
 export default {
 	name: 'home',
-	methods: {
-		createNewZonemap() {
-			const zm = new ZoneMap();
-			zm.setNewSector('A01');
-			console.log(zm);
+	data() {
+		return {
+			newMapDialog: false,
+			openMapDialog: false
 		}
+	},
+	methods: {
+		previousMap() {
+			const loaded = ZonemapStorage.load();
+			if (loaded) this.$router.push({ name: 'zone' })
+		}
+	},
+	components: {
+		zmFooter
 	}
 };
 </script>
 
 <style scoped>
-/* MAIN PAGE (INDEX) ======================================================= */
 #main {
 	font-family: 'Futura Std Medium';
 	font-size: 1rem;
 	color: #fff;
 	min-height: 70vh;
 	padding-top: 6rem;
-	padding-bottom: 6rem;
+	padding-bottom: 10rem;
 }
 
 #main h1 {
@@ -122,7 +140,7 @@ img#myz-logo {
 	/* margin: 24px 6em 6px 6em; */
 }
 
-/* BACKGROUNDS ============================================================= */
+/* BACKGROUND ============================================================== */
 .bg-index {
 	background-image: url('../assets/darkback-wide.jpg');
 	background-repeat: no-repeat;
