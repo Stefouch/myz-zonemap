@@ -31,7 +31,7 @@
 		<p class="ml-4"><b>{{ version }}</b>.{{ Date.now() }}</p>
 
 		<h5>Version Log</h5>
-		<p v-for="log in versionLog">{{ log }}</p>
+		<p class="ml-4" v-for="log in versionLog">{{ log }}</p>
 
 	</div><!--/.Container-->
 </div>
@@ -39,10 +39,10 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import HelloWorld from '@/components/HelloWorld.vue';
 
 export default {
-	name: "home",
+	name: 'home',
 	props: ['version', 'versionLog'],
 	components: {
 		HelloWorld
