@@ -14,7 +14,7 @@
 		<p><b>Mutant: Find My Path</b> is a web application for managing the Map of the Zone for the <i>Mutant:&nbsp;Year&nbsp;Zero</i> tabletop roleplaying game.</p>
 
 		<div class="map-buttons">
-			<a id="new-map" class="btn btn-lg btn-outline-light"><i class="fas fa-file"></i>Create a new Map</a>
+			<a id="new-map" class="btn btn-lg btn-outline-light" @click="createNewZonemap()"><i class="fas fa-file"></i>Create a new Map</a>
 			<a id="open-map" class="btn btn-lg btn-outline-light"><i class="fas fa-folder-open"></i>Open an existing Map</a>
 			<a id="previous-map" class="btn btn-lg btn-outline-light"><i class="fas fa-road"></i>Load last Map</a>
 		</div>
@@ -40,18 +40,26 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue';
+import ZoneMap from '@/zonemap/ZoneMap';
 
 export default {
 	name: 'home',
+	methods: {
+		createNewZonemap() {
+			const zm = new ZoneMap();
+			zm.setNewSector('A01');
+			console.log(zm);
+		}
+	}
 };
 </script>
 
 <style scoped>
 /* MAIN PAGE (INDEX) ======================================================= */
 #main {
-	font-family: 'Futura Std Medium'!important;
+	font-family: 'Futura Std Medium';
 	font-size: 1rem;
-	color: #fff!important;
+	color: #fff;
 	min-height: 70vh;
 	padding-top: 6rem;
 	padding-bottom: 6rem;
@@ -59,7 +67,7 @@ export default {
 
 #main h1 {
 	font-size: calc(3.5rem + 2vw);
-	color: #fff!important;
+	color: #fff;
 }
 
 /* @media (max-width: 576px) { #main h1 { font-size: 4rem; } } */
