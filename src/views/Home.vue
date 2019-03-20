@@ -1,8 +1,46 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+<!-- MAIN CONTAINER ======================================================= -->
+<div id="main" class="container">
+
+	<div style="text-align: center;">
+		<img id="myz-logo" src="../assets/myz-title-white.png" alt="MYZ Logo">
+	</div>
+
+	<h1>Find My Path</h1>
+
+	<p>Welcome fellow Mutant,
+	<br />Are you lost in the Zone? You're chased by a group of <i>Zone Ghouls</i> and you can't remember the way back to your Ark? Or maybe you are looking after Eden? Don't worry, you find the right place for help!</p>
+	<p><b>Mutant: Find My Path</b> is a web application for managing the Map of the Zone for the <i>Mutant:&nbsp;Year&nbsp;Zero</i> tabletop roleplaying game.</p>
+
+	<div class="map-buttons">
+		<a id="new-map" class="btn btn-lg btn-outline-light" href="#new-map-panel"><i class="fas fa-file"></i>Create a new Map</a>
+		<a id="open-map" class="btn btn-lg btn-outline-light" href="#open-map-panel"><i class="fas fa-folder-open"></i>Open an existing Map</a>
+		<a id="previous-map" class="btn btn-lg btn-outline-light" style="display: none;" href="./zonemap.php"><i class="fas fa-road"></i>Load last Map</a>
+	</div>
+
+	<h5>Notifications</h5>
+
+	<div class="alert alert-success mb-1"><i class="fas fa-check-square"></i> Fully tested web browsers include: Google Chrome, Mozilla Firefox, and Safari (both on desktops and smartphones).</div>
+
+	<div class="alert alert-warning mb-1"><i class="fas fa-exclamation-triangle"></i> Development in progress! Fonctionalities are subject to evolve. Bugs are not impossible. If you're experiencing some weird behavior, please report it there: <a href="http://git" target="_blank">bug report</a>.</div>
+
+	<div class="alert alert-danger mb-1"><i class="fas fa-times-circle"></i> Not compatible with Internet Explorer.</div>
+
+	<h5>Build</h5>	
+	<p class="ml-4"><b><?= $zonemapVersionNumber ?></b>.<?= $zonemapVersionDate ?></p>
+
+	<h5>Version Log</h5>
+	<p>
+		<?php
+		foreach ($zonemapVersionLog as $entry) {
+			echo '<p class="ml-4">' . $entry . '</p>';
+		}
+		?>
+	</p>
+
+</div><!--/.Container-->
+
+</div>
 </template>
 
 <script>
