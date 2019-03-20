@@ -82,9 +82,11 @@ class ZoneSector {
 		if (!this.finds.hasOwnProperty('artifacts')) this.finds.artifacts = 0;
 
 		// ROLL→THREATLVL→THREATS→ARTOS =======================================
-		if (typeof this.threatLvl === 'undefined' || isNaN(this.threatLvl)
-			|| typeof this.threats === 'undefined') {
-
+		if (
+			typeof this.threatLvl === 'undefined' ||
+			isNaN(this.threatLvl) ||
+			typeof this.threats === 'undefined'
+		) {
 			this.threatLvl = rand(1, 13);
 			this.threats = [];
 			this.rollThreatLvl();

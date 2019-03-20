@@ -112,8 +112,13 @@ class ZoneMap extends Collection {
 		const xPos = parseInt(x);
 
 		// Performs checks.
-		if (typeof yPos === 'number' && yPos <= this.height
-			&& typeof xPos === 'number' && xPos <= this.width) return true;
+		if (
+			typeof yPos === 'number' &&
+			typeof xPos === 'number' &&
+			yPos <= this.height &&
+			xPos <= this.width
+		)
+			return true;
 
 		return false;
 	}
@@ -161,10 +166,7 @@ class ZoneMap extends Collection {
 				}
 
 				// Creates a double array.
-				sectors.push([
-					coord,
-					sector,
-				]);
+				sectors.push([coord, sector]);
 			}
 			// Revamps correctly the `data.sectors`.
 			data.sectors = sectors;
@@ -185,7 +187,7 @@ class ZoneMap extends Collection {
 			creator: data.map_creator || data.creator,
 			width: data.map_width || data.width,
 			height: data.map_height || data.height,
-			sectors: data.sectors,
+			sectors: data.sectors
 		});
 	}
 

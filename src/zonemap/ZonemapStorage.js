@@ -48,5 +48,7 @@ const ZonemapStorage = {
 	},
 	sweep() {
 		localStorage.removeItem('zonemap');
-	},
+	}
 };
+
+export default ZonemapStorage;
