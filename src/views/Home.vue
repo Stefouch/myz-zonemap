@@ -16,7 +16,7 @@
 		<div class="map-buttons">
 			<a id="new-map" class="btn btn-lg btn-outline-light" @click="newMapDialog = true"><i class="fas fa-file"></i>Create a new Map</a>
 			<a id="open-map" class="btn btn-lg btn-outline-light" @click="openMapDialog = true"><i class="fas fa-folder-open"></i>Open an existing Map</a>
-			<a id="previous-map" class="btn btn-lg btn-outline-light" @click="previousMap()"><i class="fas fa-road"></i>Load last Map</a>
+			<a id="previous-map" class="btn btn-lg btn-outline-light" v-show="hasPreviousMap" @click="previousMap()"><i class="fas fa-road"></i>Load last Map</a>
 		</div>
 
 		<h5>Notifications</h5>
@@ -41,7 +41,7 @@
 			<v-layout column>
 				<h2>Create a new Map</h2>
 				<p>Choose the dimensions of the Zone and hit «&nbsp;Create&nbsp;». Beware that the width and the height of the map cannot be changed afterwards.</p>
-				<v-form v-model="isNewMapValid">
+				<v-form v-model="isNewMapValid" ref="newMapForm">
 					<v-text-field v-model="title" :rules="titleRules" label="Map title" required />
 					<v-layout row>
 						<v-flex class="pr-3">
@@ -101,16 +101,17 @@
 			<v-layout column>
 				<h2>Open an existing Map</h2>
 				<p>Choose a map file on your device and hit «&nbsp;Open&nbsp;».</p>
-				<v-form v-model="isOpenMapValid">
+				<v-form ref="openMapForm">
 					<v-layout column>
 						<!-- MAX_FILE_SIZE must precede the file input field -->
 						<input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
 						<!-- Name of input element determines name in $_FILES array -->
-						<file-input
+						<zm-file-input
 							v-model="filename"
-							@formData="formData($event.form)"
+							@change="zonemapInputChange($event)"
 							accept=".json, application/json"
 							label="Choose a Zonemap JSON file"
+							required
 						/>
 					</v-layout>
 					<v-btn :disabled="!isOpenMapValid" @click="openMap()">Open</v-btn>
@@ -128,13 +129,15 @@
 <script>
 // @ is an alias to /src
 import zmFooter from '@/components/Footer.vue';
-import fileInput from '@/components/FileInput.vue';
+import zmFileInput from '@/components/FileInput.vue';
 import ZoneMap from '@/zonemap/ZoneMap';
 import ZonemapStorage from '@/zonemap/ZonemapStorage';
 
 export default {
 	name: 'home',
 	data: () => ({
+		zonemap: null,
+
 		// New Map Dialog.
 		newMapDialog: false,
 		isNewMapValid: false,
@@ -146,45 +149,72 @@ export default {
 		mapWidth: 30,
 		mapHeight: 18,
 		mapGame: ['Mutant Year Zero v4.0'],
+
 		// Open Map Dialog.
 		openMapDialog: false,
 		isOpenMapValid: false,
-		filename: ''
+		filename: '',
+		zonemapFile: null,
+
+		// Previous Map button.
+		hasPreviousMap: false,
 	}),
+	beforeMount: function() {
+		const zm = ZonemapStorage.get();
+		if (zm) this.hasPreviousMap = true;
+	},
 	methods: {
 		createMap() {
-			this.newMapDialog = false;
-			this.$root.zonemap = new ZoneMap({
+			// this.newMapDialog = false;
+			this.zonemap = new ZoneMap({
 				title: this.title,
 				width: this.mapWidth,
 				height: this.mapHeight,
 				game: this.mapGame
 			});
-			this.gotoZonemap();
+			this.gotoZonescreen();
 		},
 		openMap() {
-			this.openMapDialog = false;
-			const form = this.formData;
-			console.log(form);
+			// this.openMapDialog = false;
+			if (!this.zonemapFile) return;
+
+			const loaded = ZonemapStorage.load(this.zonemapFile);
+
+			if (!loaded) return;
+
+			const zonemapJson = ZonemapStorage.get();
+			this.zonemap = ZoneMap.parse(zonemapJson);
+
+			if (this.zonemap) this.gotoZonescreen();
+		},
+		zonemapInputChange(e) {
+			const files = e.target.files;
+			if (files.length) {
+				this.zonemapFile = files[0];
+				this.isOpenMapValid = true;
+			}
+			else {
+				this.isOpenMapValid = false;
+			}
 		},
 		previousMap() {
-			const loaded = ZonemapStorage.load();
-			if (loaded) this.gotoZonemap();
+			const zonemapJson = ZonemapStorage.get();
+			this.zonemap = ZoneMap.parse(zonemapJson);
+			if (this.zonemap) this.gotoZonescreen();
 		},
-		gotoZonemap() {
-			this.$router.push({ name: 'zonemap' });
+		gotoZonescreen() {
+			this.$root.zonemap = this.zonemap;
+			this.$router.push({
+				name: 'zonescreen',
+				params: {
+					zonemap: this.zonemap
+				}
+			});
 		},
-		formData(e) {
-			console.log(this.filename);
-			console.log(e);
-		},
-		getImgUrl(img) {
-			return require(`../assets/${img}`);
-		}
 	},
 	components: {
 		zmFooter,
-		fileInput
+		zmFileInput
 	}
 };
 </script>
@@ -229,7 +259,6 @@ export default {
 	justify-content: center;
 	align-items: center;
 	margin: 2rem 0;
-	cursor: pointer;
 }
 
 @media (min-width: 1200px) { #main .map-buttons { flex-direction: row; } }
@@ -242,6 +271,7 @@ export default {
 	max-width: 320px;
 	margin: 0 1rem 1rem 1rem;
 	background-color: #19181f;
+	cursor: pointer;
 }
 
 #main .map-buttons a:hover {
