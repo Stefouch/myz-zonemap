@@ -26,7 +26,7 @@
 }
 @media (min-width: 576px) { .footer { text-align: left; } }
 
-.footer p {
+.footer p, .footer a {
 	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
 }
 
