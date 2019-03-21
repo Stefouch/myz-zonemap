@@ -12,13 +12,15 @@
  */
 const ZonemapStorage = {
 	filter: /application\/json/,
-	load(fileInput) {
+	loadInput(fileInput) {
 		// Exits early if no file.
 		if (!fileInput.files.length) return;
 
 		// There is only '1' file since they are not multiple type.
 		const file = fileInput.files[0];
-
+		this.load(file);
+	},
+	load(file) {
 		// Exits early and warns the user if not a valid file type.
 		if (!ZonemapStorage.filter.test(file.type)) {
 			alert('You must select a valid Zonemap JSON file!');
