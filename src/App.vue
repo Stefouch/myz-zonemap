@@ -6,4 +6,9 @@
 </div>
 </template>
 
-<style></style>
+<style>
+#app {
+	font-family: 'ArcherPro Book';
+	font-size: 16px;
+}
+</style>
