@@ -22,9 +22,10 @@ export default new Router({
 				import(/* webpackChunkName: "about" */ './views/About.vue')
 		},
 		{
-			path: '/zone',
-			name: 'zone',
-			component: () => import('./views/Zonemap.vue')
+			path: '/zonemap',
+			name: 'zonemap',
+			component: () => import('./views/Zonemap.vue'),
+			props: true
 		}
 	]
 });
