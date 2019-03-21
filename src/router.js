@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './views/Home.vue';
+// import Zonescreen from './views/Zonescreen.vue';
 
 Vue.use(Router);
 
@@ -23,8 +24,9 @@ export default new Router({
 		},
 		{
 			path: '/zonemap',
-			name: 'zonemap',
-			component: () => import('./views/Zonemap.vue'),
+			name: 'zonescreen',
+			// component: Zonescreen,
+			component: () => import('./views/Zonescreen.vue'),
 			props: true
 		}
 	]
