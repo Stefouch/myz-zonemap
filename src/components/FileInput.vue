@@ -77,7 +77,8 @@
           this.filename = $event.target.value.split('\\').pop()
         }
         this.$emit('input', this.filename)
-        this.$emit('formData', form)
+        // this.$emit('formData', form)
+        this.$emit('change', $event)
       }
     }
   }
