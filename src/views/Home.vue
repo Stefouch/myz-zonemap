@@ -37,14 +37,84 @@
 
 	<!-- NEW MAP PANEL ======================================================== -->
 	<v-dialog v-model="newMapDialog" width="600px">
-		<v-container class="modal-content">
+		<v-container class="modal-content px-5">
 			<v-layout column>
 				<h2>Create a new Map</h2>
 				<p>Choose the dimensions of the Zone and hit «&nbsp;Create&nbsp;». Beware that the width and the height of the map cannot be changed afterwards.</p>
 				<v-form v-model="isNewMapValid">
-					<v-text-field v-model="title" :rules="titleRules" label="Map title" required></v-text-field>
-					<v-flex row>
+					<v-text-field v-model="title" :rules="titleRules" label="Map title" required />
+					<v-layout row>
+						<v-flex class="pr-3">
+							<v-slider
+								v-model="mapWidth"
+								label="Width"
+								min="3"
+								max="30"
+								always-dirty
+							/>
+						</v-flex>
+						<v-flex shrink style="width: 60px;">
+							<v-text-field
+								v-model="mapWidth"
+								type="number"
+								min="3"
+								max="30"
+								hide-details
+								single-line
+								class="mt-0"
+							/>
+						</v-flex>
+					</v-layout>
+					<v-layout row>
+						<v-flex class="pr-3">
+							<v-slider
+								v-model="mapHeight"
+								label="Height"
+								min="3"
+								max="26"
+								always-dirty
+							/>
+						</v-flex>
+						<v-flex shrink style="width: 60px;">
+							<v-text-field
+								v-model="mapHeight"
+								type="number"
+								min="3"
+								max="26"
+								hide-details
+								single-line
+								class="mt-0"
+							/>
+						</v-flex>
+					</v-layout>
+					<v-select v-model="mapGame[0]" :items="mapGame" label="Game" disabled />
+					<v-btn :disabled="!isNewMapValid" @click="createMap()">Create</v-btn>
+					<v-btn @click="newMapDialog = false">Cancel</v-btn>
+				</v-form>
+			</v-layout>
+		</v-container>
+	</v-dialog>
 
+	<!-- NEW MAP PANEL ======================================================== -->
+	<v-dialog v-model="openMapDialog" width="600px">
+		<v-container class="modal-content px-5">
+			<v-layout column>
+				<h2>Open an existing Map</h2>
+				<p>Choose a map file on your device and hit «&nbsp;Open&nbsp;».</p>
+				<v-form v-model="isOpenMapValid">
+					<v-layout column>
+						<!-- MAX_FILE_SIZE must precede the file input field -->
+						<input type="hidden" name="MAX_FILE_SIZE" value="5000000" />
+						<!-- Name of input element determines name in $_FILES array -->
+						<file-input
+							v-model="filename"
+							@formData="formData($event.form)"
+							accept=".json, application/json"
+							label="Choose a Zonemap JSON file"
+						/>
+					</v-layout>
+					<v-btn :disabled="!isOpenMapValid" @click="openMap()">Open</v-btn>
+					<v-btn @click="openMapDialog = false">Cancel</v-btn>
 				</v-form>
 			</v-layout>
 		</v-container>
@@ -57,30 +127,64 @@
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue';
 import zmFooter from '@/components/Footer.vue';
+import fileInput from '@/components/FileInput.vue';
 import ZoneMap from '@/zonemap/ZoneMap';
 import ZonemapStorage from '@/zonemap/ZonemapStorage';
 
 export default {
 	name: 'home',
 	data: () => ({
-		newMapDialog: true,
+		// New Map Dialog.
+		newMapDialog: false,
 		isNewMapValid: false,
 		title: '',
 		titleRules: [
-			v => !!v || 'Title is required'
+			v => !!v || 'Title is required',
+			v => /[a-zA-Z]+/.test(v) || 'Title must contain at least 1 letter'
 		],
-		openMapDialog: false
+		mapWidth: 30,
+		mapHeight: 18,
+		mapGame: ['Mutant Year Zero v4.0'],
+		// Open Map Dialog.
+		openMapDialog: false,
+		isOpenMapValid: false,
+		filename: ''
 	}),
 	methods: {
+		createMap() {
+			this.newMapDialog = false;
+			this.$root.zonemap = new ZoneMap({
+				title: this.title,
+				width: this.mapWidth,
+				height: this.mapHeight,
+				game: this.mapGame
+			});
+			this.gotoZonemap();
+		},
+		openMap() {
+			this.openMapDialog = false;
+			const form = this.formData;
+			console.log(form);
+		},
 		previousMap() {
 			const loaded = ZonemapStorage.load();
-			if (loaded) this.$router.push({ name: 'zone' })
+			if (loaded) this.gotoZonemap();
+		},
+		gotoZonemap() {
+			this.$router.push({ name: 'zonemap' });
+		},
+		formData(e) {
+			console.log(this.filename);
+			console.log(e);
+		},
+		getImgUrl(img) {
+			return require(`../assets/${img}`);
 		}
 	},
 	components: {
-		zmFooter
+		zmFooter,
+		fileInput
 	}
 };
 </script>
@@ -88,15 +192,15 @@ export default {
 <style scoped>
 #main {
 	font-family: 'Futura Std Medium';
-	font-size: 1rem;
-	color: #fff;
+	font-size: 16px;
 	min-height: 70vh;
 	padding-top: 6rem;
 	padding-bottom: 10rem;
 }
 
 #main h1 {
-	font-size: calc(3.5rem + 2vw);
+	font-family: 'Big Noodle Titling';
+	font-size: calc(3.5em + 2vw);
 	color: #fff;
 }
 
@@ -104,12 +208,15 @@ export default {
 
 #main h2, #main h3, #main h4, #main h5 {
 	font-family: 'Futura Std Heavy';
+	color: #fff;
 	text-transform: uppercase;
 	margin: 1rem 0;
 }
 
 #main p {
 	font-family: 'Futura Std Medium';
+	font-size: 1em;
+	color: #fff;
 }
 
 #main b {
@@ -121,15 +228,15 @@ export default {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	margin: 2rem;
+	margin: 2rem 0;
 	cursor: pointer;
 }
 
-@media (min-width: 992px) { #main .map-buttons { flex-direction: row; } }
+@media (min-width: 1200px) { #main .map-buttons { flex-direction: row; } }
 
 #main .map-buttons a {
 	font-family: 'Big Noodle Titling';
-	font-size: 1.5rem;
+	font-size: 1.5em;
 	text-align: left;
 	width: 320px;
 	max-width: 320px;
