@@ -35,7 +35,7 @@
 
 	</div>
 
-	<!-- NEW MAP PANEL ======================================================== -->
+	<!-- NEW-MAP DIALOG =================================================== -->
 	<v-dialog v-model="newMapDialog" width="600px">
 		<v-container class="modal-content px-5">
 			<v-layout column>
@@ -95,7 +95,7 @@
 		</v-container>
 	</v-dialog>
 
-	<!-- NEW MAP PANEL ======================================================== -->
+	<!-- NEW-MAP DIALOG =================================================== -->
 	<v-dialog v-model="openMapDialog" width="600px">
 		<v-container class="modal-content px-5">
 			<v-layout column>
@@ -114,9 +114,20 @@
 							required
 						/>
 					</v-layout>
-					<v-btn :disabled="!isOpenMapValid" @click="openMap()">Open</v-btn>
+					<v-btn :disabled="!zonemapFile" @click="openMap()">Open</v-btn>
 					<v-btn @click="openMapDialog = false">Cancel</v-btn>
 				</v-form>
+			</v-layout>
+		</v-container>
+	</v-dialog>
+
+	<!-- LOADING DIALOG ================================================== --
+	<v-dialog v-model="loadingDialog" persistent dark>
+		<v-container class="modal-content px-5">
+			<v-layout column>
+				<h2>Loading ...</h2>
+				<p>Please wait while the application is processing <b>The Zone</b>.</p>
+				<v-progress-linear indeterminate />
 			</v-layout>
 		</v-container>
 	</v-dialog>
@@ -137,8 +148,9 @@ export default {
 	name: 'home',
 	data: () => ({
 		zonemap: null,
+		loadingDialog: false,
 
-		// New Map Dialog.
+		// NEW-MAP DIALOG
 		newMapDialog: false,
 		isNewMapValid: false,
 		title: '',
@@ -150,13 +162,13 @@ export default {
 		mapHeight: 18,
 		mapGame: ['Mutant Year Zero v4.0'],
 
-		// Open Map Dialog.
+		// OPEN-MAP DIALOG
 		openMapDialog: false,
-		isOpenMapValid: false,
+		// isOpenMapValid: false,
 		filename: '',
 		zonemapFile: null,
 
-		// Previous Map button.
+		// PREV-MAP BUTTON
 		hasPreviousMap: false,
 	}),
 	beforeMount: function() {
@@ -165,7 +177,8 @@ export default {
 	},
 	methods: {
 		createMap() {
-			// this.newMapDialog = false;
+			this.newMapDialog = false;
+			this.loadingDialog = true;
 			this.zonemap = new ZoneMap({
 				title: this.title,
 				width: this.mapWidth,
@@ -175,7 +188,9 @@ export default {
 			this.gotoZonescreen();
 		},
 		openMap() {
-			// this.openMapDialog = false;
+			this.openMapDialog = false;
+			this.loadingDialog = true;
+
 			if (!this.zonemapFile) return;
 
 			const loaded = ZonemapStorage.load(this.zonemapFile);
@@ -191,13 +206,15 @@ export default {
 			const files = e.target.files;
 			if (files.length) {
 				this.zonemapFile = files[0];
-				this.isOpenMapValid = true;
+				// this.isOpenMapValid = true;
 			}
 			else {
-				this.isOpenMapValid = false;
+				// this.isOpenMapValid = false;
+				this.zonemapFile = null;
 			}
 		},
 		previousMap() {
+			this.loadingDialog = true;
 			const zonemapJson = ZonemapStorage.get();
 			this.zonemap = ZoneMap.parse(zonemapJson);
 			if (this.zonemap) this.gotoZonescreen();
