@@ -1,12 +1,12 @@
 <template>
-	<div>
+	<div v-if="zonemap">
 		<v-toolbar id="navbar-myz" dense dark>
 			<v-toolbar-side-icon></v-toolbar-side-icon>
-			<v-toolbar-title class="mr-4">Find My Path: {{ zonemap.title }}</v-toolbar-title>
+			<v-toolbar-title class="mr-5">Find My Path{{ mapTitle }}</v-toolbar-title>
 			<v-btn icon>
 				<v-icon>save</v-icon>
 			</v-btn>
-			<v-btn icon>
+			<v-btn icon @click="$router.push('help')">
 				<v-icon>help_outline</v-icon>
 			</v-btn>
 			<v-spacer></v-spacer>
@@ -14,19 +14,34 @@
 				<v-icon>close</v-icon>
 			</v-btn>
 		</v-toolbar>
-		<div id="zonescreen">
-
-		</div>
+		<v-layout column id="zonescreen">
+			<v-layout row class="zonerow" v-for="y in zonemap.height" :key="y">
+				<zm-sector
+					v-for="x in zonemap.width"
+					:key="coord(x, y)"
+					:id="coord(x, y)"
+					:sector="zonemap.get(coord(x, y))"
+				/>
+			</v-layout>
+		</v-layout>
 	</div>
 </template>
 
 <script>
+import zmSector from '@/components/Sector.vue';
 import ZoneMap from '@/zonemap/ZoneMap';
+import Util from '@/util/Util';
 
 export default {
 	name: 'zonescreen',
 	props: ['zonemap'],
+	data: () => ({
+		alphabet: ['0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+	}),
 	computed: {
+		mapTitle: function() {
+			return ': ' + this.zonemap.title.slice(0, 20);
+		},
 		sectors: function() {
 			return this.zonemap.array();
 		}
@@ -36,9 +51,15 @@ export default {
 		console.log(this.zonemap);
 	},
 	methods: {
+		coord(x, y) {
+			return this.alphabet[y] + Util.zeroise(x, 2);
+		},
 		closeZonescreen() {
 			this.$router.push({ name: 'home' });
 		}
+	},
+	components: {
+		zmSector
 	}
 }
 </script>
@@ -59,13 +80,8 @@ export default {
 	user-select: none;
 }
 
-.sector {
-	z-index: 1;
-	min-width: 64px;
-	width: 64px;
-	height: 64px;
-	margin: 0;
-	padding: 1px;
-	border: 1px solid #D3D3D3;
+.zonerow {
+	min-height: 56px;
+	max-height: 56px;
 }
 </style>
