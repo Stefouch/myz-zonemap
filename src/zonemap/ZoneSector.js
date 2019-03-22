@@ -151,35 +151,48 @@ class ZoneSector {
 	 * @type {boolean}
 	 * @readonly
 	 */
-	get hasThreat() { return this.threats.length > 0; }
+	get hasThreat() {
+		if (this.threats.length > 0) {
+			if (this.threats[0].length > 0) return true;
+		}
+		return false;
+	}
 
 	/**
 	 * Tells if there is an artifact to find in the sector.
 	 * @type {boolean}
 	 * @readonly
 	 */
-	get hasArtifact() { return this.finds.artifacts > 0; }
+	get hasArtifact() {
+		return this.finds.artifacts > 0;
+	}
 
 	/**
 	 * Tells if the sector hides some normal ruins.
 	 * @type {boolean}
 	 * @readonly
 	 */
-	get hasNormalRuin() { return /ruins/i.test(this.environment); }
+	get hasNormalRuin() {
+		return /ruins/i.test(this.environment);
+	}
 
 	/**
 	 * Tells if the sector hides some industrial ruins.
 	 * @type {boolean}
 	 * @readonly
 	 */
-	get hasIndustrialRuin() { return /industr(y|ies)/i.test(this.environment); }
+	get hasIndustrialRuin() {
+		return /industr(y|ies)/i.test(this.environment);
+	}
 
 	/**
 	 * Tells if the sector holds some ruins.
 	 * @type {boolean}
 	 * @readonly
 	 */
-	get hasRuin() { return (this.hasNormalRuin || this.hasIndustrialRuin); }
+	get hasRuin() {
+		return this.hasNormalRuin || this.hasIndustrialRuin;
+	}
 
 	/**
 	 * Tells if the sector has nothing more to scramble.
@@ -276,7 +289,8 @@ class ZoneSector {
 	 * @static
 	 */
 	static rollProperty(property, lang = LANG) {
-		if (!RandomTables[lang].hasOwnProperty(property)) throw new TypeError(`"${property}" property not found!`);
+		if (!RandomTables[lang].hasOwnProperty(property))
+			throw new TypeError(`"${property}" property not found!`);
 
 		const table = RandomTables[lang][property];
 		const roll = RollParser.parseAndRoll(table.roll);
