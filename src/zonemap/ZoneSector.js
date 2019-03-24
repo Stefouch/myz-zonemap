@@ -81,17 +81,6 @@ class ZoneSector {
 		if (!this.finds.hasOwnProperty('water')) this.finds.water = rand(1, 6);
 		if (!this.finds.hasOwnProperty('artifacts')) this.finds.artifacts = 0;
 
-		// ROLL→THREATLVL→THREATS→ARTOS =======================================
-		if (
-			typeof this.threatLvl === 'undefined' ||
-			isNaN(this.threatLvl) ||
-			typeof this.threats === 'undefined'
-		) {
-			this.threatLvl = rand(1, 13);
-			this.threats = [];
-			this.rollThreatLvl();
-		}
-
 		// SECTOR TYPE ========================================================
 		/**
 		 * Sector's type.
@@ -109,7 +98,7 @@ class ZoneSector {
 		 * @type {string}
 		 */
 		this.environment = data.environment;
-		if (typeof environment === 'undefined') this.rollEnvironment();
+		if (typeof this.environment === 'undefined') this.rollEnvironment();
 
 		// RUINS ==============================================================
 		/**
@@ -143,6 +132,17 @@ class ZoneSector {
 		 * @type {string}
 		 */
 		this.notes = data.notes || null;
+
+		// ROLL→THREATLVL→THREATS→ARTOS =======================================
+		if (
+			typeof this.threatLvl === 'undefined' ||
+			isNaN(this.threatLvl) ||
+			typeof this.threats === 'undefined'
+		) {
+			this.threatLvl = rand(1, 13);
+			this.threats = [];
+			this.rollThreatLvl();
+		}
 	}
 
 	// BOOLEANS ===============================================================
@@ -200,7 +200,7 @@ class ZoneSector {
 	 * @readonly
 	 */
 	get isEmpty() {
-		if (this.threats.length > 1) return false;
+		if (this.hasThreat) return false;
 		for (const item in this.finds) if (this.finds[item] > 0) return false;
 		return true;
 	}
