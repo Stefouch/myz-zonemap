@@ -2,7 +2,7 @@
 <div class="sector-tooltip">
 	<!-- TITLE -->
 	<h3>
-		<v-icon small>{{ typeIcons[sector.type] }}</v-icon>&nbsp;{{ sector.name }} ({{ id }})
+		<v-icon small>{{ $root.typeIcons[sector.type] }}</v-icon>&nbsp;{{ sector.name }} ({{ id }})
 	</h3>
 
 	<!-- TYPE & ENV -->
@@ -28,7 +28,7 @@
 			v-for="find in activeFinds"
 			:key="find[0]"
 		>{{ find[1] }}
-			<v-icon small>{{ findIcons[find[0]] }}</v-icon>
+			<v-icon small>{{ $root.findIcons[find[0]] }}</v-icon>
 		</div>
 	</v-layout>
 </div>
@@ -46,19 +46,6 @@ export default {
 			default: null
 		}
 	},
-	data: () => ({
-		typeIcons: {
-			zone: 'mdi-image-filter-hdr',
-			ark: 'mdi-home',
-			special: 'mdi-alert-decagram'
-		},
-		findIcons: {
-			bullets: 'mdi-ammunition',
-			grub: 'mdi-pizza',
-			water: 'mdi-water',
-			artifacts: 'mdi-star'
-		}
-	}),
 	computed: {
 		activeFinds: function() {
 			return Object.entries(this.sector.finds).filter(arr => arr[1] > 0);
