@@ -7,5 +7,5 @@
 module.exports = {
 	zone: 'zone',
 	ark: 'ark',
-	special: 'special',
+	special: 'special'
 };
