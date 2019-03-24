@@ -20,6 +20,7 @@
 					v-for="x in zonemap.width"
 					:key="coord(x, y)"
 					:id="coord(x, y)"
+					:gmeye="gmeye"
 					:sector="zonemap.get(coord(x, y))"
 				/>
 			</v-layout>
@@ -36,7 +37,8 @@ export default {
 	name: 'zonescreen',
 	props: ['zonemap'],
 	data: () => ({
-		alphabet: ['0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+		alphabet: ['0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+		gmeye: true
 	}),
 	computed: {
 		mapTitle: function() {
@@ -81,7 +83,7 @@ export default {
 }
 
 .zonerow {
-	min-height: 56px;
-	max-height: 56px;
+	min-height: 64px;
+	max-height: 64px;
 }
 </style>
