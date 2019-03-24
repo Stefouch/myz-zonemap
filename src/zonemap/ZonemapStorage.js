@@ -12,35 +12,43 @@
  */
 const ZonemapStorage = {
 	filter: /application\/json/,
-	loadInput(fileInput) {
-		// Exits early if no file.
-		if (!fileInput.files.length) return;
+	readFileAsync(file) {
+		return new Promise((resolve, reject) => {
+			// Exits early and warns the user if not a valid file type.
+			if (!ZonemapStorage.filter.test(file.type)) {
+				alert('You must select a valid Zonemap JSON file!');
+				reject('[ERROR] - [ZonemapStorage] - Not a valid JSON file!');
+			}
 
-		// There is only '1' file since they are not multiple type.
-		const file = fileInput.files[0];
-		this.load(file);
+			// Warns if the file size > 5MB (could be too heavy for localStorage).
+			if (file.size > 5000000) {
+				alert('Warning: your Zonemap file is heavy!');
+				// reject('[ERROR] - [ZonemapStorage] - File too heavy!');
+			}
+
+			const reader = new FileReader();
+
+			reader.onload = () => {
+				resolve(reader.result);
+			};
+
+			reader.onerror = () => {
+				reject('[ERROR] - [ZonemapStorage] - Unable to load the file!');
+			};
+
+			reader.readAsText(file);
+		});
 	},
-	load(file) {
-		// Exits early and warns the user if not a valid file type.
-		if (!ZonemapStorage.filter.test(file.type)) {
-			alert('You must select a valid Zonemap JSON file!');
-			return;
+	async load(file) {
+		try {
+			const content = await ZonemapStorage.readFileAsync(file);
+			ZonemapStorage.set(content);
+			return content;
 		}
-
-		// Warns if the file size > 5MB (could be too heavy for localStorage).
-		if (file.size > 5000000) {
-			alert('Warning: your Zonemap file is heavy!');
+		catch(error) {
+			console.error(error);
+			return null;
 		}
-
-		const reader = new FileReader();
-		reader.onload = function(e) {
-			ZonemapStorage.set(e.target.result);
-		};
-
-		// Attempts to read the file in question.
-		reader.readAsText(file);
-
-		return true;
 	},
 	set(zonemapJson) {
 		localStorage.setItem('zonemap', zonemapJson);
