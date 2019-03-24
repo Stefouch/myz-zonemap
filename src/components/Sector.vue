@@ -5,6 +5,7 @@
 	:id="id"
 	:gmeye="gmeye"
 	:sector="sector"
+	:selected="selected"
 >
 	<v-tooltip
 		v-if="sector"
@@ -19,7 +20,7 @@
 			slot="activator"
 		>
 			<div class="sector-marker">
-				<v-icon x-large>{{ sectorMarker }}</v-icon>
+				<v-icon large>{{ sectorMarker }}</v-icon>
 			</div>
 			<div class="sector-icons">
 				<v-icon small v-if="sector.hasThreat" class="sector-icon-threat">mdi-skull</v-icon>
@@ -32,6 +33,7 @@
 			:sector="sector"
 		/>
 	</v-tooltip>
+	<span v-else class="sector-null">{{ id }}</span>
 </div>
 </template>
 
@@ -47,14 +49,18 @@ export default {
 			type: String,
 			default: '#YX'
 		},
+		sector: {
+			type: ZoneSector,
+			default: null
+			// default: () => new ZoneSector()
+		},
 		gmeye: {
 			type: Boolean,
 			default: true
 		},
-		sector: {
-			type: Object,
-			default: null
-			// default: () => new ZoneSector()
+		selected: {
+			type: Boolean,
+			default: false
 		}
 	},
 	computed: {
@@ -64,6 +70,7 @@ export default {
 		},
 		sectorThemeClasses: function() {
 			return {
+				'sector-selected': this.selected,
 				'sector-rotoasis': this.sector.rotLvl === 0,
 				'sector-rotstrong': this.sector.rotLvl === 2,
 				'sector-rothotspot': this.sector.rotLvl >= 3,
@@ -78,7 +85,6 @@ export default {
 		},
 		sectorMarker: function() {
 			if (this.sector.icon) return this.sector.icon;
-			if (this.sector.type === SectorTypes.zone) return 'mdi-image-filter-hdr';
 			if (this.sector.type === SectorTypes.ark) return 'mdi-home';
 			if (this.sector.type === SectorTypes.special) return 'mdi-alert-decagram';
 			return '';
@@ -92,6 +98,7 @@ export default {
 
 <style>
 .sector {
+	position: relative;
 	z-index: 1;
 	min-width: 64px!important;
 	max-width: 64px!important;
@@ -101,7 +108,7 @@ export default {
 	padding: 1px!important;
 	border: 1px solid #D3D3D3;
 	font-family: 'Futura Std Medium';
-	font-size: .8rem;
+	font-size: .825rem;
 }
 
 .sector:hover {
@@ -110,7 +117,7 @@ export default {
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	background-color: rgba(0,118,190,.25);
+	background-color: rgba(0, 118, 190, .25);
 }
 
 .sector-inner {
@@ -119,6 +126,12 @@ export default {
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
+}
+
+.sector-selected {
+	padding: 0!important;
+	border: 2px solid #00A800 !important;
+	background-color: rgba(0, 168, 0, .10);
 }
 
 .sector-rotoasis {
@@ -167,7 +180,7 @@ export default {
 	margin-top: 4px;
 	margin-left: 1px;
 	margin-right: 1px;
-	font-family: 'Futura Std Heavy';
+	/* font-family: 'Futura Std Heavy'; */
 }
 
 .sector-name-empty {
@@ -177,16 +190,22 @@ export default {
 .sector-marker {
 	position: absolute;
 	z-index: -999;
-	width: auto;
-	height: auto;
+	width: 60px;
+	height: 60px;
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	border: 1px solid red;
+	align-items: flex-end;
 }
 
 .sector-marker > .v-icon {
+	margin-bottom: 4px;
+	color: #D3D3D3;
+}
+
+.sector-null {
+	font-size: .7rem;
 	color: #C8C8C8;
+	margin: 2px;
 }
 
 .sector-tooltip-content {
