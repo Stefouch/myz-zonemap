@@ -21,11 +21,11 @@
 
 		<h5>Notifications</h5>
 
-		<div class="alert alert-success mb-1"><i class="fas fa-check-square"></i> Fully tested web browsers include: Google Chrome, Mozilla Firefox, and Safari (both on desktops and smartphones).</div>
+		<div class="alert alert-success mb-1"><span class="mdi mdi-checkbox-marked"></span> Fully tested web browsers include: Google Chrome, Mozilla Firefox, and Safari (both on desktops and smartphones).</div>
 
-		<div class="alert alert-warning mb-1"><i class="fas fa-exclamation-triangle"></i> Development in progress! Fonctionalities are subject to evolve. Bugs are not impossible. If you're experiencing some weird behavior, please report it there: <a href="http://git" target="_blank">bug report</a>.</div>
+		<div class="alert alert-warning mb-1"><span class="mdi mdi-alert"></span> Development in progress! Fonctionalities are subject to evolve. Bugs are not impossible. If you're experiencing some weird behavior, please report it there: <a href="http://git" target="_blank">bug report</a>.</div>
 
-		<div class="alert alert-danger mb-1"><i class="fas fa-times-circle"></i> Not compatible with Internet Explorer.</div>
+		<div class="alert alert-danger mb-1"><span class="mdi mdi-close-circle"></span> Not compatible with Internet Explorer.</div>
 
 		<h5>Build</h5>
 		<p class="ml-4"><b>{{ this.$root.version }}</b></p>
@@ -88,7 +88,7 @@
 						</v-flex>
 					</v-layout>
 					<v-select v-model="mapGame[0]" :items="mapGame" label="Game" disabled />
-					<v-btn :disabled="!isNewMapValid" @click="createMap()">Create</v-btn>
+					<v-btn :disabled="!isNewMapValid" :loading="loadingDialog" @click="createMap()">Create</v-btn>
 					<v-btn @click="newMapDialog = false">Cancel</v-btn>
 				</v-form>
 			</v-layout>
@@ -114,7 +114,7 @@
 							required
 						/>
 					</v-layout>
-					<v-btn :disabled="!zonemapFile" @click="openMap()">Open</v-btn>
+					<v-btn :disabled="!zonemapFile" :loading="loadingDialog" @click="openMap()">Open</v-btn>
 					<v-btn @click="openMapDialog = false">Cancel</v-btn>
 				</v-form>
 			</v-layout>
@@ -133,7 +133,7 @@
 	</v-dialog>
 
 	<!-- FOOTER =========================================================== -->
-	<zm-footer/>
+	<zm-footer></zm-footer>
 </div>
 </template>
 
