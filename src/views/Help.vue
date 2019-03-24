@@ -157,7 +157,7 @@
 		fab
 		@click="drawer = !drawer"
 	>
-		<v-icon>menu</v-icon>
+		<v-icon>mdi-menu</v-icon>
 	</v-btn>
 </v-container>
 </template>

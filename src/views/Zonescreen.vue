@@ -4,14 +4,14 @@
 			<v-toolbar-side-icon></v-toolbar-side-icon>
 			<v-toolbar-title class="mr-5">Find My Path{{ mapTitle }}</v-toolbar-title>
 			<v-btn icon>
-				<v-icon>save</v-icon>
+				<v-icon>mdi-content-save</v-icon>
 			</v-btn>
 			<v-btn icon @click="$router.push('help')">
-				<v-icon>help_outline</v-icon>
+				<v-icon>mdi-help-circle-outline</v-icon>
 			</v-btn>
 			<v-spacer></v-spacer>
 			<v-btn icon @click="closeZonescreen()">
-				<v-icon>close</v-icon>
+				<v-icon>mdi-close</v-icon>
 			</v-btn>
 		</v-toolbar>
 		<v-layout column id="zonescreen">

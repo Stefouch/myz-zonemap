@@ -14,9 +14,9 @@
 		<p><b>Mutant: Find My Path</b> is a web application for managing the Map of the Zone for the <i>Mutant:&nbsp;Year&nbsp;Zero</i> tabletop roleplaying game.</p>
 
 		<div class="map-buttons">
-			<a id="new-map" class="btn btn-lg btn-outline-light" @click="newMapDialog = true"><i class="fas fa-file"></i>Create a new Map</a>
-			<a id="open-map" class="btn btn-lg btn-outline-light" @click="openMapDialog = true"><i class="fas fa-folder-open"></i>Open an existing Map</a>
-			<a id="previous-map" class="btn btn-lg btn-outline-light" v-show="hasPreviousMap" @click="previousMap()"><i class="fas fa-road"></i>Load last Map</a>
+			<a id="new-map" class="btn btn-lg btn-outline-light" @click="newMapDialog = true"><span class="mdi mdi-file"></span>Create a new Map</a>
+			<a id="open-map" class="btn btn-lg btn-outline-light" @click="openMapDialog = true"><span class="mdi mdi-folder-open"></span>Open an existing Map</a>
+			<a id="previous-map" class="btn btn-lg btn-outline-light" v-show="hasPreviousMap" @click="previousMap()"><span class="mdi mdi-road-variant"></span>Load last Map</a>
 		</div>
 
 		<h5>Notifications</h5>
@@ -95,7 +95,7 @@
 		</v-container>
 	</v-dialog>
 
-	<!-- NEW-MAP DIALOG =================================================== -->
+	<!-- OPEN-MAP DIALOG ================================================== -->
 	<v-dialog v-model="openMapDialog" width="600px">
 		<v-container class="modal-content px-5">
 			<v-layout column>
@@ -187,13 +187,13 @@ export default {
 			});
 			this.gotoZonescreen();
 		},
-		openMap() {
+		async openMap() {
 			this.openMapDialog = false;
 			this.loadingDialog = true;
 
 			if (!this.zonemapFile) return;
 
-			const loaded = ZonemapStorage.load(this.zonemapFile);
+			const loaded = await ZonemapStorage.load(this.zonemapFile);
 
 			if (!loaded) return;
 
@@ -220,7 +220,7 @@ export default {
 			if (this.zonemap) this.gotoZonescreen();
 		},
 		gotoZonescreen() {
-			this.$root.zonemap = this.zonemap;
+			// this.$root.zonemap = this.zonemap;
 			this.$router.push({
 				name: 'zonescreen',
 				params: {
@@ -295,7 +295,7 @@ export default {
 	background-color: #fff;
 }
 
-#main .map-buttons a i {
+#main .map-buttons a span {
 	min-width: 32px;
 	margin: 0 12px;
 }
