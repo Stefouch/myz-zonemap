@@ -14,7 +14,7 @@
 	<div v-if="sector.hasThreat">
 		<v-divider/>
 		<v-layout row>
-			<v-icon small>mdi-alert</v-icon>&nbsp;
+			<v-icon small>mdi-space-invaders</v-icon>&nbsp;
 			<v-layout column>
 				<span v-for="threat in sector.threats" :key="threat"><b>{{ threat }}</b></span>
 			</v-layout>
@@ -56,7 +56,7 @@ export default {
 			bullets: 'mdi-ammunition',
 			grub: 'mdi-pizza',
 			water: 'mdi-water',
-			artifacts: 'mdi-memory'
+			artifacts: 'mdi-star'
 		}
 	}),
 	computed: {
@@ -85,6 +85,7 @@ export default {
 
 .sector-tooltip-finds {
 	font-family: 'Futura Std Medium';
+	font-size: .7rem;
 }
 
 .sector-tooltip-finds div:not(:last-child) {
