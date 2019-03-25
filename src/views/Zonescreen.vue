@@ -36,6 +36,7 @@
 	<!-- EDIT-SECTOR DIALOG =============================================== -->
 	<v-dialog
 		v-model="editDialog"
+		v-if="selectedSector"
 		fullscreen
 		hide-overlay
 		transition="dialog-bottom-transition"
@@ -45,7 +46,7 @@
 				<v-btn icon dark @click="editDialog = false">
 					<v-icon>mdi-close</v-icon>
 				</v-btn>
-				<v-toolbar-title>Edit Sector: <b>{{ selectedSector.name }}</b></v-toolbar-title>
+				<v-toolbar-title>Sector: <b>{{ selectedSector.name }}</b></v-toolbar-title>
 				<v-spacer></v-spacer>
 				<v-toolbar-items>
 					<v-btn dark flat>
@@ -59,7 +60,7 @@
 					</v-btn>
 				</v-toolbar-items>
 			</v-toolbar>
-			<zm-edit-sector :sector="selectedSector"></zm-edit-sector>
+			<zm-edit-sector :editedSector="selectedSector"></zm-edit-sector>
 		</v-card>
 	</v-dialog>
 </div>
@@ -115,7 +116,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+html {
+	overflow-y: auto!important;
+}
+
 #navbar-myz {
 	font-family: 'Big Noodle Titling';
 	background-image: url('../assets/darkback.jpg');
@@ -140,7 +145,7 @@ export default {
 	background-image: url('../assets/background.jpg');
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-attachment: fixed;
+	/* background-attachment: fixed; */
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
