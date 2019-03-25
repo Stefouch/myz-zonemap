@@ -10,7 +10,7 @@
 			<v-icon>mdi-help-circle-outline</v-icon>
 		</v-btn>
 		<v-btn icon @click="editDialog = true">
-			<v-icon>mdi-square-edit-outline</v-icon>
+			<v-icon>mdi-square-edit-outline</v-icon> {{ selectedCoord }}
 		</v-btn>
 		<v-spacer></v-spacer>
 		<v-btn icon @click="closeZonescreen()">
@@ -41,27 +41,13 @@
 		hide-overlay
 		transition="dialog-bottom-transition"
 	>
-		<v-card class="bg-edit-dialog">
-			<v-toolbar class="edit-dialog-toolbar" dark dense>
-				<v-btn icon dark @click="editDialog = false">
-					<v-icon>mdi-close</v-icon>
-				</v-btn>
-				<v-toolbar-title>Sector: <b>{{ selectedSector.name }}</b></v-toolbar-title>
-				<v-spacer></v-spacer>
-				<v-toolbar-items>
-					<v-btn dark flat>
-						<v-icon>mdi-content-save</v-icon>&nbsp;Save
-					</v-btn>
-					<v-btn dark flat>
-						<v-icon>mdi-dice-6</v-icon>&nbsp;Roll
-					</v-btn>
-					<v-btn dark flat>
-						<v-icon>mdi-delete</v-icon>&nbsp;Delete
-					</v-btn>
-				</v-toolbar-items>
-			</v-toolbar>
-			<zm-edit-sector :editedSector="selectedSector"></zm-edit-sector>
-		</v-card>
+		<zm-edit-sector
+			:editedSector="selectedSector"
+			:coordinates="selectedCoord"
+			:lang="zonemap.lang"
+			@close="editDialog = false"
+			@change="changeSector($event)"
+		></zm-edit-sector>
 	</v-dialog>
 </div>
 </template>
@@ -84,7 +70,7 @@ export default {
 		alphabet: ['0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
 		gmeye: true,
 		selectedCoord: 'B12',
-		editDialog: true
+		editDialog: false
 	}),
 	computed: {
 		mapTitle: function() {
@@ -107,6 +93,11 @@ export default {
 		},
 		closeZonescreen() {
 			this.$router.push({ name: 'home' });
+		},
+		changeSector(data) {
+			if (!data) this.zonemap.delete(this.selectedCoord);
+			else this.zonemap.set(this.selectedCoord, data);
+			console.log(this.zonemap);
 		}
 	},
 	components: {
@@ -139,20 +130,5 @@ html {
 .zonerow {
 	min-height: 64px;
 	max-height: 64px;
-}
-
-.bg-edit-dialog {
-	background-image: url('../assets/background.jpg');
-	background-repeat: no-repeat;
-	background-position: center center;
-	/* background-attachment: fixed; */
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;
-}
-
-.edit-dialog-toolbar {
-	font-family: 'Futura Std Medium';
 }
 </style>
