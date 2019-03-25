@@ -5,6 +5,7 @@
 		v-model="sector.name"
 		prepend-icon="mdi-flag-variant"
 		label="Sector's Name"
+		box
 	/>
 	<v-switch
 		v-model="sector.explored"
@@ -34,6 +35,7 @@
 			label="Type"
 			:rules="[v => !!v || 'Type is required']"
 			:prepend-icon="$root.typeIcons[sector.type] || 'mdi-tag'"
+			box
 		/>
 		<v-combobox
 			v-model="sector.environment"
@@ -41,6 +43,7 @@
 			label="Environment"
 			prepend-icon="mdi-flower-tulip"
 			clearable
+			box
 		/>
 		<v-combobox
 			v-model="sector.ruins"
@@ -48,6 +51,15 @@
 			label="Ruins"
 			prepend-icon="mdi-city"
 			clearable
+			box
+		/>
+		<v-textarea
+			v-model="sector.description"
+			label="Description"
+			prepend-icon="mdi-file-document"
+			auto-grow
+			rows="1"
+			disabled
 		/>
 		<v-autocomplete
 			v-model="sector.mood"
@@ -57,7 +69,23 @@
 			hint="Mood types are: People, Nature, Weather, Remains, Events, Terrain."
 			persistent-hint
 			clearable
+			box
 		/>
+		<v-textarea
+			v-model="sector.notes"
+			label="Extra Notes"
+			prepend-icon="mdi-notebook"
+			auto-grow
+			box
+			rows="1"
+		/>
+	</v-layout>
+
+	<!-- THREAT LEVEL ===================================================== -->
+	<h2>Threat Level</h2>
+	<v-layout column>
+		Threat Level
+		Threats
 	</v-layout>
 
 	<!-- FINDS ============================================================ -->
@@ -73,6 +101,7 @@
 					:prepend-icon="$root.findIcons[find]"
 					min="0"
 					hide-details
+					box
 					style="width: 100px;"
 				/>
 				<v-btn icon @click="sector.finds[find] = rand(1, 6)">
