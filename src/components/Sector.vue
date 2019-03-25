@@ -1,7 +1,7 @@
 <template>
 <div
 	class="sector"
-	:class="{ 'sector-fog': sectorFog }"
+	:class="{ 'sector-fog': hasFog }"
 	:id="id"
 	:gmeye="gmeye"
 	:sector="sector"
@@ -64,14 +64,14 @@ export default {
 		}
 	},
 	computed: {
-		sectorFog: function() {
+		hasFog: function() {
 			if (!this.sector) return true;
 			return !this.sector.explored;
 		},
 		sectorThemeClasses: function() {
 			return {
 				'sector-selected': this.selected,
-				'sector-rotoasis': this.sector.rotLvl === 0,
+				'sector-rotoasis': this.sector.rotLvl <= 0,
 				'sector-rotstrong': this.sector.rotLvl === 2,
 				'sector-rothotspot': this.sector.rotLvl >= 3,
 				'sector-special': this.sector.type === SectorTypes.special,
@@ -108,7 +108,7 @@ export default {
 	padding: 1px!important;
 	border: 1px solid #D3D3D3;
 	font-family: 'Futura Std Medium';
-	font-size: .825rem;
+	font-size: .8rem;
 }
 
 .sector:hover {
@@ -178,9 +178,10 @@ export default {
 .sector-name {
 	text-align: center;
 	margin-top: 4px;
-	margin-left: 1px;
-	margin-right: 1px;
+	margin-left: 2px;
+	margin-right: 2px;
 	/* font-family: 'Futura Std Heavy'; */
+	line-height: 1.10;
 }
 
 .sector-name-empty {
@@ -203,7 +204,7 @@ export default {
 }
 
 .sector-null {
-	font-size: .7rem;
+	font-size: .65rem;
 	color: #C8C8C8;
 	margin: 2px;
 }
