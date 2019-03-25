@@ -86,7 +86,6 @@ class ZoneMap extends Collection {
 	setNewSector(coord) {
 		if (!this.isValidPosition(coord)) return null;
 		const sector = new ZoneSector(null, this.lang);
-		sector.zonemap = this;
 		if (!sector) return null;
 		this.set(coord, sector);
 		return sector;
