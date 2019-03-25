@@ -245,7 +245,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 #main {
 	font-family: 'Futura Std Medium';
 	font-size: 16px;
