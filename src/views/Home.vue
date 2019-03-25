@@ -42,7 +42,12 @@
 				<h2>Create a new Map</h2>
 				<p>Choose the dimensions of the Zone and hit «&nbsp;Create&nbsp;». Beware that the width and the height of the map cannot be changed afterwards.</p>
 				<v-form v-model="isNewMapValid" ref="newMapForm">
-					<v-text-field v-model="title" :rules="titleRules" label="Map title" required />
+					<v-text-field
+						v-model="title"
+						:rules="titleRules"
+						label="Map title"
+						required
+					/>
 					<v-layout row>
 						<v-flex class="pr-3">
 							<v-slider
@@ -87,7 +92,12 @@
 							/>
 						</v-flex>
 					</v-layout>
-					<v-select v-model="mapGame[0]" :items="mapGame" label="Game" disabled />
+					<v-select
+						v-model="mapGame[0]"
+						:items="mapGame"
+						label="Game"
+						disabled
+					/>
 					<v-btn :disabled="!isNewMapValid" :loading="loadingDialog" @click="createMap()">Create</v-btn>
 					<v-btn @click="newMapDialog = false">Cancel</v-btn>
 				</v-form>
@@ -121,7 +131,7 @@
 		</v-container>
 	</v-dialog>
 
-	<!-- LOADING DIALOG ================================================== --
+	<!-- LOADING DIALOG ================================================== -->
 	<v-dialog v-model="loadingDialog" persistent dark>
 		<v-container class="modal-content px-5">
 			<v-layout column>
@@ -147,7 +157,6 @@ import ZonemapStorage from '@/zonemap/ZonemapStorage';
 export default {
 	name: 'home',
 	data: () => ({
-		zonemap: null,
 		loadingDialog: false,
 
 		// NEW-MAP DIALOG
@@ -179,13 +188,13 @@ export default {
 		createMap() {
 			this.newMapDialog = false;
 			this.loadingDialog = true;
-			this.zonemap = new ZoneMap({
+			const zm = new ZoneMap({
 				title: this.title,
 				width: this.mapWidth,
 				height: this.mapHeight,
 				game: this.mapGame
 			});
-			this.gotoZonescreen();
+			this.gotoZonescreen(zm);
 		},
 		async openMap() {
 			this.openMapDialog = false;
@@ -198,9 +207,9 @@ export default {
 			if (!loaded) return;
 
 			const zonemapJson = ZonemapStorage.get();
-			this.zonemap = ZoneMap.parse(zonemapJson);
+			const zm = ZoneMap.parse(zonemapJson);
 
-			if (this.zonemap) this.gotoZonescreen();
+			if (zm) this.gotoZonescreen(zm);
 		},
 		zonemapInputChange(e) {
 			const files = e.target.files;
@@ -216,15 +225,15 @@ export default {
 		previousMap() {
 			this.loadingDialog = true;
 			const zonemapJson = ZonemapStorage.get();
-			this.zonemap = ZoneMap.parse(zonemapJson);
-			if (this.zonemap) this.gotoZonescreen();
+			const zm = ZoneMap.parse(zonemapJson);
+			if (zm) this.gotoZonescreen(zm);
 		},
-		gotoZonescreen() {
+		gotoZonescreen(zonemap) {
 			// this.$root.zonemap = this.zonemap;
 			this.$router.push({
 				name: 'zonescreen',
 				params: {
-					zonemap: this.zonemap
+					zonemap: zonemap
 				}
 			});
 		},
