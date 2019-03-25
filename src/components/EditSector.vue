@@ -13,8 +13,9 @@
 		:label="sector.explored ? 'Explored' : 'Not explored'"
 	/>
 	<v-slider
-		prepend-icon="mdi-radioactive"
 		v-model="sector.rotLvl"
+		prepend-icon="mdi-radioactive"
+		label="Rot Level"
 		:color="rotLvlColor"
 		:thumb-color="rotLvlColor"
 		thumb-label="always"
@@ -33,7 +34,7 @@
 			v-model="sector.type"
 			:items="sectorTypes"
 			label="Type"
-			:rules="[v => !!v || 'Type is required']"
+			:rules="typeRules"
 			:prepend-icon="$root.typeIcons[sector.type] || 'mdi-tag'"
 			box
 		/>
@@ -59,7 +60,7 @@
 			prepend-icon="mdi-file-document"
 			auto-grow
 			rows="1"
-			disabled
+			box
 		/>
 		<v-autocomplete
 			v-model="sector.mood"
@@ -76,16 +77,55 @@
 			label="Extra Notes"
 			prepend-icon="mdi-notebook"
 			auto-grow
-			box
 			rows="1"
+			box
 		/>
 	</v-layout>
 
 	<!-- THREAT LEVEL ===================================================== -->
 	<h2>Threat Level</h2>
 	<v-layout column>
-		Threat Level
-		Threats
+		<v-text-field
+			v-model="sector.threatLvl"
+			type="number"
+			label="Threat Level"
+			:rules="[v => v >= 0 || 'Cannot be lower than 0']"
+			prepend-icon="mdi-alert"
+			min="0"
+			max="13"
+			hide-details
+			box
+			style="width: 200px;"
+		/>
+		<v-btn icon>
+			<v-icon>mdi-dice-6</v-icon>
+		</v-btn>
+		<v-combobox
+			v-model="sector.threats"
+			:items="sectorThreats"
+			label="Threats"
+			prepend-icon="mdi-space-invaders"
+			multiple
+			chips
+			box
+		>
+			<template v-slot:selection="data">
+				<v-chip
+					:key="JSON.stringify(data.item)"
+					:selected="data.selected"
+					:disabled="data.disabled"
+					class="v-chip--select-multi threat-chip"
+					@input="data.parent.selectItem(data.item)"
+					close
+					dark
+				>
+					<v-avatar color="#888888">
+						<v-icon>mdi-space-invaders</v-icon>
+					</v-avatar>
+					{{ data.item }}
+				</v-chip>
+			</template>
+		</v-combobox>
 	</v-layout>
 
 	<!-- FINDS ============================================================ -->
@@ -104,13 +144,13 @@
 					box
 					style="width: 100px;"
 				/>
-				<v-btn icon @click="sector.finds[find] = rand(1, 6)">
+				<v-btn icon
+					@click="sector.finds[find] = rand(1, 6)">
 					<v-icon>mdi-dice-6</v-icon>
 				</v-btn>
 				<v-btn icon
 					@click="sector.finds[find] = 0"
-					:disabled="sector.finds[find] <= 0"
-				>
+					:disabled="sector.finds[find] <= 0">
 					<v-icon>mdi-cart-arrow-down</v-icon>
 				</v-btn>
 			</v-flex>
@@ -142,6 +182,10 @@ export default {
 				'Weak',
 				'Strong',
 				'Hotspot'
+			],
+			typeRules: [
+				v => !!v || 'Type is required',
+				v => Object.keys(this.$root.typeIcons).indexOf(v) !== -1 || 'This is not a valid sector type'
 			]
 		}
 	},
@@ -169,6 +213,12 @@ export default {
 		},
 		sectorMoods: function() {
 			return Object.values(SectorTables[this.lang].moods.data);
+		},
+		sectorThreats: function() {
+			const humanoids = Object.values(SectorTables[this.lang].threats.data['1'].data);
+			const monsters = Object.values(SectorTables[this.lang].threats.data['3'].data);
+			const phenomenons = Object.values(SectorTables[this.lang].threats.data['6'].data);
+			return humanoids.concat(monsters.concat(phenomenons)).sort();
 		}
 	},
 	methods: {
@@ -182,3 +232,8 @@ export default {
 }
 </script>
 
+<style>
+.threat-chip {
+	font-family: 'Futura Std Medium';
+}
+</style>
