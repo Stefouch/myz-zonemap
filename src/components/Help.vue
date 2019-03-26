@@ -1,5 +1,4 @@
 <template>
-import { setTimeout } from 'timers';
 <v-card class="bg-help-dialog">
 
 	<v-toolbar class="help-dialog-toolbar" fixed dark dense>
@@ -190,14 +189,14 @@ export default {
 		},
 		goto(ref) {
 			this.drawer = false;
-			/* setTimeout(() => {
+			setTimeout(() => {
 				const elem = this.$refs[ref];
 				const top = elem.offsetTop;
 				window.scrollTo(0, top);
 				console.log('ref', ref);
 				console.log('elem', elem);
 				console.log('top', top);
-			}, 2000); */
+			}, 2000);
 		}
 	}
 }
