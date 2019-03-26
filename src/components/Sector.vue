@@ -5,7 +5,8 @@
 	:id="id"
 	:gmeye="gmeye"
 	:sector="sector"
-	:selected="selected"
+	@click="selected = !selected"
+	@dblclick="$emit('open', [id, sector])"
 >
 	<v-tooltip
 		v-if="sector"
@@ -52,17 +53,15 @@ export default {
 		sector: {
 			type: ZoneSector,
 			default: null
-			// default: () => new ZoneSector()
 		},
 		gmeye: {
 			type: Boolean,
 			default: true
-		},
-		selected: {
-			type: Boolean,
-			default: false
 		}
 	},
+	data: () => ({
+		selected: false
+	}),
 	computed: {
 		hasFog: function() {
 			if (!this.sector) return true;

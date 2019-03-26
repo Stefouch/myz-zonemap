@@ -233,7 +233,7 @@ export default {
 			this.$router.push({
 				name: 'zonescreen',
 				params: {
-					zonemap: zonemap
+					passingZonemap: zonemap
 				}
 			});
 		},

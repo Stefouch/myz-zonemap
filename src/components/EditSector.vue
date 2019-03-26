@@ -1,5 +1,5 @@
 <template>
-<v-card class="bg-edit-dialog">
+<v-card class="edit-dialog-bg">
 	<v-toolbar class="edit-dialog-toolbar" fixed dark dense :color="sectorColor">
 		<v-btn icon dark @click="$emit('close')">
 			<v-icon>mdi-close</v-icon>
@@ -353,11 +353,11 @@ export default {
 	font-family: 'Futura Std Medium';
 }
 
-.bg-edit-dialog {
+.edit-dialog-bg {
 	background-image: url('../assets/background.jpg');
 	background-repeat: no-repeat;
 	background-position: center center;
-	/* background-attachment: fixed; */
+	background-attachment: fixed;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;

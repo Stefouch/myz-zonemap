@@ -3,7 +3,7 @@
 	<v-toolbar id="navbar-myz" dense dark>
 		<v-toolbar-side-icon></v-toolbar-side-icon>
 		<v-toolbar-title class="mr-5">Find My Path{{ mapTitle }}</v-toolbar-title>
-		<v-btn icon :disabled="!editedZonemap">
+		<v-btn icon :disabled="!editedZonemap" @click="saveZonemap()">
 			<v-icon>mdi-content-save</v-icon>
 		</v-btn>
 		<!-- <v-btn icon @click="editDialog = true">
@@ -18,17 +18,17 @@
 		</v-btn>
 	</v-toolbar>
 
-	<!-- ZONESCREEN ======================================================= -->
+	<!-- ZONESCREEN & SECTORS ============================================= -->
 	<v-layout column id="zonescreen">
 		<v-layout row class="zonerow" v-for="y in zonemap.height" :key="y">
 			<zm-sector
 				v-for="x in zonemap.width"
 				:key="coord(x, y)"
 				:id="coord(x, y)"
+				:ref="coord(x, y)"
 				:gmeye="gmeye"
 				:sector="zonemap.get(coord(x, y))"
-				:selected="coord(x, y) === selectedCoord"
-				@click="selectedCoord = id"
+				@open="edition($event)"
 			/>
 		</v-layout>
 	</v-layout>
@@ -74,19 +74,21 @@ import Util from '@/util/Util';
 export default {
 	name: 'zonescreen',
 	props: {
-		zonemap: {
+		passingZonemap: {
 			type: ZoneMap,
 			default: null
 		}
 	},
-	data: () => ({
-		alphabet: ['0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
-		gmeye: true,
-		selectedCoord: null,
-		editDialog: false,
-		helpDialog: false,
-		editedZonemap: false
-	}),
+	data: function() {
+		return {
+			zonemap: this.passingZonemap,
+			gmeye: true,
+			selectedCoord: null,
+			editDialog: false,
+			helpDialog: false,
+			editedZonemap: false
+		}
+	},
 	computed: {
 		mapTitle: function() {
 			return ': ' + this.zonemap.title.slice(0, 20);
@@ -104,15 +106,27 @@ export default {
 	},
 	methods: {
 		coord(x, y) {
-			return this.alphabet[y] + Util.zeroise(x, 2);
+			const alphabet = [
+				'0', 'A', 'B', 'C', 'D', 'E', 'F',
+				'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
+				'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
+			];
+			return alphabet[y] + Util.zeroise(x, 2);
 		},
 		closeZonescreen() {
 			this.$router.push({ name: 'home' });
 		},
-		changeSector(data) {
+		edition(data) {
+			this.selectedCoord = data[0];
+			this.editDialog = true;
+		},
+		changeSector(sector) {
 			this.editedZonemap = true;
-			if (!data) this.zonemap.delete(this.selectedCoord);
-			else this.zonemap.set(this.selectedCoord, data);
+			if (!sector) this.zonemap.delete(this.selectedCoord);
+			else this.zonemap.set(this.selectedCoord, sector);
+		},
+		saveZonemap() {
+			//
 		}
 	},
 	components: {
