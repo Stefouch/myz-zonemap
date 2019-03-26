@@ -58,7 +58,7 @@
 				<!-- THREAT LEVEL ========================================================= -->
 				<h2>Threat Level</h2>
 					<v-layout row>
-						<v-flex grow>
+						<v-flex>
 							<v-text-field
 								v-model.number="sector.threatLvl"
 								type="number"
@@ -76,7 +76,7 @@
 								</template>
 							</v-text-field>
 						</v-flex>
-						<v-flex shrink align-self-center>
+						<v-flex align-self-center>
 							<v-btn @click="rollThreatLvl()">
 								<v-icon>mdi-dice-6</v-icon> Roll
 							</v-btn>
@@ -275,6 +275,11 @@ export default {
 			]
 		}
 	},
+	/* watch: {
+		editedSector: function() {
+			this.$forceUpdate;
+		}
+	}, */
 	computed: {
 		sectorColor: function() {
 			if (this.sector.type === SectorTypes.ark) return '#DB9F00';
