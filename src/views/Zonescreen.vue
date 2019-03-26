@@ -3,16 +3,16 @@
 	<v-toolbar id="navbar-myz" dense dark>
 		<v-toolbar-side-icon></v-toolbar-side-icon>
 		<v-toolbar-title class="mr-5">Find My Path{{ mapTitle }}</v-toolbar-title>
-		<v-btn icon>
+		<v-btn icon :disabled="!editedZonemap">
 			<v-icon>mdi-content-save</v-icon>
 		</v-btn>
-		<v-btn icon @click="$router.push('help')">
+		<!-- <v-btn icon @click="editDialog = true">
+			<v-icon>mdi-square-edit-outline</v-icon> {{ selectedCoord }}
+		</v-btn> -->
+		<v-spacer></v-spacer>
+		<v-btn icon @click="helpDialog = true">
 			<v-icon>mdi-help-circle-outline</v-icon>
 		</v-btn>
-		<v-btn icon @click="editDialog = true">
-			<v-icon>mdi-square-edit-outline</v-icon> {{ selectedCoord }}
-		</v-btn>
-		<v-spacer></v-spacer>
 		<v-btn icon @click="closeZonescreen()">
 			<v-icon>mdi-close</v-icon>
 		</v-btn>
@@ -49,12 +49,25 @@
 			@change="changeSector($event)"
 		></zm-edit-sector>
 	</v-dialog>
+
+	<!-- HELP-SECTOR DIALOG =============================================== -->
+	<v-dialog
+		v-model="helpDialog"
+		fullscreen
+		hide-overlay
+		transition="dialog-bottom-transition"
+	>
+		<zm-help
+			@close="helpDialog = false"
+		></zm-help>
+	</v-dialog>
 </div>
 </template>
 
 <script>
 import zmSector from '@/components/Sector.vue';
 import zmEditSector from '@/components/EditSector.vue';
+import zmHelp from '@/components/Help.vue';
 import ZoneMap from '@/zonemap/ZoneMap';
 import Util from '@/util/Util';
 
@@ -69,8 +82,10 @@ export default {
 	data: () => ({
 		alphabet: ['0', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
 		gmeye: true,
-		selectedCoord: 'B12',
-		editDialog: false
+		selectedCoord: null,
+		editDialog: false,
+		helpDialog: false,
+		editedZonemap: false
 	}),
 	computed: {
 		mapTitle: function() {
@@ -95,14 +110,15 @@ export default {
 			this.$router.push({ name: 'home' });
 		},
 		changeSector(data) {
+			this.editedZonemap = true;
 			if (!data) this.zonemap.delete(this.selectedCoord);
 			else this.zonemap.set(this.selectedCoord, data);
-			console.log(this.zonemap);
 		}
 	},
 	components: {
 		zmSector,
-		zmEditSector
+		zmEditSector,
+		zmHelp
 	}
 }
 </script>
