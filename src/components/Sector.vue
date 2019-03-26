@@ -1,7 +1,7 @@
 <template>
 <div
 	class="sector"
-	:class="{ 'sector-fog': hasFog }"
+	:class="{ 'sector-fog': hasFog, 'sector-selected': selected }"
 	:id="id"
 	:gmeye="gmeye"
 	:sector="sector"
@@ -69,7 +69,7 @@ export default {
 		},
 		sectorThemeClasses: function() {
 			return {
-				'sector-selected': this.selected,
+				// 'sector-selected': this.selected,
 				'sector-rotoasis': this.sector.rotLvl <= 0,
 				'sector-rotstrong': this.sector.rotLvl === 2,
 				'sector-rothotspot': this.sector.rotLvl >= 3,
