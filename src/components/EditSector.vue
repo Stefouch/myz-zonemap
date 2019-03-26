@@ -1,6 +1,6 @@
 <template>
 <v-card class="bg-edit-dialog">
-	<v-toolbar class="edit-dialog-toolbar" fixed dark dense>
+	<v-toolbar class="edit-dialog-toolbar" fixed dark dense :color="sectorColor">
 		<v-btn icon dark @click="$emit('close')">
 			<v-icon>mdi-close</v-icon>
 		</v-btn>
@@ -232,6 +232,7 @@
 			</v-layout>
 		</v-container>
 	</v-dialog>
+
 </v-card>
 </template>
 
@@ -275,6 +276,11 @@ export default {
 		}
 	},
 	computed: {
+		sectorColor: function() {
+			if (this.sector.type === SectorTypes.ark) return '#DB9F00';
+			if (this.sector.type === SectorTypes.special) return '#0076BE';
+			return '#2A2A2A';
+		},
 		rotLvlColor: function() {
 			if (this.sector.rotLvl === 0) return '#A0DB8E';
 			if (this.sector.rotLvl === 1) return 'orange';
