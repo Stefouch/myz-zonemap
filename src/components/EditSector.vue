@@ -1,6 +1,6 @@
 <template>
 <v-card class="bg-edit-dialog">
-	<v-toolbar class="edit-dialog-toolbar" dark dense>
+	<v-toolbar class="edit-dialog-toolbar" fixed dark dense>
 		<v-btn icon dark @click="$emit('close')">
 			<v-icon>mdi-close</v-icon>
 		</v-btn>
@@ -23,7 +23,7 @@
 		</v-toolbar-items>
 	</v-toolbar>
 
-	<v-container grid-list-xl scrollable>
+	<v-container grid-list-xl scrollable py-5>
 		<v-layout row wrap>
 			<v-flex sm12 md6 lg4>
 
