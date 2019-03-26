@@ -1,14 +1,14 @@
 <template>
-<div v-if="zonemap">
+<div>
 	<v-toolbar id="navbar-myz" dense dark>
 		<v-toolbar-side-icon></v-toolbar-side-icon>
-		<v-toolbar-title class="mr-5">Find My Path{{ mapTitle }}</v-toolbar-title>
+		<v-toolbar-title class="mr-5">{{ mapTitle }}</v-toolbar-title>
 		<v-btn icon :disabled="!editedZonemap" @click="saveZonemap()">
 			<v-icon>mdi-content-save</v-icon>
 		</v-btn>
-		<!-- <v-btn icon @click="editDialog = true">
+		<v-btn icon @click="editDialog = true">
 			<v-icon>mdi-square-edit-outline</v-icon> {{ selectedCoord }}
-		</v-btn> -->
+		</v-btn>
 		<v-spacer></v-spacer>
 		<v-btn icon @click="helpDialog = true">
 			<v-icon>mdi-help-circle-outline</v-icon>
@@ -19,7 +19,7 @@
 	</v-toolbar>
 
 	<!-- ZONESCREEN & SECTORS ============================================= -->
-	<v-layout column id="zonescreen">
+	<v-layout column id="zonescreen" v-if="zonemap" class="dragscroll">
 		<v-layout row class="zonerow" v-for="y in zonemap.height" :key="y">
 			<zm-sector
 				v-for="x in zonemap.width"
@@ -33,17 +33,16 @@
 		</v-layout>
 	</v-layout>
 
-	<!-- EDIT-SECTOR DIALOG =============================================== -->
+	<!-- EDIT-SECTOR DIALOG v-if="selectedCoord"=============================================== -->
 	<v-dialog
 		v-model="editDialog"
-		v-if="selectedSector"
 		fullscreen
 		hide-overlay
 		transition="dialog-bottom-transition"
 	>
 		<zm-edit-sector
-			:editedSector="selectedSector"
 			:coordinates="selectedCoord"
+			:editedSector="selectedSector"
 			:lang="zonemap.lang"
 			@close="editDialog = false"
 			@change="changeSector($event)"
@@ -68,6 +67,7 @@
 import zmSector from '@/components/Sector.vue';
 import zmEditSector from '@/components/EditSector.vue';
 import zmHelp from '@/components/Help.vue';
+import dragscroll from 'dragscroll';
 import ZoneMap from '@/zonemap/ZoneMap';
 import Util from '@/util/Util';
 
@@ -84,6 +84,7 @@ export default {
 			zonemap: this.passingZonemap,
 			gmeye: true,
 			selectedCoord: null,
+			// selectedSector: null,
 			editDialog: false,
 			helpDialog: false,
 			editedZonemap: false
@@ -91,10 +92,8 @@ export default {
 	},
 	computed: {
 		mapTitle: function() {
-			return ': ' + this.zonemap.title.slice(0, 20);
-		},
-		sectors: function() {
-			return this.zonemap.array();
+			if (this.zonemap) return `Find My Path: ${this.zonemap.title.slice(0, 20)}`;
+			else return 'Find My Path';
 		},
 		selectedSector: function() {
 			return this.zonemap.get(this.selectedCoord);
@@ -103,6 +102,9 @@ export default {
 	created: function() {
 		if (!this.zonemap) this.$router.push({ name: 'home' });
 		console.log(this.zonemap);
+	},
+	mounted: function() {
+		dragscroll.reset();
 	},
 	methods: {
 		coord(x, y) {
