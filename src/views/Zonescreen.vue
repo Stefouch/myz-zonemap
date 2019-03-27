@@ -10,7 +10,7 @@
 			<v-icon>mdi-square-edit-outline</v-icon> {{ selectedCoord }}
 		</v-btn>
 		<v-spacer></v-spacer>
-		<v-btn icon @click="helpDialog = true">
+		<v-btn icon @click="$router.push('help')">
 			<v-icon>mdi-help-circle-outline</v-icon>
 		</v-btn>
 		<v-btn icon @click="closeZonescreen()">
@@ -33,7 +33,7 @@
 		</v-layout>
 	</v-layout>
 
-	<!-- EDIT-SECTOR DIALOG v-if="selectedCoord"=============================================== -->
+	<!-- EDIT-SECTOR DIALOG =============================================== -->
 	<v-dialog
 		v-model="editDialog"
 		fullscreen
@@ -49,24 +49,12 @@
 		></zm-edit-sector>
 	</v-dialog>
 
-	<!-- HELP-SECTOR DIALOG =============================================== -->
-	<v-dialog
-		v-model="helpDialog"
-		fullscreen
-		hide-overlay
-		transition="dialog-bottom-transition"
-	>
-		<zm-help
-			@close="helpDialog = false"
-		></zm-help>
-	</v-dialog>
 </div>
 </template>
 
 <script>
 import zmSector from '@/components/Sector.vue';
 import zmEditSector from '@/components/EditSector.vue';
-import zmHelp from '@/components/Help.vue';
 import dragscroll from 'dragscroll';
 import ZoneMap from '@/zonemap/ZoneMap';
 import Util from '@/util/Util';
@@ -84,9 +72,7 @@ export default {
 			zonemap: this.passingZonemap,
 			gmeye: true,
 			selectedCoord: null,
-			// selectedSector: null,
 			editDialog: false,
-			helpDialog: false,
 			editedZonemap: false
 		}
 	},
@@ -133,8 +119,7 @@ export default {
 	},
 	components: {
 		zmSector,
-		zmEditSector,
-		zmHelp
+		zmEditSector
 	}
 }
 </script>

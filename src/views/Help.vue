@@ -1,11 +1,11 @@
 <template>
-<v-card class="bg-help-dialog">
+<div>
 
 	<v-toolbar class="help-dialog-toolbar" fixed dark dense>
 		<v-btn icon dark @click="drawer = !drawer">
 			<v-icon>mdi-menu</v-icon>
 		</v-btn>
-		<v-btn icon dark @click="$emit('close')">
+		<v-btn icon dark @click="$router.go(-1)">
 			<v-icon>mdi-close</v-icon>
 		</v-btn>
 		<v-toolbar-title>Help</v-toolbar-title>
@@ -167,7 +167,7 @@
 
 	</v-container>
 
-</v-card>
+</div>
 </template>
 
 <script>
@@ -189,14 +189,14 @@ export default {
 		},
 		goto(ref) {
 			this.drawer = false;
-			setTimeout(() => {
+			// setTimeout(() => {
 				const elem = this.$refs[ref];
-				const top = elem.offsetTop;
+				const top = elem.offsetTop - 50;
 				window.scrollTo(0, top);
-				console.log('ref', ref);
-				console.log('elem', elem);
-				console.log('top', top);
-			}, 2000);
+				// console.log('ref', ref);
+				// console.log('elem', elem);
+				// console.log('top', top);
+			// }, 2000);
 		}
 	}
 }
@@ -224,6 +224,6 @@ li:last-child {
 }
 
 .edit-help-toolbar {
-	font-family: 'Futura Std Medium';
+	font-family: 'Futura Std Medium'!important;
 }
 </style>

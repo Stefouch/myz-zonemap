@@ -24,6 +24,11 @@ export default new Router({
 			// component: Zonescreen,
 			component: () => import('./views/Zonescreen.vue'),
 			props: true
+		},
+		{
+			path: '/help',
+			name: 'help',
+			component: () => import('./views/Help.vue')
 		}
 	]
 });
