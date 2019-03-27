@@ -5,7 +5,7 @@
 			<v-icon>mdi-close</v-icon>
 		</v-btn>
 		<v-toolbar-title>
-			<v-btn icon>
+			<v-btn icon @click="iconPicker = true">
 				<v-icon>{{ sector.icon }}</v-icon>
 			</v-btn>
 			{{ coordinates }} – <b>{{ sector.name }}</b></v-toolbar-title>
@@ -212,6 +212,17 @@
 		</v-layout>
 	</v-container>
 
+	<!-- ICON-PICKER ========================================================================== -->
+	<v-dialog
+		v-model="iconPicker"
+		width="300px"
+		lazy
+	>
+		<zm-icon-picker
+			@icon="sector.icon = $event"
+		/>
+	</v-dialog>
+
 	<!-- DELETE DIALOG ======================================================================== -->
 	<v-dialog
 		v-model="deleteDialog"
@@ -237,6 +248,7 @@
 </template>
 
 <script>
+import zmIconPicker from '@/components/IconPicker.vue';
 import ZoneSector from '@/zonemap/ZoneSector';
 import SectorTypes from '@/zonemap/ZoneSectorTypes';
 import SectorTables from '@/zonemap/ZoneSectorTables';
@@ -262,6 +274,7 @@ export default {
 		return { 
 			sector: this.editedSector,
 			night: false,
+			iconPicker: false,
 			deleteDialog: false,
 			rotLvlLabels: [
 				'Oasis',
@@ -350,6 +363,9 @@ export default {
 			this.$emit('change', sectorToReturn);
 			this.$emit('close');
 		}
+	},
+	components: {
+		zmIconPicker
 	}
 }
 </script>
