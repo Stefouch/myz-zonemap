@@ -5,8 +5,8 @@
 	:id="id"
 	:gmeye="gmeye"
 	:sector="sector"
-	@click="selected = !selected"
 	@dblclick="$emit('open', [id, sector])"
+	@contextmenu.prevent="$emit('open', [id, sector])"
 >
 	<v-tooltip
 		v-if="sector"
