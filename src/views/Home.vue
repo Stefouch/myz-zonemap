@@ -100,7 +100,7 @@
 					/>
 					<v-select
 						v-model="mapLang"
-						:items="mapLangs"
+						:items="$root.mapLangs"
 						label="Language"
 						hint="Defines only the language of the map, not the user interface"
 					/>
@@ -177,10 +177,6 @@ export default {
 		mapHeight: 18,
 		mapGame: ['Mutant Year Zero v4.0'],
 		mapLang: 'en',
-		mapLangs: [
-			{ text: 'English', value: 'en' },
-			{ text: 'Français', value: 'fr' }
-		],
 
 		// OPEN-MAP DIALOG
 		openMapDialog: false,
