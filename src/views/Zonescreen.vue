@@ -155,7 +155,8 @@ html {
 	width: 100%;
 	height: calc(100vh - 48px);
 	border: 2px solid red;
-	overflow: scroll;
+	/* overflow: scroll; */
+	overflow: hidden;
 	user-select: none;
 }
 
