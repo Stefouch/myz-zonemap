@@ -11,6 +11,7 @@
 	<v-tooltip
 		v-if="sector"
 		content-class="sector-tooltip-content"
+		open-delay="1000"
 		right
 		lazy
 	>
@@ -21,11 +22,12 @@
 			slot="activator"
 		>
 			<div class="sector-marker">
-				<v-icon large>{{ sectorMarker }}</v-icon>
+				<v-icon large>{{ sectorIcon }}</v-icon>
 			</div>
 			<div class="sector-icons">
 				<v-icon small v-if="sector.hasThreat" class="sector-icon-threat">mdi-skull</v-icon>
 				<v-icon small v-if="sector.hasArtifact" class="sector-icon-arto">mdi-star</v-icon>
+				<v-icon small v-if="sector.rotLvl >= 2" class="sector-icon-rad">mdi-radioactive</v-icon>
 			</div>
 			<div class="sector-name" :class="{ 'sector-name-empty': sector.isEmpty }">{{ processedName }}</div>
 		</v-flex>
@@ -79,14 +81,12 @@ export default {
 		},
 		processedName: function() {
 			let name = this.sector.name;
-			if (name.length > 20) name = `${name.slice(0, 18)}...`;
+			if (name.length > 16) name = `${name.slice(0, 14)}...`;
 			return name;
 		},
-		sectorMarker: function() {
-			if (this.sector.icon) return this.sector.icon;
-			if (this.sector.type === SectorTypes.ark) return 'mdi-home';
-			if (this.sector.type === SectorTypes.special) return 'mdi-alert-decagram';
-			return '';
+		sectorIcon: function() {
+			if (this.sector) return this.sector.icon;
+			else return '';
 		}
 	},
 	components: {
@@ -135,16 +135,25 @@ export default {
 
 .sector-rotoasis {
 	border: 1px dashed #A0DB8E;
+}
+
+.sector-fog .sector-rotoasis:not(.sector-ark):not(.sector-special) {
 	background-color: rgba(160, 219, 142, .10);
 }
 
 .sector-rotstrong {
 	border: 1px dashed #E55600;
+}
+
+.sector-fog .sector-rotstrong {
 	background-color: rgba(229, 87, 0, .10);
 }
 
 .sector-rothotspot {
 	border: 1px dashed #9B2423;
+}
+
+.sector-fog .sector-rothotspot {
 	background-color: rgba(155, 36, 35, .10);
 }
 
@@ -174,6 +183,11 @@ export default {
 	color: #DB9F00;
 }
 
+.sector-icons > .sector-icon-rad {
+	border-radius: 500px;
+	background-color: #ffff66;
+}
+
 .sector-name {
 	text-align: center;
 	margin-top: 4px;
@@ -181,10 +195,15 @@ export default {
 	margin-right: 2px;
 	/* font-family: 'Futura Std Heavy'; */
 	line-height: 1.10;
+	text-shadow: -1px 1px 0 #fff,
+				1px 1px 0 #fff,
+				1px -1px 0 #fff,
+				-1px -1px 0 #fff;
 }
 
 .sector-name-empty {
 	color: #7F7F7F;
+	text-shadow: none;
 }
 
 .sector-marker {
@@ -199,7 +218,7 @@ export default {
 
 .sector-marker > .v-icon {
 	margin-bottom: 4px;
-	color: #D3D3D3;
+	color: #535353;
 }
 
 .sector-null {
@@ -209,7 +228,7 @@ export default {
 }
 
 .sector-tooltip-content {
-	max-width: 300px;
+	max-width: 200px;
 	color: #000;
 	background-color: #fff;
 }

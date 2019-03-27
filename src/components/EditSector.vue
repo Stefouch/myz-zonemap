@@ -4,11 +4,7 @@
 		<v-btn icon dark @click="$emit('close')">
 			<v-icon>mdi-close</v-icon>
 		</v-btn>
-		<v-toolbar-title>
-			<v-btn icon @click="iconPicker = true">
-				<v-icon>{{ sector.icon }}</v-icon>
-			</v-btn>
-			{{ coordinates }} – <b>{{ sector.name }}</b></v-toolbar-title>
+		<v-toolbar-title>{{ coordinates }} – <b>{{ sector.name }}</b></v-toolbar-title>
 		<v-spacer></v-spacer>
 		<v-toolbar-items>
 			<v-btn dark flat @click="saveSector(sector)">
@@ -28,13 +24,18 @@
 			<v-flex sm12 md6 lg4>
 
 				<!-- SECTOR =============================================================== -->
+				
 				<h2>Sector</h2>
-				<v-text-field
-					v-model="sector.name"
-					prepend-icon="mdi-flag-variant"
-					label="Sector's Name"
-					box
-				/>
+				<v-layout row>
+					<v-btn icon large outline @click="iconPicker = true">
+						<v-icon x-large>{{ sector.icon }}</v-icon>
+					</v-btn>
+					<v-text-field
+						v-model="sector.name"
+						label="Sector's Name"
+						box
+					/>
+				</v-layout>
 				<v-switch
 					v-model="sector.explored"
 					prepend-icon="mdi-compass"
@@ -219,7 +220,8 @@
 		lazy
 	>
 		<zm-icon-picker
-			@icon="sector.icon = $event"
+			:icon="sector.icon"
+			@icon="pickIcon($event)"
 		/>
 	</v-dialog>
 
@@ -338,6 +340,10 @@ export default {
 		capitalize(text) {
 			return Util.capitalize(text);
 		},
+		pickIcon(icon) {
+			this.iconPicker = false;
+			this.sector.icon = icon;
+		},
 		rollThreatLvl() {
 			this.sector.threats = [];
 			this.sector.rollThreatLvl(this.night ? 3 : 0);
@@ -376,7 +382,7 @@ export default {
 }
 
 .edit-dialog-bg {
-	background-image: url('../assets/background.jpg');
+	/* background-image: url('../assets/background.jpg'); */
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;

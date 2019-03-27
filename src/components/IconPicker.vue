@@ -1,18 +1,36 @@
 <template>
 <v-container class="icon-picker-content" fluid>
-	<h2>Icon Picker</h2>
+	<h2>Icon Picker
+	</h2>
 	<v-text-field
-		v-model="searchIcon"
+		v-model="selected"
+		label="Material Design Icon"
+		clearable
+		box
+	>
+		<template v-slot:append-outer>
+			<v-btn icon large v-if="selected" @click="selectIcon(selected)" >
+				<v-icon x-large>{{ `mdi-${selected}` }}</v-icon>
+			</v-btn>
+			<v-btn icon large v-else @click="clearIcon()">
+				<v-icon x-large color="#9B2423">mdi-close</v-icon>
+			</v-btn>
+		</template>
+	</v-text-field>
+	<v-divider></v-divider>
+	<v-text-field
+		v-model="searchInput"
 		label="Search for an icon"
 		prepend-inner-icon="mdi-magnify"
 		clearable
+		box
 	/>
 	<v-layout row wrap class="icons-list">
 		<v-icon x-large
 			v-for="icon in _icons"
 			:key="icon"
 			v-text="`mdi-${icon}`"
-			@click="selectIcon(icon)"
+			@click="selected = icon"
 		/>
 	</v-layout>
 </v-container>
@@ -23,13 +41,19 @@
 
 export default {
 	name: 'iconpicker',
+	props: {
+		icon: {
+			type: String,
+			default: null
+		}
+	},
 	data: () => ({
 		// icons: null,
 		// iconsStorage: new IconsStorage(),
-		icons: ['alert', 'alert-circle', 'close', 'delete', 'compass', 'flag', 'flag-variant', 'radioactive', 'space-invaders', 'paw', 'weather-sunny', 'weather-night', 'tag', 'home', 'home-variant', 'terrain', 'alert-decagram', 'flower-tulip', 'city', 'notebook', 'ammunition', 'pizza', 'water', 'water-pump', 'star', 'car', 'bank', 'timer-sand', 'chess-rook', 'skull', 'skull-crossbones', 'pine-tree', 'hospital-building', 'bug', 'flower', 'mushroom', 'tree', 'cactus', 'airplane', 'ferry', 'map-marker', 'airport', 'airplane-takeoff', 'beach', 'bridge', 'castle', 'church', 'domain', 'factory', 'gas-station', 'office-building', 'parking', 'pier', 'pool', 'stadium', 'store', 'theater', 'settings', 'hexagram', 'shape', 'soccer-field', 'subway', 'flash'].reverse(),
+		icons: ['alert', 'alert-circle', 'close', 'delete', 'compass', 'flag', 'flag-variant', 'radioactive', 'space-invaders', 'paw', 'weather-sunny', 'weather-night', 'tag', 'home', 'home-variant', 'terrain', 'alert-decagram', 'flower-tulip', 'city', 'notebook', 'ammunition', 'pizza', 'water', 'water-pump', 'star', 'car', 'bank', 'timer-sand', 'chess-rook', 'skull', 'skull-crossbones', 'pine-tree', 'hospital-building', 'bug', 'flower', 'mushroom', 'tree', 'cactus', 'airplane', 'ferry', 'map-marker', 'airport', 'airplane-takeoff', 'beach', 'bridge', 'castle', 'church', 'domain', 'factory', 'gas-station', 'office-building', 'parking', 'pier', 'pool', 'stadium', 'store', 'theater', 'settings', 'hexagram', 'shape', 'soccer-field', 'subway', 'flash'].sort(),
 		_icons: null,
 		selected: null,
-		searchIcon: ''
+		searchInput: ''
 	}),
 	created: function() {
 		this._icons = this.icons;
@@ -44,11 +68,15 @@ export default {
 		}
 	}, */
 	watch: {
-		searchIcon: function() {
-			if (this.searchIcon) {
+		icon: function() {
+			if (this.icon) this.selected = this.icon.slice(4);
+			else this.selected = null;
+		},
+		searchInput: function() {
+			if (this.searchInput) {
 				this._icons = this.icons.filter(item => {
 					const searches = item.split('-').map(namePiece => {
-						return namePiece.search(this.searchIcon.toLowerCase());
+						return namePiece.search(this.searchInput.toLowerCase());
 					});
 					return searches.indexOf(true) > -1;
 				});
@@ -60,8 +88,10 @@ export default {
 	},
 	methods: {
 		selectIcon(icon) {
-			this.selected = icon;
 			this.$emit('icon', `mdi-${icon}`);
+		},
+		clearIcon() {
+			this.$emit('icon', null);
 		}
 	}
 }
@@ -80,15 +110,13 @@ export default {
 	overflow-x: hidden;
 }
 
-.icon-picker-content .v-icon {
-	margin: 2px;
-	padding: 2px;
+.icon-picker-content .icons-list .v-icon {
+	margin: 1px;
+	padding: 1px;
 }
 
-.icon-picker-content .v-icon:hover {
+.icon-picker-content .icons-list .v-icon:hover {
+	outline: 1px solid green;
 	background-color: #C8C8C8;
-	padding: 0;
-	border-radius: 4px;
-	border: 1px solid red;
 }
 </style>

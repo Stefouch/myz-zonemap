@@ -6,9 +6,9 @@
 		<v-btn icon :disabled="!editedZonemap" @click="saveZonemap()">
 			<v-icon>mdi-content-save</v-icon>
 		</v-btn>
-		<v-btn icon @click="editDialog = true">
+		<!-- <v-btn icon @click="editDialog = true">
 			<v-icon>mdi-square-edit-outline</v-icon> {{ selectedCoord }}
-		</v-btn>
+		</v-btn> -->
 		<v-spacer></v-spacer>
 		<v-btn icon @click="$router.push('help')">
 			<v-icon>mdi-help-circle-outline</v-icon>
@@ -110,8 +110,11 @@ export default {
 		},
 		changeSector(sector) {
 			this.editedZonemap = true;
-			if (!sector) this.zonemap.delete(this.selectedCoord);
-			else this.zonemap.set(this.selectedCoord, sector);
+			/* if (!sector) this.zonemap.delete(this.selectedCoord);
+			else this.zonemap.set(this.selectedCoord, sector); */
+			this.zonemap.delete(this.selectedCoord);
+			this.zonemap.set(this.selectedCoord, sector);
+			// this.$forceUpdate();
 		},
 		saveZonemap() {
 			//
@@ -139,7 +142,9 @@ html {
 #zonescreen {
 	width: 100%;
 	height: calc(100vh - 48px);
-	border: 2px solid red;
+	/* border: 2px solid red; */
+	/* border: 10px solid; */
+	/* border-image: url('../assets/book-warning.png') 10 round; */
 	/* overflow: scroll; */
 	overflow: hidden;
 	user-select: none;
