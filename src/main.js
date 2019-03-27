@@ -18,7 +18,7 @@ new Vue({
 			'0.55: Fixed various map download/upload bugs.'
 		],
 		typeIcons: {
-			zone: 'mdi-image-filter-hdr',
+			zone: 'mdi-terrain',
 			ark: 'mdi-home',
 			special: 'mdi-alert-decagram'
 		},
