@@ -98,6 +98,12 @@
 						label="Game"
 						disabled
 					/>
+					<v-select
+						v-model="mapLang"
+						:items="mapLangs"
+						label="Language"
+						hint="Defines only the language of the map, not the user interface"
+					/>
 					<v-btn :disabled="!isNewMapValid" :loading="loadingDialog" @click="createMap()">Create</v-btn>
 					<v-btn @click="newMapDialog = false">Cancel</v-btn>
 				</v-form>
@@ -170,6 +176,11 @@ export default {
 		mapWidth: 30,
 		mapHeight: 18,
 		mapGame: ['Mutant Year Zero v4.0'],
+		mapLang: 'en',
+		mapLangs: [
+			{ text: 'English', value: 'en' },
+			{ text: 'Français', value: 'fr' }
+		],
 
 		// OPEN-MAP DIALOG
 		openMapDialog: false,
@@ -192,7 +203,8 @@ export default {
 				title: this.title,
 				width: this.mapWidth,
 				height: this.mapHeight,
-				game: this.mapGame
+				game: this.mapGame,
+				lang: this.mapLang
 			});
 			this.gotoZonescreen(zm);
 		},
