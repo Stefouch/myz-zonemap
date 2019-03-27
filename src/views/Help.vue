@@ -5,7 +5,7 @@
 		<v-btn icon dark @click="drawer = !drawer">
 			<v-icon>mdi-menu</v-icon>
 		</v-btn>
-		<v-btn icon dark @click="$router.go(-1)">
+		<v-btn icon dark @click="closeHelp()">
 			<v-icon>mdi-close</v-icon>
 		</v-btn>
 		<v-toolbar-title>Help</v-toolbar-title>
@@ -187,16 +187,14 @@ export default {
 		formatTitle(title) {
 			return title.replace(/_/g, ' ');
 		},
+		closeHelp() {
+			window.close();
+		},
 		goto(ref) {
 			this.drawer = false;
-			// setTimeout(() => {
-				const elem = this.$refs[ref];
-				const top = elem.offsetTop - 50;
-				window.scrollTo(0, top);
-				// console.log('ref', ref);
-				// console.log('elem', elem);
-				// console.log('top', top);
-			// }, 2000);
+			const elem = this.$refs[ref];
+			const top = elem.offsetTop - 50;
+			window.scrollTo(0, top);
 		}
 	}
 }

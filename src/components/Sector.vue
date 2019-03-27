@@ -9,14 +9,13 @@
 	@contextmenu.prevent="$emit('open', [id, sector])"
 >
 	<v-tooltip
-		v-if="sector"
+		v-if="gmeye && sector"
 		content-class="sector-tooltip-content"
 		open-delay="1000"
 		right
 		lazy
 	>
 		<v-flex
-			v-if="sector"
 			class="sector-inner"
 			:class="sectorThemeClasses"
 			slot="activator"
@@ -25,9 +24,10 @@
 				<v-icon large>{{ sectorIcon }}</v-icon>
 			</div>
 			<div class="sector-icons">
-				<v-icon small v-if="sector.hasThreat" class="sector-icon-threat">mdi-skull</v-icon>
-				<v-icon small v-if="sector.hasArtifact" class="sector-icon-arto">mdi-star</v-icon>
-				<v-icon small v-if="sector.rotLvl >= 2" class="sector-icon-rad">mdi-radioactive</v-icon>
+				<v-icon small v-if="gmeye && sector.hasThreat" class="sector-icon-threat">mdi-skull</v-icon>
+				<v-icon small v-if="gmeye && sector.hasArtifact" class="sector-icon-arto">mdi-star</v-icon>
+				<v-icon small v-if="gmeye && sector.rotLvl >= 2" class="sector-icon-rad">mdi-radioactive</v-icon>
+				<v-icon small v-if="gmeye && sector.rotLvl <= 0" class="sector-icon-safe">mdi-marker-check</v-icon>
 			</div>
 			<div class="sector-name" :class="{ 'sector-name-empty': sector.isEmpty }">{{ processedName }}</div>
 		</v-flex>
@@ -176,7 +176,7 @@ export default {
 }
 
 .sector-icons > .sector-icon-threat {
-	color: #D3282C;
+	color: #9B2423;
 }
 
 .sector-icons > .sector-icon-arto {
@@ -186,6 +186,10 @@ export default {
 .sector-icons > .sector-icon-rad {
 	border-radius: 500px;
 	background-color: #ffff66;
+}
+
+.sector-icons > .sector-icon-safe {
+	color: #237F52;
 }
 
 .sector-name {

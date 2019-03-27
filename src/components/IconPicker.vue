@@ -58,15 +58,6 @@ export default {
 	created: function() {
 		this._icons = this.icons;
 	},
-	/* mounted: function() {
-		if (this.iconsStorage.icons) {
-			this.icons = this.iconsStorage.icons;
-		}
-		else {
-			const iconsPromise = this.iconsStorage.getIcons();
-			iconsPromise.then(icons => this.icons = icons);
-		}
-	}, */
 	watch: {
 		icon: function() {
 			if (this.icon) this.selected = this.icon.slice(4);
@@ -75,10 +66,11 @@ export default {
 		searchInput: function() {
 			if (this.searchInput) {
 				this._icons = this.icons.filter(item => {
-					const searches = item.split('-').map(namePiece => {
+					/* const searches = item.split('-').map(namePiece => {
 						return namePiece.search(this.searchInput.toLowerCase());
 					});
-					return searches.indexOf(true) > -1;
+					return searches.indexOf(true) > -1; */
+					return item.indexOf(this.searchInput) > -1;
 				});
 			}
 			else {
@@ -103,19 +95,22 @@ export default {
 	padding-top: 0;
 }
 
-.icon-picker-content .icons-list {
+.icons-list {
+	display: -webkit-flex;
+	display: flex;
+	align-content: flex-start;
 	width: 250px;
 	height: 250px;
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
 
-.icon-picker-content .icons-list .v-icon {
+.icons-list .v-icon {
 	margin: 1px;
 	padding: 1px;
 }
 
-.icon-picker-content .icons-list .v-icon:hover {
+.icons-list .v-icon:hover {
 	outline: 1px solid green;
 	background-color: #C8C8C8;
 }

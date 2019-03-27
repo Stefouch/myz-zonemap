@@ -3,15 +3,18 @@
 	<v-toolbar id="navbar-myz" dense dark>
 		<v-toolbar-side-icon></v-toolbar-side-icon>
 		<v-toolbar-title class="mr-5">{{ mapTitle }}</v-toolbar-title>
-		<v-btn icon :disabled="!editedZonemap" @click="saveZonemap()">
+		<v-btn icon :disabled="!zonemapChangeCount" @click="saveZonemap()">
 			<v-icon>mdi-content-save</v-icon>
 		</v-btn>
-		<!-- <v-btn icon @click="editDialog = true">
-			<v-icon>mdi-square-edit-outline</v-icon> {{ selectedCoord }}
-		</v-btn> -->
+		<v-btn icon @click="gmeye = !gmeye">
+			<v-icon>{{ gmeye ? 'mdi-eye' : 'mdi-eye-off' }}</v-icon>
+		</v-btn>
 		<v-spacer></v-spacer>
-		<v-btn icon @click="$router.push('help')">
+		<v-btn icon @click="openHelp()">
 			<v-icon>mdi-help-circle-outline</v-icon>
+		</v-btn>
+		<v-btn icon @click="optionsDialog = true">
+			<v-icon>mdi-settings</v-icon>
 		</v-btn>
 		<v-btn icon @click="closeZonescreen()">
 			<v-icon>mdi-close</v-icon>
@@ -49,6 +52,12 @@
 		></zm-edit-sector>
 	</v-dialog>
 
+	<!-- EDIT-SECTOR DIALOG =============================================== -->
+	<v-dialog
+		v-model="optionsDialog"
+	>
+	</v-dialog>
+
 </div>
 </template>
 
@@ -73,7 +82,8 @@ export default {
 			gmeye: true,
 			selectedCoord: null,
 			editDialog: false,
-			editedZonemap: false
+			optionsDialog: false,
+			zonemapChangeCount: 0
 		}
 	},
 	computed: {
@@ -101,6 +111,9 @@ export default {
 			];
 			return alphabet[y] + Util.zeroise(x, 2);
 		},
+		openHelp() {
+			window.open('./#/Help', '_blank');
+		},
 		closeZonescreen() {
 			this.$router.push({ name: 'home' });
 		},
@@ -109,7 +122,7 @@ export default {
 			this.editDialog = true;
 		},
 		changeSector(sector) {
-			this.editedZonemap = true;
+			this.zonemapChangeCount++;
 			/* if (!sector) this.zonemap.delete(this.selectedCoord);
 			else this.zonemap.set(this.selectedCoord, sector); */
 			this.zonemap.delete(this.selectedCoord);

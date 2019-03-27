@@ -27,7 +27,7 @@
 				
 				<h2>Sector</h2>
 				<v-layout row>
-					<v-btn icon large outline @click="iconPicker = true">
+					<v-btn icon large outline @click="iconPickerDialog = true">
 						<v-icon x-large>{{ sector.icon }}</v-icon>
 					</v-btn>
 					<v-text-field
@@ -103,7 +103,7 @@
 								dark
 							>
 								<v-avatar color="#888888">
-									<v-icon>mdi-space-invaders</v-icon>
+									<v-icon>{{ data.item.search(/ph(e|é)nom(e|è)n/i) > -1 ? 'mdi-alert-octagram-outline' : 'mdi-space-invaders' }}</v-icon>
 								</v-avatar>
 								{{ data.item }}
 							</v-chip>
@@ -215,7 +215,7 @@
 
 	<!-- ICON-PICKER ========================================================================== -->
 	<v-dialog
-		v-model="iconPicker"
+		v-model="iconPickerDialog"
 		width="300px"
 		lazy
 	>
@@ -274,9 +274,9 @@ export default {
 	},
 	data: function() {
 		return { 
-			sector: this.editedSector,
+			sector: this.editedSector.clone(),
 			night: false,
-			iconPicker: false,
+			iconPickerDialog: false,
 			deleteDialog: false,
 			rotLvlLabels: [
 				'Oasis',
@@ -291,9 +291,10 @@ export default {
 		}
 	},
 	watch: {
+		// The function ensures the entries are refreshed each time the dialog is activated.
 		coordinates: function() {
-			this.sector = this.editedSector;
-			// this.$forceUpdate();
+			this.sector = this.editedSector.clone();
+			if (!this.sector.name) this.sector.name = this.coordinates;
 		}
 	},
 	computed: {
@@ -341,7 +342,7 @@ export default {
 			return Util.capitalize(text);
 		},
 		pickIcon(icon) {
-			this.iconPicker = false;
+			this.iconPickerDialog = false;
 			this.sector.icon = icon;
 		},
 		rollThreatLvl() {
