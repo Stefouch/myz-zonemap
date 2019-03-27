@@ -27,7 +27,7 @@ class ZoneSector {
 		 * Sector's name.
 		 * @type {string}
 		 */
-		this.name = data.name || 'Unnamed Sector';
+		this.name = data.name || '';
 
 		/**
 		 * Number of times the sector was explored.
@@ -256,6 +256,14 @@ class ZoneSector {
 		}
 		// ARTOS
 		if (artoQty > 0 && this.hasRuin) this.finds.artifacts = artoQty;
+	}
+
+	/**
+	 * Clones the sector. Returns a copy.
+	 * @returns {ZoneSector}
+	 */
+	clone() {
+		return new ZoneSector(JSON.parse(JSON.stringify(this)));
 	}
 
 	// STATIC METHODS =========================================================
