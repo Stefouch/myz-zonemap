@@ -275,11 +275,11 @@ export default {
 			]
 		}
 	},
-	/* watch: {
-		editedSector: function() {
-			this.$forceUpdate;
+	watch: {
+		sector: function() {
+			this.$forceUpdate();
 		}
-	}, */
+	},
 	computed: {
 		sectorColor: function() {
 			if (this.sector.type === SectorTypes.ark) return '#DB9F00';
