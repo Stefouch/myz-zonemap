@@ -17,7 +17,7 @@
 			<v-btn dark flat @click="resetSector()">
 				<v-icon>mdi-dice-6</v-icon>&nbsp;Roll
 			</v-btn>
-			<v-btn dark flat @click="deleteDialog = true">
+			<v-btn dark flat @click="deleteDialog = true" :disabled="!editedSector">
 				<v-icon>mdi-delete</v-icon>&nbsp;Delete
 			</v-btn>
 		</v-toolbar-items>
@@ -276,8 +276,9 @@ export default {
 		}
 	},
 	watch: {
-		sector: function() {
-			this.$forceUpdate();
+		coordinates: function() {
+			this.sector = this.editedSector;
+			// this.$forceUpdate();
 		}
 	},
 	computed: {
