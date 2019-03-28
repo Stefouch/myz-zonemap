@@ -41,7 +41,7 @@ class ZoneMap extends Collection {
 		 * File's creator.
 		 * @type {string}
 		 */
-		this.creator = data.creator || '';
+		this.author = data.author || '';
 
 		/**
 		 * Game version for this Zonemap.
