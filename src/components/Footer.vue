@@ -1,30 +1,58 @@
 <template>
 <footer class="footer">
-	<div id="medias" class="d-flex flex-wrap justify-content-center">
-		<!--<a class="btn btn-outline-light btn-sm m-1" href="http://forum.mtgtreachery.net/" target="_blank"><i class="far fa-comments"></i> Forum</a>-->
-		<a class="btn btn-outline-light btn-sm m-1" href="https://discord.gg/aXYnCCd" target="_blank"><i class="fab fa-discord"></i> Discord</a>
-		<a class="btn btn-outline-light btn-sm m-1" href="http://www.fb.com/Stefouch" target="_blank"><i class="fab fa-facebook-square"></i> Facebook</a>
-		<!--<a class="btn btn-outline-light btn-sm m-1 disabled" href="#"><i class="fab fa-twitter"></i> Twitter</a>-->
-		<a class="btn btn-outline-light btn-sm m-1" href="javascript:alert('Hit me up on Discord: Stefouch#5202');"><i class="far fa-envelope"></i> E-mail</a>
-	</div>
+	<v-layout row wrap justify-center>
+		<v-btn icon @click="openLink('https://www.fb.com/Stefouch')">
+			<v-icon>mdi-facebook-box</v-icon>
+		</v-btn>
+		<v-btn icon @click="openLink('https://discord.gg/aXYnCCd')">
+			<v-icon>mdi-discord</v-icon>
+		</v-btn>
+		<v-btn icon @click="openLink($root.github)">
+			<v-icon>mdi-github-circle</v-icon>
+		</v-btn>
+	</v-layout>
+	
 	<div class="footer-legal">
-		<p>This a fan project! Made by a MYZ fan, for MYZ fans.</p>
-		<p>The literal and graphical information presented on this site about <i>Mutant: Year Zero</i>, including the textures, is copyright <i>Fria Ligan</i> / <i>Free League Publishing</i>. This website is not produced by, endorsed by, supported by, or affiliated with <i>Fria Ligan</i>.</p>
-		<p>Symbols are courtesy of <a class="footer-legal-link" href="http://game-icons.net/" target="_blank">game-icons.net</a>.</p>
-		<!--<p>All other content © 2019 MtG Treachery, LLC.</p>-->
-		<!-- <p><i><?= 'Last updated ' . $lastUpdateDate ?>.</i></p> -->
+		<v-divider style="margin-bottom: 30px;"></v-divider>
+		<p>This a fan project! Made by a MYZ fan, for MYZ fans!</p>
+		<p>The literal and graphical information presented on this site about <i>Mutant: Year Zero</i>, including the textures, is copyright <i>Fria Ligan</i> / <i>Free League Publishing</i>. This website is not produced by, endorsed by, supported by, or affiliated with <a href="https://frialigan.se/en" target="_blank">Fria Ligan</a>.</p>
+		<p>Icons are courtesy of <a href="https://materialdesignicons.com/" target="_blank">Material Design Icons</a></p>
+		<p>Powered by <a href="https://vuejs.org/" target="_blank">Vue.js</a> and <a href="https://vuetifyjs.com/" target="_blank">Vuetify</a></p>
+		<p>Released under the <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a></p>
+		<p>Version: <b>{{ $root.version }}</b></p>
 	</div>
 </footer>
 </template>
+
+<script>
+export default {
+	methods: {
+		openLink(href) {
+			window.open(href, '_blank');
+		}
+	}
+};
+</script>
+
 
 <style scoped>
 .footer {
 	padding: 30px 2.5% 68px 2.5%;
 	background-color: #19181f;
 	text-align: center;
-	/* height: 100%; */
 }
-@media (min-width: 576px) { .footer { text-align: left; } }
+
+@media (min-width: 768px) { .footer { text-align: left; } }
+
+.footer .v-icon {
+	color: rgba(255,255,255,.75);
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.footer .v-icon:hover {
+	color: #fff;
+}
 
 .footer p, .footer a {
 	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
@@ -33,13 +61,10 @@
 .footer-legal {
 	font-size: 12px;
 	color: #444;
-	margin: 20px 0 0 0;
+	max-width: 1000px;
+	margin: 20px auto;
 	line-height: 1.33;
 }
-.footer-legal-link { color: #444; }
-.footer-legal-link:hover { color: rgba(255,255,255,.75); }
-
-.footer #medias a {
-	flex-grow: 0!important;
-}
+.footer-legal a { color: #444; }
+.footer-legal a:hover { color: rgba(255,255,255,.75); }
 </style>
