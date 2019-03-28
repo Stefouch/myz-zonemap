@@ -3,23 +3,42 @@
 	<v-toolbar id="navbar-myz" dense dark>
 		<v-toolbar-side-icon></v-toolbar-side-icon>
 		<v-toolbar-title class="mr-5">{{ interfaceTitle }}</v-toolbar-title>
-		<v-btn icon :disabled="!zonemapChangeCount" @click="saveZonemap()">
+		<v-btn icon
+			@click="saveZonemap()"
+			title="Save modifications"
+			:disabled="!zonemapChangeCount"
+		>
 			<v-icon>mdi-content-save</v-icon>
 		</v-btn>
-		<v-btn icon @click="downloadZonemap()">
+		<v-btn icon
+			@click="downloadZonemap()"
+			title="Download the zonemap JSON file"
+		>
 			<v-icon>mdi-download</v-icon>
 		</v-btn>
-		<v-btn icon @click="gmeye = !gmeye">
+		<v-btn icon
+			@click="gmeye = !gmeye"
+			title="Toggle GM view"
+		>
 			<v-icon>{{ gmeye ? 'mdi-eye' : 'mdi-eye-off' }}</v-icon>
 		</v-btn>
 		<v-spacer></v-spacer>
-		<v-btn icon @click="openHelp()">
+		<v-btn icon
+			@click="openHelp()"
+			title="Help &amp; Readme"
+		>
 			<v-icon>mdi-help-circle-outline</v-icon>
 		</v-btn>
-		<v-btn icon @click="optionsDialog = true">
+		<v-btn icon
+			@click="optionsDialog = true"
+			title="Options"
+		>
 			<v-icon>mdi-settings</v-icon>
 		</v-btn>
-		<v-btn icon @click="closeZonescreen()">
+		<v-btn icon
+			@click="closeZonescreen()"
+			title="Close"
+		>
 			<v-icon>mdi-close</v-icon>
 		</v-btn>
 	</v-toolbar>
@@ -66,6 +85,39 @@
 			<h2>Options</h2>
 			<v-tabs grow>
 				<v-tab>
+					File
+				</v-tab>
+				<v-tab-item lazy>
+					<h4>Infos</h4>
+					<v-text-field
+						v-model="zonemap.title"
+						@input="zonemapChangeCount++"
+						label="Map title"
+					/>
+					<v-text-field
+						v-model="zonemap.author"
+						@input="zonemapChangeCount++"
+						label="Author"
+					/>
+					<v-divider></v-divider>
+					<h4>Locale</h4>
+					<v-select
+						v-model="zonemap.lang"
+						@change="zonemapChangeCount++"
+						:items="$root.mapLangs"
+						label="Sector language"
+						prepend-icon="mdi-web"
+					/>
+					<p>This option only changes the language used for the items generated in a sector.</p>
+					<v-divider></v-divider>
+					<h4>Saving</h4>
+					<v-switch
+						v-model="minified"
+						:label="minified ? 'Minify' : 'Do not minify'"
+					/>
+					<p>By default, the Zonemap JSON file is minified and compressed. By disabling this option, your file will be significantly larger, but readable for a human eye.</p>
+				</v-tab-item>
+				<v-tab>
 					Background
 				</v-tab>
 				<v-tab-item lazy>
@@ -88,26 +140,6 @@
 						max-width="200px"
 						max-height="200px"
 					/>
-				</v-tab-item>
-				<v-tab>
-					File
-				</v-tab>
-				<v-tab-item lazy>
-					<h4>Locale</h4>
-					<v-select
-						v-model="zonemap.lang"
-						:items="$root.mapLangs"
-						label="Sector language"
-						prepend-icon="mdi-web"
-					/>
-					<p>This option only changes the language used for the items generated in a sector.</p>
-					<v-divider></v-divider>
-					<h4>Saving</h4>
-					<v-switch
-						v-model="minified"
-						:label="minified ? 'Minify' : 'Do not minify'"
-					/>
-					<p>By default, the Zonemap JSON file is minified and compressed. By disabling this option, your file will be significantly larger, but readable for a human eye.</p>
 				</v-tab-item>
 			</v-tabs>
 		</v-layout>
@@ -144,12 +176,12 @@ export default {
 			editDialog: false,
 			optionsDialog: false,
 			zonemapChangeCount: 0
-		}
+		};
 	},
 	computed: {
 		interfaceTitle: function() {
-			if (this.zonemap) return `Find My Path: ${this.zonemap.title.slice(0, 20)}`;
-			else return 'Find My Path';
+			if (this.zonemap) return `${this.$root.name}: ${this.zonemap.title.slice(0, 20)}`;
+			else return this.$root.name;
 		},
 		selectedSector: function() {
 			return this.zonemap.get(this.selectedCoord);
@@ -188,7 +220,6 @@ export default {
 		},
 		changeSector(sector) {
 			this.zonemapChangeCount++;
-			
 			if (sector) this.zonemap.set(this.selectedCoord, sector);
 			else this.zonemap.delete(this.selectedCoord);
 		},
@@ -225,10 +256,10 @@ export default {
 				// this.zoneBg = reader.result;
 				// this.zoneBgFile = null;
 				localStorage.zonemapbg = reader.result;
-			}
+			};
 			reader.onerror = () => {
 				console.log('[ERROR] - [Zonemap BG] - Unable to read the file!');
-			}
+			};
 
 			reader.readAsDataURL(this.zoneBgFile);
 		}
@@ -238,7 +269,7 @@ export default {
 		zmEditSector,
 		zmFileInput
 	}
-}
+};
 </script>
 
 <style>

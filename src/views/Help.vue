@@ -1,53 +1,73 @@
 <template>
-<div>
-
-	<v-toolbar class="help-dialog-toolbar" fixed dark dense>
+<v-app :dark="nightMode">
+	<v-toolbar class="help-dialog-toolbar" fixed dense dark>
 		<v-btn icon dark @click="drawer = !drawer">
 			<v-icon>mdi-menu</v-icon>
 		</v-btn>
-		<v-btn icon dark @click="closeHelp()">
-			<v-icon>mdi-close</v-icon>
-		</v-btn>
-		<v-toolbar-title>Help</v-toolbar-title>
+		<v-toolbar-title>HELP: <b>{{ $root.name.toUpperCase() }}</b> v{{ $root.version }}</v-toolbar-title>
 		<v-spacer></v-spacer>
 		<v-toolbar-items>
+			<v-btn icon dark @click="nightMode = !nightMode" title="Toggle night mode">
+				<v-icon>{{ nightMode ? 'mdi-lightbulb-outline' : 'mdi-lightbulb' }}</v-icon>
+			</v-btn>
+			<v-btn icon dark @click="closeHelp()" title="Close this tab">
+				<v-icon>mdi-close</v-icon>
+			</v-btn>
 		</v-toolbar-items>
 	</v-toolbar>
 
-	<v-container py-5 style="max-width: 800px;">
+	<!-- NAVIGATION DRAWER ============================================ -->
+	<v-navigation-drawer
+		v-model="drawer"
+		fixed
+		temporary
+	>
+		<v-list>
+			<v-list-tile
+				v-for="(entry, i) in drawerEntries"
+				:key="i"
+			>
+				<v-list-tile-content>
+					<v-list-tile-title class="navigation-menu-entry">
+						<a @click="goto(entry)">{{ formatTitle(entry) }}</a>
+					</v-list-tile-title>
+				</v-list-tile-content>
+			</v-list-tile>
+		</v-list>
+	</v-navigation-drawer>
 
-		<!-- NAVIGATION DRAWER ============================================ -->
-		<v-navigation-drawer
-			v-model="drawer"
-			fixed
-			temporary
-		>
-			<v-list dense class="pt-0">
-				<v-list-tile
-					v-for="(entry, i) in drawerEntries"
-					:key="i"
-				>
-					<v-list-tile-content>
-						<v-list-tile-title class="navigation-menu-entry">
-							<a @click="goto(entry)">{{ formatTitle(entry) }}</a>
-							<!-- <router-link :to="`#${entry}`">{{ formatTitle(entry) }}</router-link> -->
-						</v-list-tile-title>
-					</v-list-tile-content>
-				</v-list-tile>
-			</v-list>
-		</v-navigation-drawer>
+	<v-container py-5 style="max-width: 800px; margin: 0 auto;">
 
 		<!-- HELP TEXT ==================================================== -->
-		<v-layout ref="helptext" column>
-			<h1>Mutant Year&nbsp;Zero:<br />Find&nbsp;My&nbsp;Path</h1>
+		<v-layout id="helptext" ref="helptext" column>
+			<h1>Mutant Year&nbsp;Zero:<br />{{ $root.name }}</h1>
 			<div>
-				<h2>Welcome to The Zone!</h2>
-				<p>This is a web application for managing the Map of the Zone in the Mutant: Year Zero tabletop roleplaying game.</p>
-				<p>This application is mainly designed for Game Master's (GM) eyes, not Player Characters (PCs).</p>
-				<h3>How it works</h3>
-				<p>Each sector is randomly generated. You can of course add your own modifications, or roll new values for that sector. Each sector can show up to six tiny icons, notifying the GM what left to discover in that sector.</p>
-				<p>The Map can be saved in JSON format, and loaded again for later uses. Because it's JSON, it's easy to edit with a text editor. But beware of what you do here, as this could lead to file corruption.</p>
+				<h2 id="About" ref="About">About</h2>
+				<p><b>{{ $root.name }}</b> is a web application for managing the Map of the Zone in the <b>Mutant: Year Zero</b> tabletop roleplaying game. It's a useful companion for generating random Zone sectors on the fly, rolling threats, keeping notes, tracking the resources to find, and many more.</p>
+				<p>It's mainly designed for Game Master's Eyes, although the application provides a special mode to showcase explored-only sectors to the Player Characters, hiding from them the location of EDEN.</p>
+				<div class="alert alert-success">
+					<h4><v-icon small>mdi-book-open-page-variant</v-icon> ReadMe!</h4>
+					<p>This document contains many useful information about <b>{{ $root.name }}</b> and how to pilot the web app.
+					<br/>It worth the read!</p>
+				</div>
+				<h3>Saving Your Work</h3>
+				<p>The <b>Zonemap</b> can be saved in JSON format, and loaded again for later uses. Because it's JSON, it's easy to edit with a text editor. <small><i>(But beware of what you do here, as this could lead to file corruption.)</i></small></p>
 			</div>
+
+			<v-divider></v-divider>
+			<h2 id="First_Steps" ref="First_steps">First Steps</h2>
+			<div>
+				<p><b>{{ $root.name }}</b> is compatible with modern web browsers, although it doesn't work with Internet Explorer, and never will.</p>
+				<p>The development is still in progress and fonctionalities are subject to evolve. Unfortunately, bugs are not impossible. If you encounter some of them, please read <a @click="goto('Troubleshooting')">Troubleshooting</a> below.</p>
+				<h3>Creating a New Map</h3>
+				<p></p>
+				<h3>Opening an Existing Map</h3>
+				<p></p>
+				<h3>Quick-loading the Last Map</h3>
+				<p></p>
+			</div>
+
+			<v-divider></v-divider>
 			<h2 id="The_Zone_Screen" ref="The_Zone_Screen">The Zone Screen</h2>
 			<div>
 				<p>A Map of the Zone can't be wider than 30 squares and heighter than 26 squares.</p>
@@ -167,7 +187,7 @@
 
 	</v-container>
 
-</div>
+</v-app>
 </template>
 
 <script>
@@ -175,7 +195,8 @@ export default {
 	name: 'help',
 	data: () => ({
 		drawer: false,
-		drawerEntries: []
+		drawerEntries: [],
+		nightMode: true
 	}),
 	mounted: function() {
 		const childs = this.$refs.helptext.childNodes;
@@ -197,13 +218,21 @@ export default {
 			window.scrollTo(0, top);
 		}
 	}
-}
+};
 </script>
 
 <style scoped>
+p b {
+	font-family: 'ArcherPro Bold';
+}
+
 .navigation-menu-entry {
 	font-family: 'Big Noodle Titling';
 	font-size: 1.5rem;
+}
+
+#helptext > div > *:last-child {
+	margin-bottom: 5em;
 }
 
 li:last-child {
@@ -221,7 +250,11 @@ li:last-child {
 	background-size: cover;
 }
 
-.edit-help-toolbar {
+.help-dialog-toolbar {
 	font-family: 'Futura Std Medium'!important;
+}
+
+.alert .v-icon {
+	color: inherit;
 }
 </style>
