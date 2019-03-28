@@ -2,9 +2,12 @@
 <div>
 	<v-toolbar id="navbar-myz" dense dark>
 		<v-toolbar-side-icon></v-toolbar-side-icon>
-		<v-toolbar-title class="mr-5">{{ mapTitle }}</v-toolbar-title>
+		<v-toolbar-title class="mr-5">{{ interfaceTitle }}</v-toolbar-title>
 		<v-btn icon :disabled="!zonemapChangeCount" @click="saveZonemap()">
 			<v-icon>mdi-content-save</v-icon>
+		</v-btn>
+		<v-btn icon @click="downloadZonemap()">
+			<v-icon>mdi-download</v-icon>
 		</v-btn>
 		<v-btn icon @click="gmeye = !gmeye">
 			<v-icon>{{ gmeye ? 'mdi-eye' : 'mdi-eye-off' }}</v-icon>
@@ -52,11 +55,64 @@
 		></zm-edit-sector>
 	</v-dialog>
 
-	<!-- EDIT-SECTOR DIALOG =============================================== -->
-	<v-dialog
+	<!-- OPTIONS DIALOG =================================================== -->
+	<v-navigation-drawer
 		v-model="optionsDialog"
+		fixed
+		right
+		temporary
 	>
-	</v-dialog>
+		<v-layout column px-3>
+			<h2>Options</h2>
+			<v-tabs grow>
+				<v-tab>
+					Background
+				</v-tab>
+				<v-tab-item lazy>
+					<h4>Image File</h4>
+					<zm-file-input
+						v-model="zoneBgFilename"
+						@change="zoneBgInputChange($event)"
+						accept="image/*"
+						label="Choose an image file of your zonemap"
+					/>
+					<v-btn
+						:disabled="!zoneBgFilename"
+						@click="setZoneBg()"
+					>
+						Load
+					</v-btn>
+					<v-img
+						v-if="zoneBg"
+						:src="zoneBg"
+						max-width="200px"
+						max-height="200px"
+					/>
+				</v-tab-item>
+				<v-tab>
+					File
+				</v-tab>
+				<v-tab-item lazy>
+					<h4>Locale</h4>
+					<v-select
+						v-model="zonemap.lang"
+						:items="$root.mapLangs"
+						label="Sector language"
+						prepend-icon="mdi-web"
+					/>
+					<p>This option only changes the language used for the items generated in a sector.</p>
+					<v-divider></v-divider>
+					<h4>Saving</h4>
+					<v-switch
+						v-model="minified"
+						:label="minified ? 'Minify' : 'Do not minify'"
+					/>
+					<p>By default, the Zonemap JSON file is minified and compressed. By disabling this option, your file will be significantly larger, but readable for a human eye.</p>
+				</v-tab-item>
+			</v-tabs>
+		</v-layout>
+		
+	</v-navigation-drawer>
 
 </div>
 </template>
@@ -64,6 +120,7 @@
 <script>
 import zmSector from '@/components/Sector.vue';
 import zmEditSector from '@/components/EditSector.vue';
+import zmFileInput from '@/components/FileInput.vue';
 import dragscroll from 'dragscroll';
 import ZoneMap from '@/zonemap/ZoneMap';
 import Util from '@/util/Util';
@@ -79,6 +136,9 @@ export default {
 	data: function() {
 		return {
 			zonemap: this.passingZonemap,
+			minified: true,
+			zoneBgFilename: '',
+			zoneBgFile: null,
 			gmeye: true,
 			selectedCoord: null,
 			editDialog: false,
@@ -87,12 +147,16 @@ export default {
 		}
 	},
 	computed: {
-		mapTitle: function() {
+		interfaceTitle: function() {
 			if (this.zonemap) return `Find My Path: ${this.zonemap.title.slice(0, 20)}`;
 			else return 'Find My Path';
 		},
 		selectedSector: function() {
 			return this.zonemap.get(this.selectedCoord);
+		},
+		zoneBg: function() {
+			if (localStorage.zonemapbg) return localStorage.zonemapbg;
+			else return null;
 		}
 	},
 	created: function() {
@@ -100,6 +164,7 @@ export default {
 		console.log(this.zonemap);
 	},
 	mounted: function() {
+		// Needed here to allow the class:dragscroll to work.
 		dragscroll.reset();
 	},
 	methods: {
@@ -123,19 +188,55 @@ export default {
 		},
 		changeSector(sector) {
 			this.zonemapChangeCount++;
-			/* if (!sector) this.zonemap.delete(this.selectedCoord);
-			else this.zonemap.set(this.selectedCoord, sector); */
-			this.zonemap.delete(this.selectedCoord);
-			this.zonemap.set(this.selectedCoord, sector);
-			// this.$forceUpdate();
+			
+			if (sector) this.zonemap.set(this.selectedCoord, sector);
+			else this.zonemap.delete(this.selectedCoord);
 		},
 		saveZonemap() {
-			//
+			localStorage.zonemap = ZoneMap.stringify(this.zonemap);
+			this.zonemapChangeCount = 0;
+		},
+		downloadZonemap() {
+			const content = ZoneMap.stringify(this.zonemap, this.minified ? 0 : 2);
+			const downloadLink = document.createElement('a');
+			const blob = new Blob([content], { type: 'application/json' });
+			const url = URL.createObjectURL(blob);
+			downloadLink.href = url;
+			downloadLink.download = `${this.zonemap.title}.json`;
+
+			document.body.appendChild(downloadLink);
+			downloadLink.click();
+			document.body.removeChild(downloadLink);
+		},
+		zoneBgInputChange(e) {
+			const files = e.target.files;
+			if (files.length) this.zoneBgFile = files[0];
+			else this.zoneBgFile = null;
+		},
+		setZoneBg() {
+			if (!this.zoneBgFile) {
+				alert('No valid background file selected!');
+				return;
+			}
+			// File Reader
+			console.log(this.zoneBgFile);
+			const reader = new FileReader();
+			reader.onload = function() {
+				// this.zoneBg = reader.result;
+				// this.zoneBgFile = null;
+				localStorage.zonemapbg = reader.result;
+			}
+			reader.onerror = () => {
+				console.log('[ERROR] - [Zonemap BG] - Unable to read the file!');
+			}
+
+			reader.readAsDataURL(this.zoneBgFile);
 		}
 	},
 	components: {
 		zmSector,
-		zmEditSector
+		zmEditSector,
+		zmFileInput
 	}
 }
 </script>
