@@ -1,7 +1,7 @@
 <template>
 <v-card class="edit-dialog-bg">
 	<v-toolbar class="edit-dialog-toolbar" fixed dark dense :color="sectorColor">
-		<v-btn icon dark @click="$emit('close')">
+		<v-btn icon dark @click="close()">
 			<v-icon>mdi-close</v-icon>
 		</v-btn>
 		<v-toolbar-title>{{ coordinates }} – <b>{{ sector.name }}</b></v-toolbar-title>
@@ -246,6 +246,17 @@
 		</v-container>
 	</v-dialog>
 
+	<!-- SNACKBAR ============================================================================= -->
+	<v-snackbar
+		v-model="snackbar"
+		bottom
+	>
+		{{ snackbarText }}
+		<v-btn icon @click="snackbar = false">
+			<v-icon>mdi-close</v-icon>
+		</v-btn>
+	</v-snackbar>
+
 </v-card>
 </template>
 
@@ -278,6 +289,8 @@ export default {
 			night: false,
 			iconPickerDialog: false,
 			deleteDialog: false,
+			snackbarText: '',
+			snackbar: false,
 			rotLvlLabels: [
 				'Oasis',
 				'Weak',
@@ -348,6 +361,10 @@ export default {
 		rollThreatLvl() {
 			this.sector.threats = [];
 			this.sector.rollThreatLvl(this.night ? 3 : 0);
+			// Shows the snackbar.
+			const t = this.sector.threats.length;
+			const a = this.sector.finds.artifacts;
+			this.showSnackbar(`Rolled: ${a} artifact${a > 1 ? 's' : ''}${t ? ' and 1 threat' : ''}`);
 		},
 		defaultDescription() {
 			this.sector.description = ZoneSector.getRuinDescription(this.sector.ruins, this.lang);
@@ -359,15 +376,27 @@ export default {
 				type: this.sector.type,
 				notes: this.sector.notes
 			}, this.lang);
+			this.showSnackbar('Sector reset!');
 		},
 		deleteSector() {
-			if (confirm('Wipe the sector.\nContinue?')) {
+			if (confirm('You are going to wipe the sector.\n\nContinue?')) {
 				this.saveSector(null);
+				this.$emit('change', null);
+				this.close();
 			}
 			this.deleteDialog = false;
 		},
 		saveSector(sectorToReturn) {
 			this.$emit('change', sectorToReturn);
+			this.showSnackbar('Sector saved!');
+		},
+		showSnackbar(text) {
+			this.snackbarText = text;
+			this.snackbar = true;
+		},
+		close() {
+			this.iconPickerDialog = false;
+			this.snackbar = false;
 			this.$emit('close');
 		}
 	},
