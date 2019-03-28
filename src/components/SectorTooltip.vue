@@ -2,7 +2,7 @@
 <div class="sector-tooltip">
 	<!-- TITLE -->
 	<h3>
-		<v-icon small>{{ $root.typeIcons[sector.type] }}</v-icon>&nbsp;{{ sector.name }} ({{ id }})
+		<v-icon small>{{ sector.icon || $root.typeIcons[sector.type] }}</v-icon>&nbsp;{{ sector.name }} ({{ id }})
 	</h3>
 
 	<!-- TYPE & ENV -->
@@ -51,7 +51,7 @@ export default {
 			return Object.entries(this.sector.finds).filter(arr => arr[1] > 0);
 		}
 	}
-}
+};
 </script>
 
 <style>
