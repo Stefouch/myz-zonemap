@@ -9,7 +9,7 @@
 	@contextmenu.prevent="$emit('open', [id, sector])"
 >
 	<v-tooltip
-		v-if="gmeye && sector"
+		v-if="sector"
 		content-class="sector-tooltip-content"
 		open-delay="1000"
 		right
@@ -23,11 +23,11 @@
 			<div class="sector-marker">
 				<v-icon large>{{ sectorIcon }}</v-icon>
 			</div>
-			<div class="sector-icons">
-				<v-icon small v-if="gmeye && sector.hasThreat" class="sector-icon-threat">mdi-skull</v-icon>
-				<v-icon small v-if="gmeye && sector.hasArtifact" class="sector-icon-arto">mdi-star</v-icon>
-				<v-icon small v-if="gmeye && sector.rotLvl >= 2" class="sector-icon-rad">mdi-radioactive</v-icon>
-				<v-icon small v-if="gmeye && sector.rotLvl <= 0" class="sector-icon-safe">mdi-marker-check</v-icon>
+			<div class="sector-icons" :class="{ hide: !gmeye }">
+				<v-icon small v-if="sector.hasThreat" class="sector-icon-threat">mdi-skull</v-icon>
+				<v-icon small v-if="sector.hasArtifact" class="sector-icon-arto">mdi-star</v-icon>
+				<v-icon small v-if="sector.rotLvl >= 2" class="sector-icon-rad">mdi-radioactive</v-icon>
+				<v-icon small v-if="sector.rotLvl <= 0" class="sector-icon-safe">mdi-marker-check</v-icon>
 			</div>
 			<div class="sector-name" :class="{ 'sector-name-empty': sector.isEmpty }">{{ processedName }}</div>
 		</v-flex>
@@ -36,7 +36,7 @@
 			:sector="sector"
 		/>
 	</v-tooltip>
-	<span v-else class="sector-null">{{ id }}</span>
+	<span class="sector-null" :class="{ hide: hideNullSector }">{{ id }}</span>
 </div>
 </template>
 
@@ -54,8 +54,8 @@ export default {
 		},
 		sector: {
 			type: ZoneSector,
-			// default: null
-			default: () => new ZoneSector()
+			default: null
+			// default: () => new ZoneSector()
 		},
 		gmeye: {
 			type: Boolean,
@@ -77,8 +77,13 @@ export default {
 				'sector-rotstrong': this.sector.rotLvl === 2,
 				'sector-rothotspot': this.sector.rotLvl >= 3,
 				'sector-special': this.sector.type === SectorTypes.special,
-				'sector-ark': this.sector.type === SectorTypes.ark
+				'sector-ark': this.sector.type === SectorTypes.ark,
+				'hide': !this.gmeye && !this.sector.explored
 			}
+		},
+		hideNullSector: function() {
+			if (!this.sector) return false;
+			return this.gmeye || this.sector.explored;
 		},
 		processedName: function() {
 			let name = this.sector.name;
@@ -93,7 +98,7 @@ export default {
 	components: {
 		zmSectorTooltip
 	}
-}
+};
 </script>
 
 <style>
@@ -198,7 +203,6 @@ export default {
 	margin-top: 4px;
 	margin-left: 2px;
 	margin-right: 2px;
-	/* font-family: 'Futura Std Heavy'; */
 	line-height: 1.10;
 	text-shadow: -1px 1px 0 #fff,
 				1px 1px 0 #fff,
@@ -236,5 +240,9 @@ export default {
 	max-width: 200px;
 	color: #000;
 	background-color: #fff;
+}
+
+.hide {
+	display: none;
 }
 </style>
