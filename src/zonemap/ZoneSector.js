@@ -255,7 +255,7 @@ class ZoneSector {
 			this.threats.push(rollData(roll, data));
 		}
 		// ARTOS
-		if (artoQty > 0 && this.hasRuin) this.finds.artifacts = artoQty;
+		this.finds.artifacts = this.ruins ? artoQty : 0;
 	}
 
 	/**
