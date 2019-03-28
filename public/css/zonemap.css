@@ -37,7 +37,6 @@
 h1, .h1 {
 	font-family: 'Big Noodle Titling';
 	font-size: 6rem;
-	/* color: rgb(139, 158, 183); */
 	text-transform: uppercase;
 	text-align: center;
 	padding-bottom: 0;
@@ -46,7 +45,6 @@ h1, .h1 {
 h2, .h2 {
 	font-family: 'Big Noodle Titling';
 	font-size: 1.5em;
-	/* color: rgb(30, 30, 28); */
 	text-transform: uppercase;
 	text-align: left;
 	padding: 24px 0 0 0;
@@ -55,7 +53,6 @@ h2, .h2 {
 h3, .h3 {
 	font-family: 'ArcherPro Bold';
 	font-size: 1em;
-	/* color: rgb(30, 30, 28); */
 	text-transform: uppercase;
 	text-align: left;
 	padding: 16px 0 0 0;
@@ -64,12 +61,7 @@ h3, .h3 {
 h4, .h4 {
 	font-family: 'Futura Std Heavy';
 	font-size: 0.8em;
-	/* color: rgb(30, 30, 28); */
 	text-transform: uppercase;
 	text-align: left;
-	padding: 8px 0 8px 0;
+	padding: 8px 0 0 0;
 }
-
-/* p {
-	font-family: 'ArcherPro Book';
-} */
