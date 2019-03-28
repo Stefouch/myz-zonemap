@@ -1,12 +1,11 @@
 <template>
 <v-container class="icon-picker-content" fluid>
-	<h2>Icon Picker
-	</h2>
+	<h2>Icon Picker</h2>
+	<span><a href="https://materialdesignicons.com/" target="_blank">https://materialdesignicons.com</a></span>
 	<v-text-field
 		v-model="selected"
-		label="Material Design Icon"
+		label="MDI icon name"
 		clearable
-		box
 	>
 		<template v-slot:append-outer>
 			<v-btn icon large v-if="selected" @click="selectIcon(selected)" >
@@ -17,13 +16,13 @@
 			</v-btn>
 		</template>
 	</v-text-field>
-	<v-divider></v-divider>
 	<v-text-field
 		v-model="searchInput"
-		label="Search for an icon"
+		label="Search for an icon below"
 		prepend-inner-icon="mdi-magnify"
 		clearable
-		box
+		mt-0
+		pt-0
 	/>
 	<v-layout row wrap class="icons-list">
 		<v-icon x-large
@@ -86,7 +85,7 @@ export default {
 			this.$emit('icon', null);
 		}
 	}
-}
+};
 </script>
 
 <style scoped>
