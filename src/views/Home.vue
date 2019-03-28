@@ -7,11 +7,11 @@
 			<img id="myz-logo" src="../assets/myz-title-white.png" alt="MYZ Logo">
 		</div>
 
-		<h1>Find My Path</h1>
+		<h1>{{ $root.name }}</h1>
 
 		<p>Welcome fellow Mutant,
 		<br />Are you lost in the Zone? You're chased by a group of <i>Zone Ghouls</i> and you can't remember the way back to your Ark? Or maybe you are looking after Eden? Don't worry, you find the right place for help!</p>
-		<p><b>Mutant: Find My Path</b> is a web application for managing the Map of the Zone for the <i>Mutant:&nbsp;Year&nbsp;Zero</i> tabletop roleplaying game.</p>
+		<p><b>Mutant: {{ $root.name }}</b> is a web application for managing the Map of the Zone for the <i>Mutant:&nbsp;Year&nbsp;Zero</i> tabletop roleplaying game.</p>
 
 		<div class="map-buttons">
 			<a id="new-map" class="btn btn-lg btn-outline-light" @click="newMapDialog = true"><span class="mdi mdi-file"></span>Create a new Map</a>
@@ -26,12 +26,6 @@
 		<div class="alert alert-warning mb-1"><span class="mdi mdi-alert"></span> Development in progress! Fonctionalities are subject to evolve. Bugs are not impossible. If you're experiencing some weird behavior, please report it there: <a href="http://git" target="_blank">bug report</a>.</div>
 
 		<div class="alert alert-danger mb-1"><span class="mdi mdi-close-circle"></span> Not compatible with Internet Explorer.</div>
-
-		<h5>Build</h5>
-		<p class="ml-4"><b>{{ this.$root.version }}</b></p>
-
-		<h5>Version Log</h5>
-		<p class="ml-4" v-for="(log, index) in this.$root.versionLog" :key="index">{{ log }}</p>
 
 	</div>
 
@@ -138,7 +132,7 @@
 	</v-dialog>
 
 	<!-- LOADING DIALOG ================================================== -->
-	<v-dialog v-model="loadingDialog" persistent dark>
+	<v-dialog v-model="loadingDialog" dark>
 		<v-container class="modal-content px-5">
 			<v-layout column>
 				<h2>Loading ...</h2>
@@ -184,7 +178,7 @@ export default {
 		zonemapFile: null,
 
 		// PREV-MAP BUTTON
-		hasPreviousMap: false,
+		hasPreviousMap: false
 	}),
 	beforeMount: function() {
 		const zm = ZonemapStorage.get();
@@ -237,7 +231,7 @@ export default {
 					passingZonemap: zonemap
 				}
 			});
-		},
+		}
 	},
 	components: {
 		zmFooter,
@@ -263,7 +257,10 @@ export default {
 
 /* @media (max-width: 576px) { #main h1 { font-size: 4rem; } } */
 
-#main h2, #main h3, #main h4, #main h5 {
+#main h2,
+#main h3,
+#main h4,
+#main h5 {
 	font-family: 'Futura Std Heavy';
 	color: #fff;
 	text-transform: uppercase;

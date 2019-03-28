@@ -81,7 +81,7 @@
         this.$emit('change', $event)
       }
     }
-  }
+  };
 </script>
 
 <style scoped>

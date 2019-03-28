@@ -379,12 +379,8 @@ export default {
 			this.showSnackbar('Sector reset!');
 		},
 		deleteSector() {
-			if (confirm('You are going to wipe the sector.\n\nContinue?')) {
-				this.saveSector(null);
-				this.$emit('change', null);
-				this.close();
-			}
-			this.deleteDialog = false;
+			this.$emit('change', null);
+			this.close();
 		},
 		saveSector(sectorToReturn) {
 			this.$emit('change', sectorToReturn);
@@ -395,6 +391,7 @@ export default {
 			this.snackbar = true;
 		},
 		close() {
+			this.deleteDialog = false;
 			this.iconPickerDialog = false;
 			this.snackbar = false;
 			this.$emit('close');
@@ -403,7 +400,7 @@ export default {
 	components: {
 		zmIconPicker
 	}
-}
+};
 </script>
 
 <style>
