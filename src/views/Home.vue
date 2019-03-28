@@ -180,7 +180,6 @@ export default {
 
 		// OPEN-MAP DIALOG
 		openMapDialog: false,
-		// isOpenMapValid: false,
 		filename: '',
 		zonemapFile: null,
 
@@ -221,14 +220,8 @@ export default {
 		},
 		zonemapInputChange(e) {
 			const files = e.target.files;
-			if (files.length) {
-				this.zonemapFile = files[0];
-				// this.isOpenMapValid = true;
-			}
-			else {
-				// this.isOpenMapValid = false;
-				this.zonemapFile = null;
-			}
+			if (files.length) this.zonemapFile = files[0];
+			else this.zonemapFile = null;
 		},
 		previousMap() {
 			this.loadingDialog = true;
