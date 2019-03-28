@@ -54,7 +54,8 @@ export default {
 		},
 		sector: {
 			type: ZoneSector,
-			default: null
+			// default: null
+			default: () => new ZoneSector()
 		},
 		gmeye: {
 			type: Boolean,
@@ -81,7 +82,7 @@ export default {
 		},
 		processedName: function() {
 			let name = this.sector.name;
-			if (name.length > 16) name = `${name.slice(0, 14)}...`;
+			if (name.length > 18) name = `${name.slice(0, 16)}...`;
 			return name;
 		},
 		sectorIcon: function() {
