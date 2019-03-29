@@ -303,6 +303,13 @@ export default {
 			]
 		}
 	},
+	watch: {
+		// The function ensures the entries are refreshed each time the dialog is activated.
+		coordinates: function() {
+			this.sector = this.editedSector.clone();
+			if (!this.sector.name) this.sector.name = this.coordinates;
+		}
+	},
 	computed: {
 		sectorColor: function() {
 			if (this.sector.type === SectorTypes.ark) return '#DB9F00';
@@ -350,13 +357,6 @@ export default {
 			return humanoids.concat(monsters.concat(phenomenons)).sort();
 		}
 	},
-	watch: {
-		// The function ensures the entries are refreshed each time the dialog is activated.
-		coordinates: function() {
-			this.sector = this.editedSector.clone();
-			if (!this.sector.name) this.sector.name = this.coordinates;
-		}
-	},
 	methods: {
 		rand(min, max) {
 			return Util.rand(min, max);
@@ -384,6 +384,7 @@ export default {
 				name: this.sector.name,
 				explored: this.sector.explored,
 				// type: this.sector.type,
+				icon: this.sector.icon,
 				notes: this.sector.notes
 			}, this.lang);
 			this.showSnackbar('Sector reset!');
