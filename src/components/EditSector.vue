@@ -65,13 +65,13 @@
 								type="number"
 								label="Threat Level"
 								:rules="threatLvlRules"
-								prepend-icon="mdi-alert"
+								:prepend-icon="threatLvlIcon"
 								min="0"
 								max="13"
 								box
 							>
 								<template v-slot:append>
-									<v-btn icon @click="night = !night">
+									<v-btn icon @click="night = !night" :title="night ? 'Night: +3' : 'Day: +0'">
 										<v-icon>{{ night ? 'mdi-weather-night' : 'mdi-weather-sunny' }}</v-icon>
 									</v-btn>
 								</template>
@@ -126,7 +126,7 @@
 					v-model="sector.environment"
 					:items="sectorEnvironments"
 					label="Environment"
-					prepend-icon="mdi-flower-tulip"
+					prepend-icon="mdi-image"
 					clearable
 					box
 				/>
@@ -134,7 +134,7 @@
 					v-model="sector.ruins"
 					:items="sectorRuins"
 					label="Ruins"
-					prepend-icon="mdi-city"
+					prepend-icon="mdi-map-marker"
 					clearable
 					box
 				/>
@@ -154,7 +154,7 @@
 						</v-btn>
 					</template>
 				</v-textarea>
-				<v-autocomplete
+				<v-combobox
 					v-model="sector.mood"
 					:items="sectorMoods"
 					label="Mood"
@@ -303,13 +303,6 @@ export default {
 			]
 		}
 	},
-	watch: {
-		// The function ensures the entries are refreshed each time the dialog is activated.
-		coordinates: function() {
-			this.sector = this.editedSector.clone();
-			if (!this.sector.name) this.sector.name = this.coordinates;
-		}
-	},
 	computed: {
 		sectorColor: function() {
 			if (this.sector.type === SectorTypes.ark) return '#DB9F00';
@@ -322,6 +315,16 @@ export default {
 			if (this.sector.rotLvl === 2) return '#E55600';
 			if (this.sector.rotLvl >= 3) return '#9B2423';
 			return 'red';
+		},
+		threatLvlIcon: function() {
+			// Safe Zone Sector
+			if (this.sector.threatLvl <= 0) return 'mdi-marker-check';
+			// Fringe Zone Sector
+			if (this.sector.threatLvl <= 4) return 'mdi-alert-box';
+			// Central Zone Sector
+			if (this.sector.threatLvl <= 8) return 'mdi-alert';
+			// Unusually Dangerous Area
+			return 'mdi-alert-octagram';
 		},
 		sectorTypes: function() {
 			return Object.keys(SectorTypes);
@@ -345,6 +348,13 @@ export default {
 			const monsters = Object.values(SectorTables[this.lang].threats.data['3'].data);
 			const phenomenons = Object.values(SectorTables[this.lang].threats.data['6'].data);
 			return humanoids.concat(monsters.concat(phenomenons)).sort();
+		}
+	},
+	watch: {
+		// The function ensures the entries are refreshed each time the dialog is activated.
+		coordinates: function() {
+			this.sector = this.editedSector.clone();
+			if (!this.sector.name) this.sector.name = this.coordinates;
 		}
 	},
 	methods: {
@@ -373,7 +383,7 @@ export default {
 			this.sector = new ZoneSector({
 				name: this.sector.name,
 				explored: this.sector.explored,
-				type: this.sector.type,
+				// type: this.sector.type,
 				notes: this.sector.notes
 			}, this.lang);
 			this.showSnackbar('Sector reset!');
