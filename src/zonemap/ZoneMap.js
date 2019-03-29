@@ -183,9 +183,10 @@ class ZoneMap extends Collection {
 		return new ZoneMap({
 			// With support for API 1.0.
 			title: data.map_title || data.title,
-			creator: data.map_creator || data.creator,
+			author: data.map_creator || data.author,
 			width: data.map_width || data.width,
 			height: data.map_height || data.height,
+			lang: data.lang,
 			sectors: data.sectors
 		});
 	}
