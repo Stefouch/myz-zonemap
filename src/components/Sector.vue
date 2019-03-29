@@ -177,6 +177,10 @@ export default {
 	background-color: rgba(211, 211, 211, .50);
 }
 
+.sector-fog:not([gmeye]) {
+	background-color: rgb(233, 233, 233);
+}
+
 .sector-icons {
 	height: 16px;
 }
