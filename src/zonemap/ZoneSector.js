@@ -23,6 +23,9 @@ class ZoneSector {
 		if (!data) data = {};
 		if (RandomTables.hasOwnProperty(lang)) LANG = lang.toLowerCase();
 
+		// Determines if the sector is brand new.
+		const isNew = !data.type;
+
 		/**
 		 * Sector's name.
 		 * @type {string}
@@ -56,9 +59,9 @@ class ZoneSector {
 		// THREAT ROLL ========================================================
 		/**
 		 * Threat Level of the sector.
-		 * @type {number} Between 1 and 13
+		 * @type {number} Between 0 and 13
 		 */
-		this.threatLvl = clamp(data.threatLvl, 1, 13);
+		this.threatLvl = clamp(data.threatLvl, 0, 13);
 
 		/**
 		 * Array of threats in the sector.
@@ -98,7 +101,7 @@ class ZoneSector {
 		 * @type {string}
 		 */
 		this.environment = data.environment;
-		if (typeof this.environment === 'undefined') this.rollEnvironment();
+		if (typeof this.environment === 'undefined' && isNew) this.rollEnvironment();
 
 		// RUINS ==============================================================
 		/**
@@ -106,14 +109,14 @@ class ZoneSector {
 		 * @type {string}
 		 */
 		this.ruins = data.ruins;
-		if (typeof this.ruins === 'undefined') this.rollRuins();
+		if (typeof this.ruins === 'undefined' && isNew) this.rollRuins();
 
 		/**
 		 * Description of the ruins.
 		 * @type {string}
 		 */
 		this.description = data.description;
-		if (typeof this.description === 'undefined') {
+		if (typeof this.description === 'undefined' && isNew) {
 			if (this.hasRuin) this.description = ZoneSector.getRuinDescription(this.ruins);
 			else this.description = null;
 		}
@@ -124,7 +127,7 @@ class ZoneSector {
 		 * @type {string}
 		 */
 		this.mood = data.mood;
-		if (typeof this.mood === 'undefined') this.rollMood();
+		if (typeof this.mood === 'undefined' && isNew) this.rollMood();
 
 		// NOTES ==============================================================
 		/**
