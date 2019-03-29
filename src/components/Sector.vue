@@ -27,7 +27,7 @@
 				<v-icon small v-if="sector.hasThreat" class="sector-icon-threat">mdi-skull</v-icon>
 				<v-icon small v-if="sector.hasArtifact" class="sector-icon-arto">mdi-star</v-icon>
 				<v-icon small v-if="sector.rotLvl >= 2" class="sector-icon-rad">mdi-radioactive</v-icon>
-				<v-icon small v-if="sector.rotLvl <= 0" class="sector-icon-safe">mdi-marker-check</v-icon>
+				<v-icon small v-if="sector.notes">mdi-notebook</v-icon>
 			</div>
 			<div class="sector-name" :class="{ 'sector-name-empty': sector.isEmpty }">{{ processedName }}</div>
 		</v-flex>
@@ -237,7 +237,7 @@ export default {
 }
 
 .sector-tooltip-content {
-	max-width: 200px;
+	max-width: 250px;
 	color: #000;
 	background-color: #fff;
 }
