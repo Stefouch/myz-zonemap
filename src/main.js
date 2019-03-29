@@ -12,7 +12,7 @@ new Vue({
 	data: {
 		name: 'Find My Path',
 		zonemap: null,
-		version: '1.0.0',
+		version: '2.0.0',
 		github: 'git',
 		sectorSquare: 64,
 		mapLangs: [{ text: 'English', value: 'en' }, { text: 'Français', value: 'fr' }],
@@ -26,6 +26,12 @@ new Vue({
 			grub: 'mdi-pizza',
 			water: 'mdi-water',
 			artifacts: 'mdi-star'
+		},
+		attributIcons: {
+			strength: 'mdi-boxing-glove',
+			agility: 'mdi-bullseye-arrow',
+			wits: 'mdi-brain',
+			empathy: 'mdi-heart-circle-outline'
 		}
 	},
 	render: h => h(App)
