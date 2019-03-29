@@ -1,14 +1,17 @@
 <template>
 <footer class="footer">
 	<v-layout row wrap justify-center>
-		<v-btn icon @click="openLink('https://www.fb.com/Stefouch')">
+		<v-btn icon @click="openLink('https://www.fb.com/Stefouch')" title="Facebook: Stefouch">
 			<v-icon>mdi-facebook-box</v-icon>
 		</v-btn>
-		<v-btn icon @click="openLink('https://discord.gg/aXYnCCd')">
+		<v-btn icon @click="openLink('https://discord.gg/aXYnCCd')" title="Year Zero Discord">
 			<v-icon>mdi-discord</v-icon>
 		</v-btn>
-		<v-btn icon @click="openLink($root.github)">
+		<v-btn icon @click="openLink($root.github)" title="Github project">
 			<v-icon>mdi-github-circle</v-icon>
+		</v-btn>
+		<v-btn icon @click="openLink('./#/help')" title="Help">
+			<v-icon>mdi-book-open-page-variant</v-icon>
 		</v-btn>
 	</v-layout>
 	
