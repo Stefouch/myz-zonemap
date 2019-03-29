@@ -122,24 +122,39 @@
 				</v-tab>
 				<v-tab-item lazy>
 					<h4>Image File</h4>
-					<zm-file-input
-						v-model="zoneBgFilename"
-						@change="zoneBgInputChange($event)"
-						accept="image/*"
-						label="Choose an image file of your zonemap"
-					/>
-					<v-btn small
-						:disabled="!zoneBgFilename"
-						@click="setZoneBg()"
-					>
-						Load
-					</v-btn>
-					<v-img
-						v-if="zoneBg"
-						:src="zoneBg"
-						max-width="200px"
-						max-height="200px"
-					/>
+					<div v-if="!zoneBg">
+						<zm-file-input
+							v-model="zoneBgFilename"
+							@change="onZoneBgChange($event)"
+							accept="image/*"
+							label="Choose an image file of your zonemap"
+						/>
+						<!-- <v-btn small
+							:disabled="!zoneBgFilename"
+							@click="setZoneBg()"
+						>
+							Load
+						</v-btn> -->
+					</div>
+					<div v-else>
+						<v-img
+							v-if="zoneBg"
+							:src="zoneBgDataURI"
+							max-width="200px"
+							max-height="200px"
+						/>
+						<template v-slot:placeholder>
+							<v-layout
+								fill-height
+								align-center
+								justify-center
+								ma-0
+							>
+								<v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+							</v-layout>
+						</template>
+						<v-btn small @click="clearZoneBg()">Remove</v-btn>
+					</div>
 				</v-tab-item>
 			</v-tabs>
 		</v-layout>
@@ -170,26 +185,15 @@ export default {
 			zonemap: this.passingZonemap,
 			minified: true,
 			zoneBgFilename: '',
-			zoneBgFile: null,
+			// zoneBgFile: null,
+			zoneBgDataURI: null,
+			zoneBg: false,
 			gmeye: true,
 			selectedCoord: null,
 			editDialog: false,
 			optionsDialog: false,
 			zonemapChangeCount: 0
 		};
-	},
-	computed: {
-		interfaceTitle: function() {
-			if (this.zonemap) return `${this.$root.name}: ${this.zonemap.title.slice(0, 20)}`;
-			else return this.$root.name;
-		},
-		selectedSector: function() {
-			return this.zonemap.get(this.selectedCoord);
-		},
-		zoneBg: function() {
-			if (localStorage.zonemapbg) return localStorage.zonemapbg;
-			else return null;
-		}
 	},
 	created: function() {
 		if (!this.zonemap) this.$router.push({ name: 'home' });
@@ -198,6 +202,18 @@ export default {
 	mounted: function() {
 		// Needed here to allow the class:dragscroll to work.
 		dragscroll.reset();
+	},
+	computed: {
+		interfaceTitle: function() {
+			if (this.zonemap) return `${this.$root.name}: ${this.zonemap.title.slice(0, 20)}`;
+			else return this.$root.name;
+		},
+		selectedSector: function() {
+			return this.zonemap.get(this.selectedCoord);
+		}/* ,
+		zoneBg: function() {
+			return !!this.zoneBgDataURI;
+		} */
 	},
 	methods: {
 		coord(x, y) {
@@ -239,29 +255,27 @@ export default {
 			downloadLink.click();
 			document.body.removeChild(downloadLink);
 		},
-		zoneBgInputChange(e) {
-			const files = e.target.files;
-			if (files.length) this.zoneBgFile = files[0];
-			else this.zoneBgFile = null;
+		onZoneBgChange(e) {
+			const files = e.target.files || e.dataTransfer.files;
+			if (!files.length) return;
+			this.createZoneBg(files[0]);
 		},
-		setZoneBg() {
-			if (!this.zoneBgFile) {
+		createZoneBg(file) {
+			if (!file) {
 				alert('No valid background file selected!');
 				return;
 			}
-			// File Reader
-			console.log(this.zoneBgFile);
 			const reader = new FileReader();
-			reader.onload = function() {
-				// this.zoneBg = reader.result;
-				// this.zoneBgFile = null;
-				localStorage.zonemapbg = reader.result;
-			};
-			reader.onerror = () => {
-				console.log('[ERROR] - [Zonemap BG] - Unable to read the file!');
-			};
-
-			reader.readAsDataURL(this.zoneBgFile);
+			const vm = this;
+			reader.onload = (e) => vm.zoneBgDataURI = e.target.result;
+			reader.onerror = () => console.log('[ERROR] - [Zonemap BG] - Unable to read the file!');
+			reader.readAsDataURL(file);
+			this.zoneBg = true;
+		},
+		clearZoneBg() {
+			this.zoneBgFilename = null;
+			this.zoneBgDataURI = '';
+			this.zoneBg = false;
 		}
 	},
 	components: {
