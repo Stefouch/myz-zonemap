@@ -21,16 +21,30 @@
 		</v-layout>
 	</div>
 
+	<!-- MOOD -->
+	<div v-if="sector.mood" class="text-info">
+		<v-divider/>
+		<span><b>Mood:</b> {{ sector.mood }}</span>
+	</div>
+
+	<!-- NOTES -->
+	<div v-if="sector.notes" class="text-info">
+		<v-divider/>
+		<span><b>Notes:</b> {{ sector.notes }}</span>
+	</div>
+
 	<!-- FINDS -->
-	<v-divider v-if="!sector.isEmpty" />
-	<v-layout row class="sector-tooltip-finds" v-if="!sector.isEmpty">
-		<div
-			v-for="find in activeFinds"
-			:key="find[0]"
-		>{{ find[1] }}
-			<v-icon small>{{ $root.findIcons[find[0]] }}</v-icon>
-		</div>
-	</v-layout>
+	<div v-if="!sector.isEmpty">
+		<v-divider />
+		<v-layout row class="sector-tooltip-finds">
+			<div
+				v-for="find in activeFinds"
+				:key="find[0]"
+			>{{ find[1] }}
+				<v-icon small>{{ $root.findIcons[find[0]] }}</v-icon>
+			</div>
+		</v-layout>
+	</div>
 </div>
 </template>
 
@@ -58,6 +72,7 @@ export default {
 .sector-tooltip {
 	font-family: 'ArcherPro Book';
 	font-size: 1rem;
+	line-height: 1.10;
 	background-color: #fff;
 }
 
@@ -68,6 +83,15 @@ export default {
 
 .sector-tooltip b {
 	font-family: 'ArcherPro Bold';
+}
+
+.sector-tooltip .v-divider {
+	margin: 4px 0;
+}
+
+.sector-tooltip-mood b,
+.sector-tooltip-notes b {
+	font-family: 'Futura Std Heavy';
 }
 
 .sector-tooltip-finds {
