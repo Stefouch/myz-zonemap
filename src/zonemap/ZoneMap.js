@@ -70,6 +70,7 @@ class ZoneMap extends Collection {
 		 * @property {number} height Height resizing (in pixel)
 		 * @example
 		 * {"left":-7,"top":-8,"width":1703,"height":1020}
+		 * {"left":-9,"top":-7,"width":1944,"height":1167}
 		 */
 		this.background = data.background || {};
 		if (!this.background.hasOwnProperty('left')) this.background.left = 0;
