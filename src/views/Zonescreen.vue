@@ -108,14 +108,14 @@
 						label="Sector language"
 						prepend-icon="mdi-web"
 					/>
-					<p>This option only changes the language used for the items generated in a sector.</p>
+					<p class="text-info">This option only changes the language used for the items generated in a sector.</p>
 					<v-divider></v-divider>
 					<h4>Saving</h4>
 					<v-switch
 						v-model="minified"
 						:label="minified ? 'Minify' : 'Do not minify'"
 					/>
-					<p>By default, the Zonemap JSON file is minified and compressed. By disabling this option, your file will be significantly larger, but readable for a human eye.</p>
+					<p class="text-info">By default, the Zonemap JSON file is minified and compressed. By disabling this option, your file will be significantly larger, but readable for a human eye.</p>
 				</v-tab-item>
 				<v-tab>
 					Background
@@ -128,7 +128,7 @@
 						accept="image/*"
 						label="Choose an image file of your zonemap"
 					/>
-					<v-btn
+					<v-btn small
 						:disabled="!zoneBgFilename"
 						@click="setZoneBg()"
 					>
@@ -233,7 +233,7 @@ export default {
 			const blob = new Blob([content], { type: 'application/json' });
 			const url = URL.createObjectURL(blob);
 			downloadLink.href = url;
-			downloadLink.download = `${this.zonemap.title}.json`;
+			downloadLink.download = `${this.zonemap.title}.zonemap.json`;
 
 			document.body.appendChild(downloadLink);
 			downloadLink.click();
@@ -294,6 +294,10 @@ html {
 	overflow: hidden;
 	user-select: none;
 }
+
+/* #zonescreen::-webkit-scrollbar {
+	display: none;
+} */
 
 .zonerow {
 	min-height: 64px;
