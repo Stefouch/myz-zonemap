@@ -213,7 +213,7 @@ export default {
 			if (zm) this.gotoZonescreen(zm);
 		},
 		zonemapInputChange(e) {
-			const files = e.target.files;
+			const files = e.target.files || e.dataTransfer.files;
 			if (files.length) this.zonemapFile = files[0];
 			else this.zonemapFile = null;
 		},
