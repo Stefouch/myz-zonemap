@@ -80,6 +80,7 @@
 		fixed
 		right
 		temporary
+		hide-overlay
 	>
 		<v-layout column px-3>
 			<h2>Options</h2>
@@ -127,33 +128,49 @@
 							v-model="zoneBgFilename"
 							@change="onZoneBgChange($event)"
 							accept="image/*"
-							label="Choose an image file of your zonemap"
+							label="Choose an image file"
 						/>
-						<!-- <v-btn small
-							:disabled="!zoneBgFilename"
-							@click="setZoneBg()"
-						>
-							Load
-						</v-btn> -->
+						<p class="text-info">This option allows</p>
 					</div>
 					<div v-else>
-						<v-img
-							v-if="zoneBg"
-							:src="zoneBgDataURI"
-							max-width="200px"
-							max-height="200px"
-						/>
-						<template v-slot:placeholder>
-							<v-layout
-								fill-height
-								align-center
-								justify-center
-								ma-0
+						<v-layout justify-center>
+							<v-img
+								v-if="zoneBg"
+								:src="zoneBgDataURI"
+								max-width="200px"
+								max-height="200px"
+								style="border: 1px solid #000;"
 							>
-								<v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
-							</v-layout>
-						</template>
-						<v-btn small @click="clearZoneBg()">Remove</v-btn>
+								<template v-slot:placeholder>
+									<v-layout
+										fill-height
+										align-center
+										justify-center
+										ma-0
+									>
+										<v-progress-circular indeterminate color="deep-orange lighten-2"></v-progress-circular>
+									</v-layout>
+								</template>
+							</v-img>
+						</v-layout>
+						<v-layout row wrap justify-center mb-3>
+							<v-btn small
+								@click="clearZoneBg()"
+								:loading="!zoneBgDataURI"
+							>
+								<v-icon small>mdi-trash-can-outline</v-icon> Remove
+							</v-btn>
+							<v-btn small
+								@click="setZoneBg()"
+								:disabled="!zoneBgDataURI || zoneBgApplied"
+							>
+								<v-icon small>mdi-content-paste</v-icon> Use
+							</v-btn>
+						</v-layout>
+						<div v-if="zoneBgDataURI">
+							<v-divider></v-divider>
+							<h4>Position</h4>
+						</div>
 					</div>
 				</v-tab-item>
 			</v-tabs>
@@ -186,8 +203,9 @@ export default {
 			minified: true,
 			zoneBgFilename: '',
 			// zoneBgFile: null,
-			zoneBgDataURI: null,
+			zoneBgDataURI: '',
 			zoneBg: false,
+			zoneBgApplied: false,
 			gmeye: true,
 			selectedCoord: null,
 			editDialog: false,
@@ -276,6 +294,12 @@ export default {
 			this.zoneBgFilename = null;
 			this.zoneBgDataURI = '';
 			this.zoneBg = false;
+			this.zoneBgApplied = false;
+			document.getElementById('zonescreen').style.removeProperty('background-image');
+		},
+		setZoneBg() {
+			this.zoneBgApplied = true;
+			document.getElementById('zonescreen').style.backgroundImage = `url('${this.zoneBgDataURI}')`;
 		}
 	},
 	components: {
@@ -307,6 +331,11 @@ html {
 	/* overflow: scroll; */
 	overflow: hidden;
 	user-select: none;
+	background-repeat: no-repeat;
+	background-attachment: local;
+	background-position-x: -7px;
+	background-position-y: -9px;
+	background-size: 1944px 1167px;
 }
 
 /* #zonescreen::-webkit-scrollbar {
