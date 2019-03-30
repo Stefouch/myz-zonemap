@@ -15,7 +15,6 @@ class ZoneMap extends Collection {
 	 * @param {Object} data ZoneMap's raw data
 	 */
 	constructor(data) {
-		// Exits early and throws an error if data is falsy.
 		if (!data) data = {};
 		super(data.sectors);
 
@@ -69,14 +68,13 @@ class ZoneMap extends Collection {
 		 * @property {number} width Width resizing (in pixel)
 		 * @property {number} height Height resizing (in pixel)
 		 * @example
-		 * {"left":-7,"top":-8,"width":1703,"height":1020}
-		 * {"left":-9,"top":-7,"width":1944,"height":1167}
+		 * {"x":-7,"y":-9,"w":1944,"h":1167}
 		 */
 		this.background = data.background || {};
-		if (!this.background.hasOwnProperty('left')) this.background.left = 0;
-		if (!this.background.hasOwnProperty('top')) this.background.top = 0;
-		if (!this.background.hasOwnProperty('width')) this.background.top = null;
-		if (!this.background.hasOwnProperty('height')) this.background.top = null;
+		if (!this.background.hasOwnProperty('x')) this.background.x = -7;
+		if (!this.background.hasOwnProperty('y')) this.background.y = -9;
+		if (!this.background.hasOwnProperty('w')) this.background.w = 64 * this.width + 24;
+		if (!this.background.hasOwnProperty('h')) this.background.h = 64 * this.height + 15;
 	}
 
 	/**
@@ -188,6 +186,7 @@ class ZoneMap extends Collection {
 			width: data.map_width || data.width,
 			height: data.map_height || data.height,
 			lang: data.lang,
+			background: data.background,
 			sectors: data.sectors
 		});
 	}

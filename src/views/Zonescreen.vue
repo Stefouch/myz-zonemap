@@ -84,10 +84,8 @@
 	>
 		<v-layout column px-3>
 			<h2>Options</h2>
-			<v-tabs grow>
-				<v-tab>
-					File
-				</v-tab>
+			<v-tabs grow height="32px">
+				<v-tab>File</v-tab>
 				<v-tab-item lazy>
 					<h4>Infos</h4>
 					<v-text-field
@@ -118,9 +116,7 @@
 					/>
 					<p class="text-info">By default, the Zonemap JSON file is minified and compressed. By disabling this option, your file will be significantly larger, but readable for a human eye.</p>
 				</v-tab-item>
-				<v-tab>
-					Background
-				</v-tab>
+				<v-tab>Background</v-tab>
 				<v-tab-item lazy>
 					<h4>Image File</h4>
 					<div v-if="!zoneBg">
@@ -130,7 +126,7 @@
 							accept="image/*"
 							label="Choose an image file"
 						/>
-						<p class="text-info">This option allows</p>
+						<p class="text-info">This option sets a custom background image behind the sectors grid.</p>
 					</div>
 					<div v-else>
 						<v-layout justify-center>
@@ -167,9 +163,48 @@
 								<v-icon small>mdi-content-paste</v-icon> Use
 							</v-btn>
 						</v-layout>
-						<div v-if="zoneBgDataURI">
+						<div v-if="zoneBgApplied">
 							<v-divider></v-divider>
-							<h4>Position</h4>
+							<h4>Placement</h4>
+							<v-layout row justify-space-around>
+								<v-flex shrink style="width: 100px;">
+									<v-text-field
+										v-model.number="zonemap.background.y"
+										type="number"
+										prepend-icon="mdi-format-vertical-align-top"
+										label="Top"
+									/>
+								</v-flex>
+								<v-flex shrink style="width: 100px;">
+									<v-text-field
+										v-model.number="zonemap.background.x"
+										type="number"
+										prepend-icon="mdi-format-horizontal-align-left"
+										label="Left"
+									/>
+								</v-flex>
+							</v-layout>
+							<p class="text-info">Positions the background image to the top and left of the sectors grid.</p>
+							<v-layout row justify-space-around>
+								<v-flex shrink style="width: 100px;">
+									<v-text-field
+										v-model.number="zonemap.background.w"
+										type="number"
+										prepend-icon="mdi-border-horizontal"
+										label="Width"
+									/>
+								</v-flex>
+								<v-flex shrink style="width: 100px;">
+									<v-text-field
+										v-model.number="zonemap.background.h"
+										type="number"
+										prepend-icon="mdi-border-vertical"
+										label="Height"
+									/>
+								</v-flex>
+							</v-layout>
+							<p class="text-info">Adapts the width and the height of the background image.</p>
+							<v-btn small @click="resetZoneBgPlacement()">Reset</v-btn>
 						</div>
 					</div>
 				</v-tab-item>
@@ -194,7 +229,8 @@ export default {
 	props: {
 		passingZonemap: {
 			type: ZoneMap,
-			default: null
+			// default: null
+			default: () => new ZoneMap()
 		}
 	},
 	data: function() {
@@ -202,14 +238,13 @@ export default {
 			zonemap: this.passingZonemap,
 			minified: true,
 			zoneBgFilename: '',
-			// zoneBgFile: null,
 			zoneBgDataURI: '',
 			zoneBg: false,
 			zoneBgApplied: false,
 			gmeye: true,
 			selectedCoord: null,
 			editDialog: false,
-			optionsDialog: false,
+			optionsDialog: true,
 			zonemapChangeCount: 0
 		};
 	},
@@ -223,15 +258,11 @@ export default {
 	},
 	computed: {
 		interfaceTitle: function() {
-			if (this.zonemap) return `${this.$root.name}: ${this.zonemap.title.slice(0, 20)}`;
-			else return this.$root.name;
+			return `${this.$root.name}${this.zonemap ? `: ${this.zonemap.title.slice(0, 20)}` : ''}`;
 		},
 		selectedSector: function() {
 			return this.zonemap.get(this.selectedCoord);
-		}/* ,
-		zoneBg: function() {
-			return !!this.zoneBgDataURI;
-		} */
+		}
 	},
 	methods: {
 		coord(x, y) {
@@ -300,6 +331,28 @@ export default {
 		setZoneBg() {
 			this.zoneBgApplied = true;
 			document.getElementById('zonescreen').style.backgroundImage = `url('${this.zoneBgDataURI}')`;
+			this.setZoneBgPlacement();
+		},
+		setZoneBgPlacement() {
+			this.zonemapChangeCount++;
+			const $zn = document.getElementById('zonescreen');
+			const {x, y, w, h} = this.zonemap.background;
+			$zn.style.backgroundPositionX = `${x}px`;
+			$zn.style.backgroundPositionY = `${y}px`;
+			$zn.style.backgroundSize = `${w}px ${h}px`;
+		},
+		resetZoneBgPlacement() {
+			this.zonemap.background = {
+				x: -7, y: -9,
+				w: this.zonemap.width * this.$root.sectorSquare + 24,
+				h: this.zonemap.height * this.$root.sectorSquare + 15
+			};
+		}
+	},
+	watch: {
+		'zonemap.background': {
+			handler: function() { this.setZoneBgPlacement(); },
+			deep: true
 		}
 	},
 	components: {
@@ -333,9 +386,9 @@ html {
 	user-select: none;
 	background-repeat: no-repeat;
 	background-attachment: local;
-	background-position-x: -7px;
+	/* background-position-x: -7px;
 	background-position-y: -9px;
-	background-size: 1944px 1167px;
+	background-size: 1944px 1167px; */
 }
 
 /* #zonescreen::-webkit-scrollbar {
