@@ -184,7 +184,7 @@
 									/>
 								</v-flex>
 							</v-layout>
-							<p class="text-info">Positions the background image to the top and left of the sectors grid.</p>
+							<p class="text-info">Positions the background image to the top and left of the sectors grid (in pixels).</p>
 							<v-layout row justify-space-around>
 								<v-flex shrink style="width: 100px;">
 									<v-text-field
@@ -203,7 +203,7 @@
 									/>
 								</v-flex>
 							</v-layout>
-							<p class="text-info">Adapts the width and the height of the background image.</p>
+							<p class="text-info">Adjusts the width and the height of the background image (in pixels).</p>
 							<v-btn small @click="resetZoneBgPlacement()">Reset</v-btn>
 						</div>
 					</div>
@@ -235,7 +235,7 @@ export default {
 	},
 	data: function() {
 		return {
-			zonemap: this.passingZonemap,
+			zonemap: this.passingZonemap.clone(),
 			minified: true,
 			zoneBgFilename: '',
 			zoneBgDataURI: '',
@@ -262,7 +262,10 @@ export default {
 		},
 		selectedSector: function() {
 			return this.zonemap.get(this.selectedCoord);
-		}
+		}/* ,
+		bg: function() {
+			return this.zonemap.background;
+		} */
 	},
 	methods: {
 		coord(x, y) {
@@ -350,8 +353,10 @@ export default {
 		}
 	},
 	watch: {
-		'zonemap.background': {
-			handler: function() { this.setZoneBgPlacement(); },
+		'zonemap': {
+			handler: function(val, oldVal) {
+				console.log(val, oldVal);
+			},
 			deep: true
 		}
 	},
