@@ -168,6 +168,9 @@ class ZoneMap extends Collection {
 			}
 			// Revamps correctly the `data.sectors`.
 			data.sectors = sectors;
+
+			// Last thing, deletes old 'background' data for v1.0 only.
+			delete data.background;
 		}
 
 		// Converts each sector into a ZoneSector object.
