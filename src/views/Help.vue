@@ -99,7 +99,7 @@
 				<p>Each <b>sector</b> displays several information: a set of icons, a name, and a marker. Each sector can also have different background &amp; border colors, according to the sector's type, rot level, and exploration status.</p>
 				<p>To edit a sector, <code>double-click</code> or <code>right-click</code> the desired square on the grid.</p>
 
-				<v-container fluid grid-list-xl>
+				<v-container fluid grid-list-xl py-0>
 					<v-layout row wrap>
 						<v-flex xs12 sm6>
 							<h4>Icons</h4>
@@ -154,7 +154,11 @@
 				<p>This section describes all customizable data for a sector.</p>
 
 				<h3><i class="mdi mdi-flag"></i> Sector's name</h3>
-				<p>Custom name of the sector. By default, it's the sector's coordinates in the Zone map.</p>
+				<p>Custom name of the sector. By default, it's the sector's coordinates in the zonemap.</p>
+				<v-container fluid py-0>
+					<h4>Custom Icon / Map Marker</h4>
+					<p class="text-info">An icon can also be added to the sector. Click to circle on the left to display the icon picker, then choose an icon from the list or directly input an icon name (see Material Design Icons website for a complete list of available icons). Click the icon again to confirm your choice.</p>
+				</v-container>
 
 				<h3><i class="mdi mdi-compass"></i> Exploration status</h3>
 				<p>Either if this sector is explored or not. Checking this checkbox will remove the gray background from the map's square.</p>
