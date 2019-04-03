@@ -1,0 +1,405 @@
+/*
+ * ============================================================================
+ * Core Stylesheet
+ * ============================================================================
+ * @author       Stefouch <stefouch@gmail.com>
+ * @inspired by  Bootstrap v4.3
+ * @media        sm    576px
+ * @media        md    768px
+ * @media        lg    992px
+ * @media        xl    1200px
+ */
+*, ::after, ::before {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 16px!important;
+}
+
+body {
+	margin: 0;
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+	/* color: #212529; */
+	text-align: left;
+	/* background-color: #fff; */
+}
+
+.container {
+	width: 100%;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+@media (min-width: 576px) { .container { max-width: 540px; } }
+@media (min-width: 768px) { .container { max-width: 720px; } }
+@media (min-width: 992px) { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container { max-width: 1140px; } }
+
+img {
+	vertical-align: middle;
+	border-style: none;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+	margin-bottom: .5rem;
+	font-weight: 500;
+	line-height: 1.2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 0;
+	margin-bottom: .5rem;
+}
+
+.h1, h1 { font-size: 2.5rem; }
+.h2, h2 { font-size: 2rem; }
+.h3, h3 { font-size: 1.75rem; }
+.h4, h4 { font-size: 1.5rem; }
+.h5, h5 { font-size: 1.25rem; }
+
+p {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+b, strong {
+	font-weight: bolder;
+}
+
+code {
+	color: #431E3F;
+	background-color: rgba(27, 31, 35, .05);
+	border-radius: 3px;
+	font-size: 85%;
+	margin: 0;
+	padding: .2em .4em;
+}
+
+/* MARGINS & PADDINGS ====================================================== */
+.m-0 { margin: 0!important; }
+.mt-0, .my-0 { margin-top: 0!important; }
+.mr-0, .mx-0 { margin-right: 0!important; }
+.mb-0, .my-0 { margin-bottom: 0!important; }
+.ml-0, .mx-0 { margin-left: 0!important; }
+
+.m-1 { margin: .25rem!important; }
+.mt-1, .my-1 { margin-top: .25rem!important; }
+.mr-1, .mx-1 { margin-right: .25rem!important; }
+.mb-1, .my-1 { margin-bottom: .25rem!important; }
+.ml-1, .mx-1 { margin-left: .25rem!important; }
+
+.m-2 { margin: .5rem!important; }
+.mt-2, .my-2 { margin-top: .5rem!important; }
+.mr-2, .mx-2 { margin-right: .5rem!important; }
+.mb-2, .my-2 { margin-bottom: .5rem!important; }
+.ml-2, .mx-2 { margin-left: .5rem!important; }
+
+.m-3 { margin: 1rem!important; }
+.mt-3, .my-3 { margin-top: 1rem!important; }
+.mr-3, .mx-3 { margin-right: 1rem!important; }
+.mb-3, .my-3 { margin-bottom: 1rem!important; }
+.ml-3, .mx-3 { margin-left: 1rem!important; }
+
+.m-4 { margin: 1.5rem!important; }
+.mt-4, .my-4 { margin-top: 1.5rem!important; }
+.mr-4, .mx-4 { margin-right: 1.5rem!important; }
+.mb-4, .my-4 { margin-bottom: 1.5rem!important; }
+.ml-4, .mx-4 { margin-left: 1.5rem!important; }
+
+.m-5 { margin: 3rem!important; }
+.mt-5, .my-5 { margin-top: 3rem!important; }
+.mr-5, .mx-5 { margin-right: 3rem!important; }
+.mb-5, .my-5 { margin-bottom: 3rem!important; }
+.ml-5, .mx-5 { margin-left: 3rem!important; }
+
+.m-auto { margin: auto!important; }
+.mt-auto, .my-auto { margin-top: auto!important; }
+.mr-auto, .mx-auto { margin-right: auto!important; }
+.mb-auto, .my-auto { margin-bottom: auto!important; }
+.ml-auto, .mx-auto { margin-left: auto!important; }
+
+.p-0 { padding: 0!important; }
+.pt-0, .py-0 { padding-top: 0!important; }
+.pr-0, .px-0 { padding-right: 0!important; }
+.pb-0, .py-0 { padding-bottom: 0!important; }
+.pl-0, .px-0 { padding-left: 0!important; }
+
+.p-1 { padding: .25rem!important; }
+.pt-1, .py-1 { padding-top: .25rem!important; }
+.pr-1, .px-1 { padding-right: .25rem!important; }
+.pb-1, .py-1 { padding-bottom: .25rem!important; }
+.pl-1, .px-1 { padding-left: .25rem!important; }
+
+.p-2 { padding: .5rem!important; }
+.pt-2, .py-2 { padding-top: .5rem!important; }
+.pr-2, .px-2 { padding-right: .5rem!important; }
+.pb-2, .py-2 { padding-bottom: .5rem!important; }
+.pl-2, .px-2 { padding-left: .5rem!important; }
+
+.p-3 { padding: 1rem!important; }
+.pt-3, .py-3 { padding-top: 1rem!important; }
+.pr-3, .px-3 { padding-right: 1rem!important; }
+.pb-3, .py-3 { padding-bottom: 1rem!important; }
+.pl-3, .px-3 { padding-left: 1rem!important; }
+
+.p-4 { padding: 1.5rem!important; }
+.pt-4, .py-4 { padding-top: 1.5rem!important; }
+.pr-4, .px-4 { padding-right: 1.5rem!important; }
+.pb-4, .py-4 { padding-bottom: 1.5rem!important; }
+.pl-4, .px-4 { padding-left: 1.5rem!important; }
+
+.p-5 { padding: 3rem!important; }
+.pt-5, .py-5 { padding-top: 3rem!important; }
+.pr-5, .px-5 { padding-right: 3rem!important; }
+.pb-5, .py-5 { padding-bottom: 3rem!important; }
+.pl-5, .px-5 { padding-left: 3rem!important; }
+
+.p-auto { padding: auto!important; }
+.pt-auto, .py-auto { padding-top: auto!important; }
+.pr-auto, .px-auto { padding-right: auto!important; }
+.pb-auto, .py-auto { padding-bottom: auto!important; }
+.pl-auto, .px-auto { padding-left: auto!important; }
+
+/* FLEX ==================================================================== */
+.d-flex {
+	display: -ms-flexbox!important;
+	display: flex!important;
+}
+
+.flex-column {
+	-ms-flex-direction: column!important;
+	flex-direction: column!important;
+}
+
+.flex-row {
+	-ms-flex-direction: row!important;
+	flex-direction: row!important;
+}
+
+.flex-wrap {
+	-ms-flex-wrap: wrap!important;
+	flex-wrap: wrap!important;
+}
+
+.justify-content-center {
+	-ms-flex-pack: center!important;
+	justify-content: center!important;
+}
+
+.align-items-end {
+	-ms-flex-align: end!important;
+	align-items: flex-end!important;
+}
+
+@media (min-width: 768px) {
+	.align-items-md-start {
+		-ms-flex-align: start!important;
+		align-items: flex-start!important;
+	}
+	.flex-md-column {
+		-ms-flex-direction: column!important;
+		flex-direction: column!important;
+	}
+	.flex-md-row {
+		-ms-flex-direction: row!important;
+		flex-direction: row!important;
+	}
+}
+
+/* BUTTONS ================================================================= */
+.btn {
+	display: inline-block;
+	font-weight: 400;
+	color: #212529;
+	text-align: center;
+	vertical-align: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-color: transparent;
+	border: 1px solid transparent;
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	border-radius: .25rem;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-xs {
+	padding: .185rem .375rem;
+	font-size: .750rem;
+	line-height: 1.5;
+	border-radius: .15rem;
+}
+
+.btn-sm {
+	padding: .25rem .5rem;
+	font-size: .875rem;
+	line-height: 1.5;
+	border-radius: .2rem;
+}
+
+.btn-lg {
+	padding: .5rem 1rem;
+	font-size: 1.25rem;
+	line-height: 1.5;
+	border-radius: .3rem;
+}
+
+.btn:hover {
+	color: #212529;
+	text-decoration: none;
+}
+
+.btn.focus, .btn:focus {
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.btn-outline-light {
+	color: #f8f9fa;
+	border-color: #f8f9fa;
+}
+
+.btn-outline-light:hover {
+	color: #212529;
+	background-color: #f8f9fa;
+	border-color: #f8f9fa;
+}
+
+.btn-outline-light.focus,
+.btn-outline-light:focus {
+	box-shadow: 0 0 0 0.2rem rgba(248,249,250,.5);
+}
+
+.btn-outline-light:not(:disabled):not(.disabled).active:focus,
+.btn-outline-light:not(:disabled):not(.disabled):active:focus {
+	box-shadow: 0 0 0 0.2rem rgba(248,249,250,.5);
+}
+.btn-outline-light:not(:disabled):not(.disabled).active,
+.btn-outline-light:not(:disabled):not(.disabled):active {
+	color: #212529;
+	background-color: #f8f9fa;
+	border-color: #f8f9fa;
+}
+
+/* INPUTS ================================================================= *
+button, input, optgroup, select, textarea {
+	margin: 0;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+}
+
+button {
+	border-radius: 0;
+}
+
+button, input {
+	overflow: visible;
+}
+
+button, select {
+	text-transform: none;
+}
+
+[type=button], [type=reset], [type=submit], button {
+	-webkit-appearance: button;
+}
+
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) {
+	cursor: pointer;
+}
+
+::-webkit-file-upload-button {
+	font: inherit;
+	-webkit-appearance: button;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+/* ALERT PANELS ============================================================ */
+.alert {
+	position: relative;
+	padding: .75rem 1.25rem;
+	margin-bottom: 1rem;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+}
+
+.alert-info {
+	color: #0c5460;
+	background-color: #d1ecf1;
+	border-color: #bee5eb;
+}
+
+.alert-success {
+	color: #155724;
+	background-color: #d4edda;
+	border-color: #c3e6cb;
+}
+
+.alert-warning {
+	color: #856404;
+	background-color: #fff3cd;
+	border-color: #ffeeba;
+}
+
+.alert-danger {
+	color: #721c24;
+	background-color: #f8d7da;
+	border-color: #f5c6cb;
+}
+
+.alert-gray {
+	color: #616161;
+	background-color: #e0e0e0;
+	border-color: #bdbdbd;
+}
+
+/* CALLOUT PANELS ========================================================== */
+.bd-callout {
+	padding: 1.25rem;
+	margin-top: 1.25rem;
+	margin-bottom: 1.25rem;
+	border: 1px solid #eee;
+	border-left-width: .25rem;
+	border-radius: .25rem;
+}
+.bd-callout h4 {
+	margin-top: 0;
+	margin-bottom: .25rem;
+}
+.bd-callout p:last-child { margin-bottom: 0; }
+.bd-callout code { border-radius: .25rem; }
+.bd-callout + .bd-callout { margin-top: -.25rem; }
+
+.bd-callout-info { border-left-color: #5bc0de; }
+.bd-callout-info h4 { color: #5bc0de; }
+
+.bd-callout-warning { border-left-color: #f0ad4e; }
+.bd-callout-warning h4 { color: #f0ad4e; }
+
+.bd-callout-danger { border-left-color: #d9534f; }
+.bd-callout-danger h4 { color: #d9534f; }
+
+.bd-callout-blue { border-left-color: #007bff; }
+.bd-callout-blue h4 { color: #007bff; }
+
+.bd-callout-black { border-left-color: #2a2a2a; }
+.bd-callout-black h4 { color: #2a2a2a; }
+
+.bd-callout-purple { border-left-color: #431e3f; }
+.bd-callout-purple h4 { color: #431e3f; }
