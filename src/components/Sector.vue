@@ -122,7 +122,7 @@ export default {
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	background-color: rgba(0, 118, 190, .25);
+	/* background-color: rgba(0, 118, 190, .25); */
 }
 
 .sector-inner {
@@ -238,6 +238,10 @@ export default {
 	font-size: .65rem;
 	color: #C8C8C8;
 	margin: 2px;
+}
+
+.sector:hover .sector-null {
+	color: #0076BE;
 }
 
 .sector-tooltip-content {
