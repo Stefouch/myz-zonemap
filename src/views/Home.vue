@@ -23,7 +23,7 @@
 
 		<div class="alert alert-success mb-1"><span class="mdi mdi-checkbox-marked"></span> Fully tested web browsers include: Google Chrome, Mozilla Firefox, and Safari (both on desktops and smartphones).</div>
 
-		<div class="alert alert-warning mb-1"><span class="mdi mdi-alert"></span> Development in progress! Fonctionalities are subject to evolve. Bugs are not impossible. If you're experiencing some weird behavior, please report it there: <a href="http://git" target="_blank">bug report</a>.</div>
+		<div class="alert alert-warning mb-1"><span class="mdi mdi-alert"></span> Development in progress! Fonctionalities are subject to evolve. Bugs are not impossible. If you're experiencing some weird behavior, please report it there: <a :href="`${$root.github}/issues`" target="_blank">bug report</a>.</div>
 
 		<div class="alert alert-danger mb-1"><span class="mdi mdi-close-circle"></span> Not compatible with Internet Explorer.</div>
 
