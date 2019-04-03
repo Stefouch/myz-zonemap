@@ -48,12 +48,16 @@
 
 				<div class="alert alert-success">
 					<h4><i class="mdi mdi-book-open-page-variant"></i> ReadMe!</h4>
-					<p>This document contains many useful information about <b>{{ $root.name }}</b> and how to pilot the web app.
+					<p class="text-info">This document contains many useful information about <b>{{ $root.name }}</b> and how to pilot the web app.
 					<br/>It worth the read!</p>
 				</div>
 
 				<h3>Saving Your Work</h3>
 				<p>The <b>Zonemap</b> can be saved in JSON format, and loaded again for later uses. Because it's JSON, it's easy to edit with a text editor. <small><i>(But beware of what you do here, as this could lead to file corruption.)</i></small></p>
+				<div class="alert alert-warning">
+					<h4><i class="mdi mdi-content-save"></i> Back-It Up!</h4>
+					<p class="text-info">Don't hesitate to back up your zonemap JSON file. Don't always overwrite it when saving.</p>
+				</div>
 			</div>
 
 			<v-divider></v-divider>
@@ -84,10 +88,11 @@
 				<ul class="text-info" style="list-style-type: none;">
 					<li><i class="mdi mdi-content-save"></i> &mdash; Saves all the changes of the current zonemap to the web browser memory (local storage). Data is saved as long as the browser stays open.</li>
 					<li><i class="mdi mdi-download"></i> &mdash; Downloads the zonemap JSON file, including the unsaved changes.</li>
+					<li><i class="mdi mdi-settings"></i> &mdash; Opens the options menu.</li>
 					<li><i class="mdi mdi-eye"></i> &mdash; Toggles the GM view. Usefull if you want to show the map to the PCs. When toggled off, only explored sectors and basic information are displayed.</li>
 					<li><i class="mdi mdi-help-circle-outline"></i> &mdash; Shows this help.</li>
-					<li><i class="mdi mdi-settings"></i> &mdash; Opens the options menu.</li>
-					<li><i class="mdi mdi-close"></i> &mdash; Closes the current map of the Zone and return back to home.</li>
+					<li><i class="mdi mdi-bug-outline"></i> &mdash; Reports an issue.</li>
+					<li><i class="mdi mdi-close"></i> &mdash; Closes the current map of the Zone and returns back to home.</li>
 				</ul>
 
 				<h3>Sector</h3>
@@ -117,28 +122,36 @@
 						</v-flex>
 					</v-layout>
 				</v-container>
+				<p>Changes you make to your sector in the editing dialog aren't saved until you hit the <i class="mdi mdi-content-save"></i> (Save) button.</p>
 			</div>
 
 			<v-divider></v-divider>
 			<h2 id="Custom_Map_Background" ref="Custom_Map_Background">Custom Map Background</h2>
 			<div>
-				<p>Find My Path allows its user to set a custom image for the background behing the grid of sectors.</p>
+				<p>Find My Path allows its user to set a custom image for the background behind the grid of sectors.</p>
 				<p>Click the <i class="mdi mdi-settings"></i> icon to display the options menu and then head to the <code>Background</code> tab.</p>
-				<!-- <p>Click <i class="fas fa-cog"></i> to setup a custom background.</p>
-				<h3><i class="fas fa-map"></i> Zone Map background file</h3>
-					<p>You may select a background image here. The image is not uploaded, but its location is memorized, meaning you will have to select the image every time you restart your web browser.</p>
-					<p>If the background appears too dark or too light, you can edit your picture in a dedicated software.</p>
-				<h3><i class="fas fa-arrows-alt"></i> Zone Map background position (in pixels)</h3>
-					<p>Adjust the position of the background image here. These values are saved in the Zonemap JSON file.</p>
-					<p>Use X and Y to set the left and top position of the background image. Use negative values to offset the image.</p>
-					<p>Use H and W to set the height and the width of the background image. <i>(NB: Each sector's square is 56px.)</i></p>
-					<div class="alert alert-info">Map images made with the <a href="https://www.youtube.com/watch?v=Re1O43K1K0c" target="_blank">Shane McLean tutorial</a> should have values X = -7, Y = -8, W = 1703, H = 1020 (not verified).</div> -->
+				<p>Select your image using the file input and wait until it's loaded. Hit the <i class="mdi mdi-content-paste"></i> (Use) button to apply the image to the background. Hit the <i class="mdi mdi-trash-can-outline"></i> (Remove) button to reset the background.</p>
+
+				<h3>Placement</h3>
+				<p>You may then adjust correctly the placement of the background image behing the sectors grid.</p>
+				<ul>
+					<li>Use the <i class="mdi mdi-format-horizontal-align-left"></i> &amp; <i class="mdi mdi-format-vertical-align-top"></i> fields to respectively move the image left/right (X axis) and up/down (Y axis). Use negative values to offset the image.</li>
+					<li>Use the <i class="mdi mdi-border-horizontal"></i> &amp; <i class="mdi mdi-border-vertical"></i> fields to respectively adjust the width and the height of the background image. <i>(A sector is {{ $root.sectorDim }} pixels tall.)</i></li>
+				</ul>
+				<div class="alert alert-info">
+					<h4><i class="mdi mdi-image-size-select-actual"></i> Default Placement</h4>
+					<p class="text-info">Zonemap background images made with the <a href="https://www.youtube.com/watch?v=Re1O43K1K0c" target="_blank">Shane McLean tutorial</a> should fit with values <code>Left: -7, Top: -9, Width: 1944, Height: 1167</code> (not verified).</p>
+				</div>
+				<div class="alert alert-info">
+					<h4><i class="mdi mdi-information-outline"></i> Background Saving</h4>
+					<p class="text-info">The background image is not saved in the zonemap JSON file and will then reset each time you close the internet browser. This is a development choice made to reduce the size of the zonemap file. However, all placement data (top, left, width &amp; height values) are saved, which means you only need to reload the image when you re-open your zonemap.</p>
+				</div>
 			</div>
 
 			<v-divider></v-divider>
 			<h2 id="Sector_Data" ref="Sector_Data">Sector's Data</h2>
 			<div>
-				<p>This section describes all customizable sector's data.</p>
+				<p>This section describes all customizable data for a sector.</p>
 
 				<h3><i class="mdi mdi-flag"></i> Sector's name</h3>
 				<p>Custom name of the sector. By default, it's the sector's coordinates in the Zone map.</p>
@@ -161,18 +174,18 @@
 
 				<h3><i class="mdi mdi-terrain"></i> Type</h3>
 				<p>A sector can have a type. Setting the type will just have a cosmetic effect by changing the color of that sector on the Zone map.</p>
-				<p>The different types are:</p>
+				<!-- <p>The different types are:</p>
 				<ul class="text-info" style="list-style-type: none;">
 					<li v-for="(icon, key) in $root.typeIcons" :key="key">
 						<v-icon small>{{ icon }}</v-icon> {{ key }}
 					</li>
-				</ul>
+				</ul> -->
 
 				<h3><i class="mdi mdi-image"></i> Environment</h3>
-				<p>Determines the general terrain of that sector.</p>
+				<p>Determines the general terrain of the sector.</p>
 
 				<h3><i class="mdi mdi-map-marker"></i> Ruins</h3>
-				<p>Decides the dominant ruin in that sector.</p>
+				<p>Decides the dominant ruin in the sector.</p>
 
 				<h3><i class="mdi mdi-file-document"></i> Description</h3>
 				<p>Text describing the sector and its dominant ruin. You may also use this field to add your own notes.</p>
@@ -197,10 +210,23 @@
 			</div>
 
 			<v-divider></v-divider>
-			<h2 id="Map_Options" ref="Map_Options">Map Options</h2>
+			<h2 id="Contributing" ref="Contributing">Contributing</h2>
 			<div>
-				<h3>File</h3>
-				<h3>Background</h3>
+				<p>You may help the development of Find the Path.</p>
+				<p>For example, translations could easily be added with your languages skills or if you've access to the corebook in another language.</p>
+			</div>
+
+			<v-divider></v-divider>
+			<h2 id="Troubleshooting" ref="Troubleshooting">Troubleshooting</h2>
+			<div>
+				<div class="alert alert-info">
+					<h4><i class="mdi mdi-bug"></i> Bug Report</h4>
+					<p class="text-info">If you encounter any bug or weird behavior, please report it there: <a :href="`${$root.github}/issues`" target="_blank">report an issue</a>.</p>
+				</div>
+				<ul>
+					<li>While opening an existing zonemap JSON file, if you're experiencing an endless loading dialog, it could mean that your file is corrupted. Don't worry, it should be fixable. Contacts the app manager for help.</li>
+					<li>If the application become very slow and laggy after having set a custom background image, the image file is probably too heavy. Try first to compress the image in JPEG format.</li>
+				</ul>
 			</div>
 		</v-layout>
 
@@ -254,8 +280,12 @@ p b {
 	margin-bottom: 5em;
 }
 
+li {
+	margin-bottom: .5em;
+}
+
 li:last-child {
-	margin-bottom: 1rem;
+	margin-bottom: 1em;
 }
 
 .bg-help-dialog {
@@ -270,10 +300,6 @@ li:last-child {
 }
 
 .help-dialog-toolbar {
-	font-family: 'Futura Std Medium'!important;
-}
-
-.alert .v-icon {
-	color: inherit;
+	font-family: 'Futura Std Medium' !important;
 }
 </style>
