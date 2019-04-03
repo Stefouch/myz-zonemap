@@ -13,8 +13,8 @@ new Vue({
 		name: 'Find My Path',
 		zonemap: null,
 		version: '2.0.0',
-		github: 'git',
-		sectorSquare: 64,
+		github: 'https://github.com/Stefouch/myz-zonemap',
+		sectorDim: 64,
 		mapLangs: [{ text: 'English', value: 'en' }, { text: 'Français', value: 'fr' }],
 		typeIcons: {
 			zone: 'mdi-terrain',
