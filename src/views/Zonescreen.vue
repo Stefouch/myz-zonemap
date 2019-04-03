@@ -1,7 +1,7 @@
 <template>
 <div>
 	<v-toolbar id="navbar-myz" dense dark>
-		<v-toolbar-side-icon></v-toolbar-side-icon>
+		<!-- <v-toolbar-side-icon></v-toolbar-side-icon> -->
 		<v-toolbar-title class="mr-5">{{ interfaceTitle }}</v-toolbar-title>
 		<v-btn icon
 			@click="saveZonemap()"
@@ -170,6 +170,7 @@
 								<v-flex shrink style="width: 100px;">
 									<v-text-field
 										v-model.number="zonemap.background.y"
+										@input="setZoneBgPlacement()"
 										type="number"
 										prepend-icon="mdi-format-vertical-align-top"
 										label="Top"
@@ -178,6 +179,7 @@
 								<v-flex shrink style="width: 100px;">
 									<v-text-field
 										v-model.number="zonemap.background.x"
+										@input="setZoneBgPlacement()"
 										type="number"
 										prepend-icon="mdi-format-horizontal-align-left"
 										label="Left"
@@ -189,6 +191,7 @@
 								<v-flex shrink style="width: 100px;">
 									<v-text-field
 										v-model.number="zonemap.background.w"
+										@input="setZoneBgPlacement()"
 										type="number"
 										prepend-icon="mdi-border-horizontal"
 										label="Width"
@@ -197,6 +200,7 @@
 								<v-flex shrink style="width: 100px;">
 									<v-text-field
 										v-model.number="zonemap.background.h"
+										@input="setZoneBgPlacement()"
 										type="number"
 										prepend-icon="mdi-border-vertical"
 										label="Height"
@@ -244,12 +248,13 @@ export default {
 			gmeye: true,
 			selectedCoord: null,
 			editDialog: false,
-			optionsDialog: true,
+			optionsDialog: false,
 			zonemapChangeCount: 0
 		};
 	},
 	created: function() {
 		if (!this.zonemap) this.$router.push({ name: 'home' });
+		if (!this.zonemap.title) this.$router.push({ name: 'home' });
 		console.log(this.zonemap);
 	},
 	mounted: function() {
@@ -319,7 +324,7 @@ export default {
 			}
 			const reader = new FileReader();
 			const vm = this;
-			reader.onload = (e) => vm.zoneBgDataURI = e.target.result;
+			reader.onload = e => vm.zoneBgDataURI = e.target.result;
 			reader.onerror = () => console.log('[ERROR] - [Zonemap BG] - Unable to read the file!');
 			reader.readAsDataURL(file);
 			this.zoneBg = true;
@@ -339,25 +344,14 @@ export default {
 		setZoneBgPlacement() {
 			this.zonemapChangeCount++;
 			const $zn = document.getElementById('zonescreen');
-			const {x, y, w, h} = this.zonemap.background;
+			const { x, y, w, h } = this.zonemap.background;
 			$zn.style.backgroundPositionX = `${x}px`;
 			$zn.style.backgroundPositionY = `${y}px`;
 			$zn.style.backgroundSize = `${w}px ${h}px`;
 		},
 		resetZoneBgPlacement() {
-			this.zonemap.background = {
-				x: -7, y: -9,
-				w: this.zonemap.width * this.$root.sectorSquare + 24,
-				h: this.zonemap.height * this.$root.sectorSquare + 15
-			};
-		}
-	},
-	watch: {
-		'zonemap': {
-			handler: function(val, oldVal) {
-				console.log(val, oldVal);
-			},
-			deep: true
+			this.zonemap.background = this.passingZonemap.clone().background;
+			this.setZoneBgPlacement();
 		}
 	},
 	components: {
@@ -370,7 +364,7 @@ export default {
 
 <style>
 html {
-	overflow-y: auto!important;
+	overflow-y: auto !important;
 }
 
 #navbar-myz {

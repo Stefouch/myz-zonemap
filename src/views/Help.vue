@@ -45,49 +45,86 @@
 				<h2 id="About" ref="About">About</h2>
 				<p><b>{{ $root.name }}</b> is a web application for managing the Map of the Zone in the <b>Mutant: Year Zero</b> tabletop roleplaying game. It's a useful companion for generating random Zone sectors on the fly, rolling threats, keeping notes, tracking the resources to find, and many more.</p>
 				<p>It's mainly designed for Game Master's Eyes, although the application provides a special mode to showcase explored-only sectors to the Player Characters, hiding from them the location of EDEN.</p>
+
 				<div class="alert alert-success">
-					<h4><v-icon small>mdi-book-open-page-variant</v-icon> ReadMe!</h4>
+					<h4><i class="mdi mdi-book-open-page-variant"></i> ReadMe!</h4>
 					<p>This document contains many useful information about <b>{{ $root.name }}</b> and how to pilot the web app.
 					<br/>It worth the read!</p>
 				</div>
+
 				<h3>Saving Your Work</h3>
 				<p>The <b>Zonemap</b> can be saved in JSON format, and loaded again for later uses. Because it's JSON, it's easy to edit with a text editor. <small><i>(But beware of what you do here, as this could lead to file corruption.)</i></small></p>
 			</div>
 
 			<v-divider></v-divider>
-			<h2 id="First_Steps" ref="First_steps">First Steps</h2>
+			<h2 id="First_Steps" ref="First_Steps">First Steps</h2>
 			<div>
 				<p><b>{{ $root.name }}</b> is compatible with modern web browsers, although it doesn't work with Internet Explorer, and never will.</p>
 				<p>The development is still in progress and fonctionalities are subject to evolve. Unfortunately, bugs are not impossible. If you encounter some of them, please read <a @click="goto('Troubleshooting')">Troubleshooting</a> below.</p>
-				<h3>Creating a New Map</h3>
-				<p></p>
-				<h3>Opening an Existing Map</h3>
-				<p></p>
-				<h3>Quick-loading the Last Map</h3>
-				<p></p>
+				<p>When starting the app, you have three available choices:</p>
+
+				<h3>Create a New Map</h3>
+				<p>Choose this option if you want to create a new map from scratch. You have to define a name and its dimensions. Common map of the Zone are 30 sectors wide and 18 sectors high. You may also choose a language among available translations, although this option only change the language used for the infos generated for a sector. It doens't change the user interface's language.</p>
+
+				<h3>Open an Existing Map</h3>
+				<p>Choose this option to load a zonemap JSON file hosted on your computer/device.</p>
+
+				<h3>Load Last Map</h3>
+				<p>Choose this option to quickly load the last saved map.</p>
 			</div>
 
 			<v-divider></v-divider>
-			<h2 id="The_Zone_Screen" ref="The_Zone_Screen">The Zone Screen</h2>
+			<h2 id="The_Sectors_Grid" ref="The_Sectors_Grid">The Sectors Grid</h2>
 			<div>
-				<p>A Map of the Zone can't be wider than 30 squares and heighter than 26 squares.</p>
-				<p>The map is draggable, like a Google map (but no zoom function yet). The rulers are also draggable.</p>
-				<p>Click <i class="far fa-eye-slash"></i> to hide/show unexplored sectors.</p>
-				<p>Single click to select a zone sector (a map's square), or double-click to edit it.</p>
-				<p>Each square displays a custom name and up to six icons:</p>
-				<ul style="list-style-type: none;">
-					<li><abbr class="zone-symbol zone-symbol-bullets" title="Bullets available">d6</abbr> &mdash; Some bullets are present in this sector.</li>
-					<li><abbr class="zone-symbol zone-symbol-grub" title="Grub available">d6</abbr> &mdash; Some grub is there to find.</li>
-					<li><abbr class="zone-symbol zone-symbol-water" title="Water available">d6</abbr> &mdash; Some rot-free water rations are lying around.</li>
-					<li><abbr class="zone-symbol zone-symbol-danger" title="Threat not terminated">T_T</abbr> &mdash; One or more threats are lurking in this sector.</li>
-					<li><abbr class="zone-symbol zone-symbol-artifact" title="Artifact(s) available">A</abbr> &mdash; One or more artifacts are hidden in this sector.</li>
-					<li><abbr class="zone-symbol zone-symbol-nuke" title="Rot level > 0">ROT</abbr> &mdash; The Rot level of this sector.</li>
+				<p>The map of the Zone is a grid divided in several squares. Each square is a <b>sector</b>, {{ $root.sectorDim }} pixels tall. The map can't be wider than 30 sectors and higher than 26 sectors.</p>
+				<p>The map is "draggable" like any other Google Map. No zoom function yet.</p>
+
+				<h3>Toolbar</h3>
+				<p>At the top, a toolbar offers many functions:</p>
+				<ul class="text-info" style="list-style-type: none;">
+					<li><i class="mdi mdi-content-save"></i> &mdash; Saves all the changes of the current zonemap to the web browser memory (local storage). Data is saved as long as the browser stays open.</li>
+					<li><i class="mdi mdi-download"></i> &mdash; Downloads the zonemap JSON file, including the unsaved changes.</li>
+					<li><i class="mdi mdi-eye"></i> &mdash; Toggles the GM view. Usefull if you want to show the map to the PCs. When toggled off, only explored sectors and basic information are displayed.</li>
+					<li><i class="mdi mdi-help-circle-outline"></i> &mdash; Shows this help.</li>
+					<li><i class="mdi mdi-settings"></i> &mdash; Opens the options menu.</li>
+					<li><i class="mdi mdi-close"></i> &mdash; Closes the current map of the Zone and return back to home.</li>
 				</ul>
-				<p>Each square can also have different background &amp; border colors, according to the sector's type, rot level, and exploration status.</p>
+
+				<h3>Sector</h3>
+				<p>Each <b>sector</b> displays several information: a set of icons, a name, and a marker. Each sector can also have different background &amp; border colors, according to the sector's type, rot level, and exploration status.</p>
+				<p>To edit a sector, <code>double-click</code> or <code>right-click</code> the desired square on the grid.</p>
+
+				<v-container fluid grid-list-xl>
+					<v-layout row wrap>
+						<v-flex xs12 sm6>
+							<h4>Icons</h4>
+							<ul class="text-info" style="list-style-type: none;">
+								<li><i class="mdi mdi-skull"></i> &mdash; Indicates the presence of a <b>threat</b> in the sector.</li>
+								<li><i class="mdi mdi-star"></i> &mdash; Indicates the presence of an <b>artifact</b> in the sector.</li>
+								<li><i class="mdi mdi-radioactive"></i> &mdash; Indicates a <b>Rot level</b> equal to 2 or higher.</li>
+								<li><i class="mdi mdi-notebook"></i> &mdash; Indicates some <b>extra notes</b> added by the GM for the sector.</li>
+							</ul>
+						</v-flex>
+						<v-flex xs12 sm6>
+							<h4>Colors</h4>
+							<ul class="text-info" style="list-style-type: none;">
+								<li><b>Gray:</b> unexplored</li>
+								<li><b>Blue:</b> special Zone sector</li>
+								<li><b>Yellow:</b> Ark sector</li>
+								<li><b>Green border:</b> Rot Oasis sector (Rot level 0)</li>
+								<li><b>Orange/red border:</b> Rot level 2+</li>
+							</ul>
+						</v-flex>
+					</v-layout>
+				</v-container>
 			</div>
-			<h2 id="Map_Background" ref="Map_Background">Map Background</h2>
+
+			<v-divider></v-divider>
+			<h2 id="Custom_Map_Background" ref="Custom_Map_Background">Custom Map Background</h2>
 			<div>
-				<p>Click <i class="fas fa-cog"></i> to setup a custom background.</p>
+				<p>Find My Path allows its user to set a custom image for the background behing the grid of sectors.</p>
+				<p>Click the <i class="mdi mdi-settings"></i> icon to display the options menu and then head to the <code>Background</code> tab.</p>
+				<!-- <p>Click <i class="fas fa-cog"></i> to setup a custom background.</p>
 				<h3><i class="fas fa-map"></i> Zone Map background file</h3>
 					<p>You may select a background image here. The image is not uploaded, but its location is memorized, meaning you will have to select the image every time you restart your web browser.</p>
 					<p>If the background appears too dark or too light, you can edit your picture in a dedicated software.</p>
@@ -95,93 +132,75 @@
 					<p>Adjust the position of the background image here. These values are saved in the Zonemap JSON file.</p>
 					<p>Use X and Y to set the left and top position of the background image. Use negative values to offset the image.</p>
 					<p>Use H and W to set the height and the width of the background image. <i>(NB: Each sector's square is 56px.)</i></p>
-					<div class="alert alert-info">Map images made with the <a href="https://www.youtube.com/watch?v=Re1O43K1K0c" target="_blank">Shane McLean tutorial</a> should have values X = -7, Y = -8, W = 1703, H = 1020 (not verified).</div>
+					<div class="alert alert-info">Map images made with the <a href="https://www.youtube.com/watch?v=Re1O43K1K0c" target="_blank">Shane McLean tutorial</a> should have values X = -7, Y = -8, W = 1703, H = 1020 (not verified).</div> -->
 			</div>
-			<h2 id="Editing_a_Sector" ref="Editing_a_Sector">Editing a Sector</h2>
-			<div>
-				<p>Double click on a Zone sector (a square) to edit it.</p>
-				<div class="alert alert-warning">For any text input, special characters ($%), html tags (&lt;/&gt;) and apostrophes ("/') are not supported and are therefore removed by the server.</div>
-				<p>Buttons:</p>
-				<ul>
-					<li><b>Roll:</b> generates new data for this sector (if not yet saved, otherwise you'll need first to delete it).</li>
-					<li><b>Save:</b> saves all data for this sector.</li>
-					<li><b>Close:</b> closes the Edit dialog.</li>
-					<li><b>Delete:</b> resets this sector (no turning back).</li>
-				</ul>
-				<div class="alert alert-info">All random data for a sector are generated according to the tables found in the MYZ core book.</div>
-			</div>
+
+			<v-divider></v-divider>
 			<h2 id="Sector_Data" ref="Sector_Data">Sector's Data</h2>
 			<div>
-				<h3><i class="fas fa-flag"></i> Sector's name</h3>
-					<p>Custom name of the sector. By default, it's the sector's coordinates in the Zone map.</p>
-				<h3><i class="fas fa-map-marker-alt"></i> Exploration status</h3>
-					<p>Either if this sector is explored or not. It's possible PCs can still enter this sector and NOT explore it, e.g. by rushing it or turning back before the end of the exploration (The GM could allow this if the PCs discover a strong rot level).</p>
-					<p>Checking this checkbox will remove the gray background from the map's square.</p>
-				<h3><i class="fas fa-radiation"></i> Rot level</h3>
-					<ol start="0">
-						<li><b>Rot oasis:</b> Rot-free area. <i>(No radiation icon on the square.)</i></li>
-						<li><abbr class="zone-symbol zone-symbol-nuke" title="Rot level 1">{ROT}</abbr>&nbsp;<b>Weak rot area:</b> In these sectors PCs get one Rot point every day. <i>(Radiation icon on the square.)</i></li>
-						<li><abbr class="zone-symbol zone-symbol-nuke bg-warning" title="Rot level 2">{ROT}</abbr>&nbsp;<b>Strong rot area:</b> In such a sector PCs suffer one Rot Point every hour. <i>(Yellow radiation icon on the square.)</i></li>
-						<li><abbr class="zone-symbol zone-symbol-nuke bg-danger" title="Rot level 3">{ROT}</abbr>&nbsp;<b>Rot hotspot:</b> Here, you will die quickly. You get one Rot Point every minute. <i>(Red radiation icon on the square.)</i></li>
-					</ol>
-				<h3><i class="fas fa-exclamation-triangle"></i> Threat level & Threats list</h3>
-					<p>A high Threat Level means a more dangerous sector, but with greater chance of finding untouched artifacts (see page 158).</p>
-					<p>At generation, a Threat roll is processed. For each six, the artifact count is increased by one if there are some ruins in that sector. For each one, an extra Zone threat is added to the Threat list. Choose one threat from that list, or more than one, and empower it, or not (at GM's discretion).</p>
-					<p>The dice button rolls a new value between 1 and 13 for this level, but doesn't change the threat list (no Threat roll is made).</p>
-				<h3><i class="fas fa-cube"></i> Finds</h3>
-					<p>Indicates how many resources left to discover:</p>
-					<ul style="list-style-type: none;">
-						<li><i class="far fa-dot-circle"></i> Bullets</li>
-						<li><i class="fas fa-apple-alt"></i> Grub</li>
-						<li><i class="fas fa-tint"></i> Water</li>
-						<li><i class="fas fa-paperclip"></i> Artifacts</li>
-					</ul>
-					<p>Any value above 0 will show the dedicated icon in the sector of the Zone map. The "shopping cart" buttons set the values for these items to 0.</p>
-				<h3><i class="fas fa-tag"></i> Type</h3>
+				<p>This section describes all customizable sector's data.</p>
+
+				<h3><i class="mdi mdi-flag"></i> Sector's name</h3>
+				<p>Custom name of the sector. By default, it's the sector's coordinates in the Zone map.</p>
+
+				<h3><i class="mdi mdi-compass"></i> Exploration status</h3>
+				<p>Either if this sector is explored or not. Checking this checkbox will remove the gray background from the map's square.</p>
+
+				<h3><i class="mdi mdi-radioactive"></i> Rot level</h3>
+				<ol start="0">
+					<li><b>Rot oasis:</b> Rot-free area. <small><i>(No radiation icon &amp; green border on the square.)</i></small></li>
+					<li><b>Weak rot area:</b> In these sectors PCs get one Rot point every day. <small><i>(No radiation icon.)</i></small></li>
+					<li><b>Strong rot area:</b> In such a sector PCs suffer one Rot Point every hour. <small><i>(Radiation icon &amp; orange border.)</i></small></li>
+					<li><b>Rot hotspot:</b> Here, you will die quickly. You get one Rot Point every minute. <small><i>(Radiation icon &amp; red border.)</i></small></li>
+				</ol>
+
+				<h3><i class="mdi mdi-space-invaders"></i> Threat level &amp; Threats list</h3>
+				<p>A high Threat Level means a more dangerous sector, but with greater chance of finding untouched artifacts (see page 158).</p>
+				<p>At generation, a Threat roll is processed. For each <b>six</b>, the artifact count is increased by one if there are some ruins in that sector. If at least a <b>one</b> is rolled, an Zone threat is added to the Threat list.</p>
+				<p>The <i class="mdi mdi-dice-6"></i> button performs a new Threat Roll.</p>
+
+				<h3><i class="mdi mdi-terrain"></i> Type</h3>
 				<p>A sector can have a type. Setting the type will just have a cosmetic effect by changing the color of that sector on the Zone map.</p>
 				<p>The different types are:</p>
-				<ul>
-					<li>zone</li>
-					<li>ark</li>
-					<li>special</li>
+				<ul class="text-info" style="list-style-type: none;">
+					<li v-for="(icon, key) in $root.typeIcons" :key="key">
+						<v-icon small>{{ icon }}</v-icon> {{ key }}
+					</li>
 				</ul>
-				<h3><i class="fas fa-compass"></i> Environment</h3>
-					<p>Determines the general terrain of that sector. An autocomplete list is available.</p>
-				<h3><i class="fas fa-thumbtack"></i> Ruins</h3>
-					<p>Decides the dominant ruin in that sector. An autocomplete list is available. If the "Description" textarea is empty, selecting a ruin from the autocomplete list will also add its description.</p>
-				<h3><i class="fas fa-edit"></i> Description</h3>
-					<p>Text describing the sector and its dominant ruin. You may also use this field to add your own notes.</p>
-				<h3><i class="fas fa-exclamation-circle"></i> Mood</h3>
-					<p>Some sectors in the Zone contain neither threats nor artifacts. Some sectors are just empty wasteland, and can be passed quickly by the PCs. To give even sectors like these some life and character, you can choose a mood element, something that catches the PCs’ attention, but is not an immediate threat.</p>
-					<p>This field has an autocomplete function. Use Mood types to help find something that fits you. Mood types are: People, Nature, Weather, Remains, Events, and Terrain.</p>
-			</div>
-			<h2 id="Saving_your_Zone_Map" ref="Saving_your_Zone_Map">Saving your Zone Map</h2>
-			<div>
-				<p>To save your Zone map, click the button "Save" in the upper navbar. A dialog appear and ask you a title for your creation and its creator's name. Click "Save" again to prompt the file download. You can then use it for later uses.</p>
-				<p>The map is also saved in the server's memory. As long as you don't close your web browser, you should be able to retrieve your last saved map through the welcome screen.</p>
-			</div>
-			<h2>Future Improvements</h2>
-			<div>
-				<p>The Development of this web application is unfinished. I plan to add more fonctionalities. Of course, I'm open to suggestions. Don't hesitate to send me your ideas.</p>
-				<p>Planned upgrades:</p>
-				<ul>
-					<li>UI improvements.</li>
-					<li>Fixing the download HTTPS bug.</li>
-					<li>Sector's mouse-over popup showing more details.</li>
-					<li><strike>Keyboard shortcuts.</strike>&nbsp;<span class="badge badge-secondary">Done</span></li>
-					<li><strike>Custom map background.</strike>&nbsp;<span class="badge badge-secondary">Done</span></li>
-					<li>Use of MYZ fonts: ArcherPro Book and BigNoodleTitling.</li>
-					<li>Support for Internet Explorer.</li>
-					<li>Map zoom.</li>
+
+				<h3><i class="mdi mdi-image"></i> Environment</h3>
+				<p>Determines the general terrain of that sector.</p>
+
+				<h3><i class="mdi mdi-map-marker"></i> Ruins</h3>
+				<p>Decides the dominant ruin in that sector.</p>
+
+				<h3><i class="mdi mdi-file-document"></i> Description</h3>
+				<p>Text describing the sector and its dominant ruin. You may also use this field to add your own notes.</p>
+				<p>The <i class="mdi mdi-download"></i> button appears if a dominant ruin has been selected and if the textfield is empty. Clicking it will generate a description for the chosen ruin.</p>
+
+				<h3><i class="mdi mdi-alert-circle"></i> Mood</h3>
+				<p>Some sectors in the Zone contain neither threats nor artifacts. Some sectors are just empty wasteland, and can be passed quickly by the PCs. To give even sectors like these some life and character, you can choose a mood element, something that catches the PCs’ attention, but is not an immediate threat.</p>
+				<p>Mood types are: People, Nature, Weather, Remains, Events, and Terrain.</p>
+
+				<h3><i class="mdi mdi-notebook"></i> Notes</h3>
+				<p>Use this field to add extra notes for the sector.</p>
+
+				<h3><i class="mdi mdi-package-variant-closed"></i> Finds</h3>
+				<p>Inventories the resources left to discover:</p>
+				<ul class="text-info" style="list-style-type: none;">
+					<li v-for="(icon, key) in $root.findIcons" :key="key">
+						<v-icon small>{{ icon }}</v-icon> {{ key }}
+					</li>
 				</ul>
+				<p>The <i class="mdi mdi-cart-arrow-down"></i> button sets the item's quantity to 0.</p>
+				<p>The <i class="mdi mdi-dice-6"></i> button rolls a new random quantity for the item.</p>
 			</div>
-			<h2>Troubleshooting</h2>
+
+			<v-divider></v-divider>
+			<h2 id="Map_Options" ref="Map_Options">Map Options</h2>
 			<div>
-				<ul>
-					<li>No file is prompted for download? You probably need to authorize popup windows for this website.</li>
-					<li>If the zonemap stays with a loading screen after a few seconds, either the server is very slow today; or (most probably) your map file is corrupted.</li>
-					<li>The web browser Internet Explorer is not supported yet.</li>
-				</ul>
+				<h3>File</h3>
+				<h3>Background</h3>
 			</div>
 		</v-layout>
 
@@ -196,7 +215,7 @@ export default {
 	data: () => ({
 		drawer: false,
 		drawerEntries: [],
-		nightMode: true
+		nightMode: false
 	}),
 	mounted: function() {
 		const childs = this.$refs.helptext.childNodes;
