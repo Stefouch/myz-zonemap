@@ -22,7 +22,7 @@ class ZoneMap extends Collection {
 		 * Zonemap title.
 		 * @type {string}
 		 */
-		this.title = data.title || 'Untitled Map';
+		this.title = data.title || '';
 
 		/**
 		 * File version.
