@@ -17,6 +17,12 @@
 			<v-icon>mdi-download</v-icon>
 		</v-btn>
 		<v-btn icon
+			@click="optionsDialog = true"
+			title="Options"
+		>
+			<v-icon>mdi-settings</v-icon>
+		</v-btn>
+		<v-btn icon
 			@click="gmeye = !gmeye"
 			title="Toggle GM view"
 		>
@@ -30,10 +36,10 @@
 			<v-icon>mdi-help-circle-outline</v-icon>
 		</v-btn>
 		<v-btn icon
-			@click="optionsDialog = true"
-			title="Options"
+			@click="reportIssue()"
+			title="Report an issue"
 		>
-			<v-icon>mdi-settings</v-icon>
+			<v-icon>mdi-bug-outline</v-icon>
 		</v-btn>
 		<v-btn icon
 			@click="closeZonescreen()"
@@ -169,20 +175,20 @@
 							<v-layout row justify-space-around>
 								<v-flex shrink style="width: 100px;">
 									<v-text-field
-										v-model.number="zonemap.background.y"
-										@input="setZoneBgPlacement()"
-										type="number"
-										prepend-icon="mdi-format-vertical-align-top"
-										label="Top"
-									/>
-								</v-flex>
-								<v-flex shrink style="width: 100px;">
-									<v-text-field
 										v-model.number="zonemap.background.x"
 										@input="setZoneBgPlacement()"
 										type="number"
 										prepend-icon="mdi-format-horizontal-align-left"
 										label="Left"
+									/>
+								</v-flex>
+								<v-flex shrink style="width: 100px;">
+									<v-text-field
+										v-model.number="zonemap.background.y"
+										@input="setZoneBgPlacement()"
+										type="number"
+										prepend-icon="mdi-format-vertical-align-top"
+										label="Top"
 									/>
 								</v-flex>
 							</v-layout>
@@ -260,6 +266,11 @@ export default {
 	mounted: function() {
 		// Needed here to allow the class:dragscroll to work.
 		dragscroll.reset();
+		// Prevents fast quitting.
+		window.addEventListener('beforeunload', e => {
+			e.preventDefault();
+			e.returnValue = 'Are you sure you want to quit?';
+		});
 	},
 	computed: {
 		interfaceTitle: function() {
@@ -267,10 +278,7 @@ export default {
 		},
 		selectedSector: function() {
 			return this.zonemap.get(this.selectedCoord);
-		}/* ,
-		bg: function() {
-			return this.zonemap.background;
-		} */
+		}
 	},
 	methods: {
 		coord(x, y) {
@@ -283,6 +291,9 @@ export default {
 		},
 		openHelp() {
 			window.open('./#/Help', '_blank');
+		},
+		reportIssue() {
+			window.open(`${this.$root.github}/issues`, '_blank');
 		},
 		closeZonescreen() {
 			this.$router.push({ name: 'home' });
