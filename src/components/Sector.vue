@@ -105,19 +105,19 @@ export default {
 .sector {
 	position: relative;
 	z-index: 1;
-	min-width: 64px!important;
-	max-width: 64px!important;
-	min-height: 64px!important;
-	max-height: 64px!important;
-	margin: 0!important;
-	padding: 1px!important;
+	min-width: 64px !important;
+	max-width: 64px !important;
+	min-height: 64px !important;
+	max-height: 64px !important;
+	margin: 0 !important;
+	padding: 1px !important;
 	border: 1px solid #D3D3D3;
 	font-family: 'Futura Std Medium';
 	font-size: .8rem;
 }
 
 .sector:hover {
-	padding: 0!important;
+	padding: 0 !important;
 	border: 2px solid #0076BE;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
