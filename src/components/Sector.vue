@@ -244,10 +244,11 @@ export default {
 	color: #0076BE;
 }
 
+.v-tooltip__content,
 .sector-tooltip-content {
 	max-width: 250px;
-	color: #000;
-	background-color: #fff;
+	color: #000 !important;
+	background-color: #fff !important;
 }
 
 .hide {
