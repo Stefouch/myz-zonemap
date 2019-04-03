@@ -6,9 +6,13 @@ Are you lost in the Zone? You're chased by a group of *Zone Ghouls* and you can'
 
 **Mutant: Find My Path** is a web application for managing the Map of the Zone for the *Mutant: Year Zero* tabletop roleplaying game.
 
+## How to play
+
+https://stefouch.github.io/myz-zonemap
+
 ## How to use
 
-Read the [help documentation](https://www.mtgtreachery/zonemap/#/help).
+Read the [help documentation](https://stefouch.github.io/myz-zonemap/#/help).
 
 ## Bug reporting
 
