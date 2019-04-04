@@ -87,6 +87,7 @@
 		right
 		temporary
 		hide-overlay
+		touchless
 	>
 		<v-layout column px-3>
 			<h2>Options</h2>
