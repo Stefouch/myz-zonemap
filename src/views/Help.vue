@@ -229,7 +229,7 @@
 				</div>
 				<ul>
 					<li>While opening an existing zonemap JSON file, if you're experiencing an endless loading dialog, it could mean that your file is corrupted. Don't worry, it should be fixable. Contacts the app manager for help.</li>
-					<li>If the application become very slow and laggy after having set a custom background image, the image file is probably too heavy. Try first to compress the image in JPEG format.</li>
+					<li>If the application becomes very slow and laggy after having set a custom background image, the image file is probably too heavy. Try first to compress the image in JPEG format.</li>
 				</ul>
 			</div>
 		</v-layout>
@@ -271,7 +271,8 @@ export default {
 </script>
 
 <style scoped>
-p b {
+p b,
+li b {
 	font-family: 'ArcherPro Bold';
 }
 
