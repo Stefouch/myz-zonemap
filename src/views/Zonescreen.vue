@@ -389,22 +389,17 @@ html {
 #zonescreen {
 	width: 100%;
 	height: calc(100vh - 48px);
-	/* border: 2px solid red; */
-	/* border: 10px solid; */
-	/* border-image: url('../assets/book-warning.png') 10 round; */
-	/* overflow: scroll; */
-	overflow: hidden;
+	overflow: scroll;
+	/* overflow: hidden; */
+	scrollbar-width: none;
 	user-select: none;
 	background-repeat: no-repeat;
 	background-attachment: local;
-	/* background-position-x: -7px;
-	background-position-y: -9px;
-	background-size: 1944px 1167px; */
 }
 
-/* #zonescreen::-webkit-scrollbar {
+#zonescreen::-webkit-scrollbar {
 	display: none;
-} */
+}
 
 .zonerow {
 	min-height: 64px;
