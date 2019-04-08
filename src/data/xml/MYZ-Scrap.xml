@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	To add new scrap, well, I think you can work it out yourself...
+-->
+<Scrap>
+	<Name>Scarf, colorful (Gear Bonus +1 against cold)</Name>
+	<Name>Scientific dissertation</Name>
+	<Name>Scuba mask</Name>
+	<Name>Scuba suit </Name>
+	<Name>Worn out Sex toy</Name>
+	<Name>Shopping cart</Name>
+	<Name>Skateboard</Name>
+	<Name>Snowglobe</Name>
+	<Name>Sketch book, full of sketches </Name>
+	<Name>Ski boot</Name>
+	<Name>Ski hat (Gear Bonus +1 against cold)</Name> 
+	<Name>Skin lotion, bottle </Name>
+	<Name>Sleeping pad</Name>
+	<Name>Sofa, broken</Name>
+	<Name>Spider-Man suit for kids</Name> 
+	<Name>Sports bottle </Name>
+	<Name>Sports jersey</Name>
+	<Name>Sports prize cup</Name>
+	<Name>Stapler</Name>
+	<Name>Starburst candy (one ration of grub) </Name>
+	<Name>Stroller</Name>
+	<Name>Surf board</Name>
+	<Name>Suspenders</Name>
+	<Name>Swimming goggles</Name>
+	<Name>Synthesizer</Name>
+	<Name>T-shirt with text “Heisenberg” </Name>
+	<Name>Tabletop globe </Name>
+	<Name>Teddy bear</Name>
+	<Name>Telephone</Name>
+	<Name>Tennis ball</Name>
+	<Name>Thermometer, broken </Name>
+	<Name>Tire iron</Name>
+	<Name>Toilet brush</Name>
+	<Name>Toothbrush</Name>
+	<Name>Towel marked "Sheraton"</Name>
+	<Name>Toy car</Name>
+	<Name>Toy pirates </Name>
+	<Name>Toy sword </Name>
+	<Name>Toy tractor </Name>
+	<Name>Toy train set</Name>
+	<Name>Traffic cones, D6</Name>
+	<Name>Trombone</Name>
+	<Name>TV set, broken</Name>
+	<Name>Twinkies, D6 (still edible, each is a ration of grub)</Name>
+	<Name>Typewriter </Name>
+	<Name>Umbrella, broken</Name>
+	<Name>Underwear</Name>
+	<Name>Vacuum cleaner</Name>
+	<Name>Vacuum flask </Name>
+	<Name>Vase</Name>
+	<Name>VHS cassette </Name>
+	<Name>Video game console </Name>
+	<Name>Vinyl record, well played</Name>
+	<Name>Walking frame</Name>
+	<Name>Walkman with headphones and cassette</Name>
+	<Name>Wall clock</Name>
+	<Name>Wallet full of moldy cash</Name>
+	<Name>Water pistol</Name>
+	<Name>Welding mask</Name>
+	<Name>Whiskey bottle (empty)</Name>
+	<Name>Whiteboard marker</Name>
+	<Name>Wig, blonde</Name>
+	<Name>Wine bottle, undrinkable (1 Rot Point)</Name>
+	<Name>Wok</Name>
+	<Name>Wrecking bar</Name>
+	<Name>Wristwatch, broken</Name>
+	<Name>Yellowed copy of the Mutant Chronicles RPG</Name>
+	<Name>Yo-yo (blunt instrument)</Name>
+	<Name>Football</Name>
+	<Name>Fork</Name>
+	<Name>Frying pan (blunt instrument)</Name>
+	<Name>Gaffer tape</Name>
+	<Name>Glass pearls</Name>
+	<Name>Golf club (blunt instrument) </Name>
+	<Name>Grass seeds in small bag </Name>
+	<Name>Hair dryer </Name>
+	<Name>Hair gel</Name>
+	<Name>Headphones, with microphone </Name>
+	<Name>Hedge trimmer (scrap knife)</Name>
+	<Name>Herbal salt</Name>
+	<Name>Hockey club (blunt instrument) </Name>
+	<Name>Hot dog cart </Name>
+	<Name>Hubcap, Volvo</Name>
+	<Name>IKEA chair</Name>
+	<Name>Infant formula (gives D6 rations of grub) </Name>
+	<Name>Instant coffee</Name>
+	<Name>Instant noodles (D6 rations of grub) </Name>
+	<Name>Iron pipe (blunt instrument)</Name>
+	<Name>Jack</Name>
+	<Name>Jeans, stonewashed </Name>
+	<Name>Jigsaw puzzle </Name>
+	<Name>Jumpsuit, cloth</Name>
+	<Name>Key ring, 2D6 keys </Name>
+	<Name>Keyboard, missing a few keys</Name>
+	<Name>Ladder, rusty (Gear Bonus +1 when climbing) </Name>
+	<Name>Ladies boots</Name>
+	<Name>Ladies hat</Name>
+	<Name>Laptop computer, broken </Name>
+	<Name>Lawn mower</Name>
+	<Name>Light bulbs, D6</Name>
+	<Name>Lipstick</Name>
+	<Name>Liquid soap</Name>
+	<Name>Loudspeaker (broken) </Name>
+	<Name>Love letter, yellowed</Name>
+	<Name>Magnifying glass</Name>
+	<Name>Mascara</Name>
+	<Name>Mathematics book</Name>
+	<Name>Microwave oven (broken)</Name>
+	<Name>Mirror</Name>
+	<Name>Movie DVDs, D6</Name> 
+	<Name>Movie poster</Name>
+	<Name>Music CDs, D6</Name>
+	<Name>Necktie</Name>
+	<Name>Pacifier</Name>
+	<Name>National flag, torn</Name>
+	<Name>Nicotine chewing gum </Name>
+	<Name>Oriental carpet</Name>
+	<Name>Pack of tube socks</Name>
+	<Name>Paper handkerchiefs, D666 </Name>
+	<Name>Pepper mill</Name>
+	<Name>Photo album</Name>
+	<Name>Photo of happy family </Name>
+	<Name>Picture of a cat</Name>
+	<Name>Piggy bank (empty) </Name>
+	<Name>Plastic bags, D66 </Name>
+	<Name>Plastic bottle, empty</Name>
+	<Name>Plastic dinosaur </Name>
+	<Name>Plastic flowers, D6</Name>
+	<Name>Plastic skeleton model</Name>
+	<Name>Plastic straws, pack of 100 </Name>
+	<Name>Playing cards</Name>
+	<Name>Popcorn, unopened bag </Name>
+	<Name>Princess dress, for kids </Name>
+	<Name>Prize medal</Name>
+	<Name>Quilted jacket (Gear Bonus +1 against cold) </Name>
+	<Name>Rabbit suit, adult size </Name>
+	<Name>Recliner</Name>
+	<Name>Remote control </Name>
+	<Name>Roller skates </Name>
+	<Name>Rubber boot </Name>
+	<Name>Rubber duck</Name>
+	<Name>Saxophone</Name>
+	<Name>Action figure (He-Man) </Name>
+	<Name>Alarm clock, mechanical </Name>
+	<Name>Aquarium, no fish</Name>
+	<Name>Barbie doll</Name>
+	<Name>Baseball bat (page 86) </Name>
+	<Name>Basket ball, flat </Name>
+	<Name>Beard trimmer</Name>
+	<Name>Beret, red </Name>
+	<Name>Bible</Name>
+	<Name>Bicycle chain (page 86)</Name> 
+	<Name>Bicycle frame, no wheels </Name>
+	<Name>Bicycle pump</Name>
+	<Name>Binder, full of financial records </Name>
+	<Name>Boots (Gear Bonus +1 when hiking) </Name>
+	<Name>Bouncing ball</Name>
+	<Name>Box of cereal, unopened</Name>
+	<Name>Box of chocolates (still edible, D6 rations of grub) </Name>
+	<Name>Boxing glove</Name>
+	<Name>Briefcase</Name>
+	<Name>Car tire</Name>
+	<Name>Bullhorn (broken)</Name> 
+	<Name>Can opener</Name>
+	<Name>Candelabra</Name>
+	<Name>Comb</Name>
+	<Name>Carving knife </Name>
+	<Name>Cash register</Name>
+	<Name>Cat 5 cable, 2D6 feet long </Name>
+	<Name>Ceiling fan</Name>
+	<Name>Champagne glasses, D6 </Name>
+	<Name>Chandelier</Name>
+	<Name>Charcoal grill </Name>
+	<Name>Children’s drawing</Name>
+	<Name>Cigarettes, half-empty pack </Name>
+	<Name>Clothes hanger</Name>
+	<Name>Coffee cup with print </Name>
+	<Name>Coffee table</Name>
+	<Name>Coloring book for kids (half done)</Name>
+	<Name>Doll</Name>
+	<Name>Comic book, very violent </Name>
+	<Name>Concrete mixer, rusty </Name>
+	<Name>Cooking pot</Name>
+	<Name>Credit card </Name>
+	<Name>Crime novel</Name>
+	<Name>Cutlery, D6 pieces </Name>
+	<Name>Cylinder hat</Name>
+	<Name>Dala horse</Name>
+	<Name>Deodorant bottle </Name>
+	<Name>Desk lamp</Name>
+	<Name>Detergent, bottle</Name> 
+	<Name>Dice, D6</Name>
+	<Name>Diving snorkel</Name>
+	<Name>Downhill ski (only one)</Name> 
+	<Name>Dress shoes, worn down </Name>
+	<Name>Dumbbell, 10 lb </Name>
+	<Name>Easel, for painting</Name>
+	<Name>Eating knife (scrap knife)</Name> 
+	<Name>Electric guitar, broken</Name>
+	<Name>Electric mixer Electric shaver</Name>
+	<Name>Electric toothbrush </Name>
+	<Name>Empty frame</Name>
+	<Name>Extension cord</Name>
+	<Name>Face mask, Donald Duck </Name>
+	<Name>Face mask, skeleton </Name>
+	<Name>Facemask, Santa Claus </Name>
+	<Name>Fake fangs</Name>
+	<Name>False teeth</Name>
+	<Name>Fantasy novel, very thick </Name>
+	<Name>Fire extinguisher</Name>
+	<Name>Fireworks, D6, still functional </Name>
+	<Name>Flashlight, broken </Name>
+	<Name>Floor lamp </Name>
+	<Name>Flute, plastic</Name>
+	<Name>Folding chair</Name>
+</Scrap>

@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+	To add new artifacts, simply add a new entry to the bottom of this file
+	making sure you put it before the line that says </Artifacts> but after 
+	the final line that says </Artifact>.
+	
+	Format it like this:
+	
+	<Artifact>
+		<Name>Put your artifact name here</Name>
+		<Description>Put in a description of what it is</Description>
+		<Effect>What can the artifact do, what benefit does it offer?</Effect>
+		<Req>What is the DEV requirement for to immediately understand what the artifact does?</Req>
+		<Bonus>What bonus does the artifact give</Bonus>
+	</Artifact>
+	
+	all fields are mandatory, but you can just put a - in a field you don't want, e.g. <Bonus>-</Bonus>
+-->
+
+<Artifacts>
+	<Artifact>
+		<Name>AIR MATTRESS</Name>
+		<Description>This inflatable old bed offers unbeatable sleeping comfort! It's dirty and worn, and hard to inflate if you don't know how to do it. </Description>
+		<Effect>Sleeping on the air mattress is very effective. A single hour is enough to recover all of your lost Wits (page 90).</Effect>
+		<Req>Technology 10 </Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>ANTIDEPRESSANTS</Name>
+		<Description>When life in the Zone feels dark and hopeless, these little pills in a plastic bottle can give you chemical relief. </Description>
+		<Effect>When eating these pills, you immediately heal all doubt that you have suffered. Unfortunately, there are only enough pills left for D6 doses. When you have consumed them all, you must discard this artifact. Tiny item.</Effect>
+		<Req>Technology 20</Req>
+		<Bonus>-</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>ASSAULT RIFLE</Name>
+		<Description>A rusty but awe-inspiring weapon, capable of unleashing a hail of bullets at your enemies. Bullets are usually far too valuable to waste in this way, but the weapon itself will give you respect among the People. </Description>
+		<Effect>Gear Bonus +3 to Shoot. Weapon damage 2, Long range. Has a clip, which means that you don't need to reload after every shot. Capable of full automatic fire (page 86).</Effect>
+		<Req>Technology 20 </Req>
+		<Bonus>Technology +D6, Warfare +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>AUTOMOBILE</Name>
+		<Description>This motor-driven carriage is s rust-ridden wreck, but it can be repaired. With a successful Jury-Rig roll, a Gearhead can get it running again. The engine can run on gasoline or on booze (one dose per Zone sector traveled). </Description>
+		<Effect>The car can carry five mutants, increases the movement rate in combat and cuts the time it takes to explore a sector in the Zone by half. It can also be used to escape from threats or to ram enemies. How vehicles work is fully explained on page 94. Gear Bonus: +3. Armor Rating: 3. Resilience: 1.</Effect>
+		<Req>Technology 20 </Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>BATTERY</Name>
+		<Description>A heavy lump of metal that the Old Ones used to connect to machines to make them work. There still seems to be some power in it... </Description>
+		<Effect>Used to power other artifacts that require electrical power. Can be recharged with a Generator (the artifact or the project).</Effect>
+		<Req>Technology 10 </Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>BICYCLE</Name>
+		<Description>This rust-infested old vehicle from the Old Age is simple yet ingenious in its design. It has two thin wheels, a handlebar and pedals. The rubber tires are thick and rugged - perfect for navigating the Zone terrain. </Description>
+		<Effect>The bicycle can carry one mutant, increases the movement rate in combat and cuts the time it takes to explore a sector in the Zone by half. It can also be used to escape from threats. How vehicles work is fully explained on page 94. Gear Bonus: +2. Resilience: 1.</Effect>
+		<Req>Technology 10</Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>BINOCULARS</Name>
+		<Description>A strange metal object made of two connected tubes with pieces of glass inside each. If you look through the tubes, everything around you looks much bigger. Useful for watching enemies at a distance.
+		</Description>
+		<Effect>Gear Bonus +3 to the Scout and Find the Path skills. Light item.</Effect>
+		<Req>Technology 10 </Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>BOW and ARROW</Name>
+		<Description>The People can create bows, but not like this one. It is constructed in some type of ancient material, and packs a massive punch. </Description>
+		<Effect>Gear Bonus +2 to the Shoot skill. Weapon damage 1, Long range. Needs arrows.</Effect>
+		<Req>-</Req>
+		<Bonus>Technology +1, Warfare +1</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>CANOE</Name>
+		<Description>A strange, oblong vehicle made of dented metal. It has two seats and two plastic paddles tucked away underneath. </Description>
+		<Effect>The canoe can carry up to four mutants over water and can be used to explore coastal sectors of the Zone. It can be used to escape from threats on water, and gives a +2 Gear Bonus to the Move skill in such situations. Resilience: 1.</Effect>
+		<Req>-</Req>
+		<Bonus>Technology +1</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>CASSETTE PLAYER (METAPLOT)</Name>
+		<Description>A cracked and yellowed plastic contraption with buttons and knobs and a lid along one side. Inside, there is a piece of plastic with two holes in it. On top of the device a thin metal rod is mounted. </Description>
+		<Effect>Requires a Battery or Generator (the artifact or the project) to work. Can play music from the Old Age and receive radio signals, if anyone is still transmitting...</Effect>
+		<Req>Technology 20 </Req>
+		<Bonus>Technology +D6, Culture +D6 Comment: This artifact can help the PCs find Eden. Read more in Chapter 16.</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>CHAINSAW</Name>
+		<Description>This rattling monster of a contraption can be wielded as a melee weapon to horrible effect. But starting the engine takes a full turn and requires a dose of gasoline or booze. </Description>
+		<Effect>Wielded as a weapon, the chainsaw gives you a +2 Gear Bonus and has weapon damage 3. Heavy item.</Effect>
+		<Req>Technology 10 </Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>COMIC BOOK</Name>
+		<Description>A booklet made of brittle old paper from the Old Age. You can hardly turn the yellowed pages without tearing them apart. They show images of muscular men and women in tights, fighting each other. The fashion sense during the Old Age was clearly very odd. </Description>
+		<Effect>None. Tiny item.</Effect>
+		<Req>-</Req>
+		<Bonus>Culture +D6 </Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>COMPASS</Name>
+		<Description>A piece of plastic with a dial on it. A needle spins and points in the same direction no matter how you turn. The Old Ones used this device to find their way in the wilderness.</Description>
+		<Effect>The compass gives you Gear Bonus +2 to the Find the Path skill.</Effect>
+		<Req>Technology 10 </Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>CROSSBOW</Name>
+		<Description>A silent and deadly ancient weapon, made of a light-weight metal. Easier to aim and fire than a normal bow. </Description>
+		<Effect>Gear Bonus +3 to the Shoot skill. Weapon damage 1, Long range. Uses arrows, not bullets.</Effect>
+		<Req>Technology 5 </Req>
+		<Bonus>Technology +1, Warfare +1</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>DIARY</Name>
+		<Description>A worn notebook with hand-written text on the waterlogged pages. If you can read the Old Ones' script, you can make out what it says. </Description>
+		<Effect>This artifact connects to the game's metaplot. Read more about it in Chapter 16.</Effect>
+		<Req>Culture 20 </Req>
+		<Bonus>Culture +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>DIVING GEAR</Name>
+		<Description>A full-body suit in a rubbery material from the Old Age. The strange suit comes with shoes like the feet of a frog, a plastic facemask and a rusted metal cylinder with tubes and gauges. </Description>
+		<Effect>Heavy item. It gives you Gear Bonus +3 to using the Move skill underwater. It also protects you against gases and gives you Protection Rating 3 against the Rot.</Effect>
+		<Req>Technology 20 </Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>DRESS</Name>
+		<Description>A large and wide piece of clothing in thin, ancient cloth that still glitters despite decades of dirt and dust. The cloth hardly covers your upper body at all, but hangs around your legs and makes it hard to walk. Very impractical - but pretty. </Description>
+		<Effect>Gear Bonus +2 to Manipulate. Does not count as an item when you wear it.</Effect>
+		<Req>Culture 10</Req>
+		<Bonus>Culture +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>ENERGY PILLS</Name>
+		<Description>The pills in this bottle will quickly give you your energy back when you're exhausted. </Description>
+		<Effect>When eating these pills, you immediately heal all fatigue that you have suffered. Unfortunately, there are only enough pills left for D6 doses. When you have consumed them all, you must discard this artifact. Tiny item.</Effect>
+		<Req>Technology 20 </Req>
+		<Bonus>-</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>FLASHLIGHT</Name>
+		<Description>A powerful portable lamp, projecting a bright cone of light into the dusky smog of the Zone. Needs a Battery (artifact or project) to work. </Description>
+		<Effect>Disperses darkness (page 93) at up to Short range, allowing you to Shoot and Scout.</Effect>
+		<Req>Technology 10 </Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>FLARE GUN</Name>
+		<Description>A heavy pistol with a cartridge in the barrel. This weapon cannot be loaded with normal bullets. </Description>
+		<Effect>The gun fires a brightly burning flare into the air, which can be seen several sectors away. You can use the flare gun as an artifact too. Gear Bonus +2, weapon damage 2, short range.</Effect>
+		<Req>Technology 10</Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>GAS MASK</Name>
+		<Description>This crusty old black rubber mask covers your entire face and has a big filter in front of your mouth. The mask is worn and scratched, but still works. </Description>
+		<Effect>Light item. Protects you against gases and gives you Protection rating 3 against the Rot.</Effect>
+		<Req>Technology 10</Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>GENERATOR</Name>
+		<Description>A heavy, rusty old machine that seems completely worthless at first glance. But a Gearhead knows that this contraption is worth its weight in gold. If you fill it up with fuel it can generate electrical power. </Description>
+		<Effect>Heavy item. Requires one dose of booze per day. Can power other artifacts or projects.</Effect>
+		<Req>Technology 20 </Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>GUITAR</Name>
+		<Description>A strange and brittle wooden contraption with strings stretched across a hole in the middle. Against all odds it has survived the Apocalypse with hardly a scratch, and if you pull on the strings, beautiful sounds are heard. </Description>
+		<Effect>If you learn to play the guitar, you'll be popular around the campfire. Provides +3 Gear Bonus to Manipulate, but only in situations where you get a chance to play.</Effect>
+		<Req>Culture 20 </Req>
+		<Bonus>Culture +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>HAND GRENADE</Name>
+		<Description>A rusty metal lump that explodes with a deafening bang if you pull the pin out. Handle with caution!</Description>
+		<Effect>Light item. You throw the grenade using the Shoot skill. It has no Gear Bonus and the range is Short. If the attack succeeds, the grenade lands within Near range of the target, if not it lands within Short range. The explosion has Blast Power 9 and weapon damage 2.</Effect>
+		<Req>Technology 20</Req>
+		<Bonus>Technology +D6, Warfare +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>HOCKEY HELMET</Name>
+		<Description>An ancient piece of headgear made of blue plastic. It's a little cracked and worn, but still provides solid protection for your head. </Description>
+		<Effect>Protection Rating 3 against damage. </Effect>
+		<Req>-</Req>
+		<Bonus>Technology +1</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>HUNTING RIFLE</Name>
+		<Description>This long firearm is worn and scratched, but its great firepower and range will make sure you are feared in the Zone. </Description>
+		<Effect>Gear Bonus +2 to Shoot. Weapon damage 2, Long range. Has a clip, which means that you don't need to reload after every shot.</Effect>
+		<Req>Technology 10</Req>
+		<Bonus>Technology +D6, Warfare +1</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>ID CARD (METAPLOT)</Name>
+		<Description>A worn and dirty card made of ancient yellowed plastic. "ID Card Type VII" it says on one side, and on other side, hardly legible "Eden Security". </Description>
+		<Effect>Tiny item. Cards like this were used in the Old Age to open doors to locked rooms. The question is - what door does this card open? Comment: This artifact can help the PCs into Eden. Read more in Chapter 16.</Effect>
+		<Req>Technology 20</Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>JERRYCAN</Name>
+		<Description>A rusted but intact metal jerrycan filled with fuel, which stinks and is very flammable. The fuel can power up ancient vehicles again, or be used as a firebomb. </Description>
+		<Effect>The fuel can be used to fill up the tanks of old vehicles (page 94). If used as a weapon, you light a fuse stuffed into the nozzle and then throw the can with the Force skill. No Gear Bonus, Short range. If the attack succeeds, the can lands within Near range of the target, if not it lands at Short range. The explosion has Blast Power 6.</Effect>
+		<Req>Technology 10</Req>
+		<Bonus>Technology +1</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>KATANA</Name>
+		<Description>In a crumbling sheath lies a long, thin sword. It feels good in your hand and the blade is still sharp - very sharp. </Description>
+		<Effect>Gear Bonus +3 to the Fight skill. Weapon damage 2.</Effect>
+		<Req>-</Req>
+		<Bonus>Culture +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>KEVLAR VEST</Name>
+		<Description>This heavy vest already has some holes in it, but still gives you great protection from bullets and others attacks. </Description>
+		<Effect>Armor Rating 6 against damage from external attacks.</Effect>
+		<Req>Technology 10</Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>LIFESTYLE MAGAZINE</Name>
+		<Description>A thick bundle of waterlogged paper that once was glossy. On the front cover and everywhere inside the magazine, there are pictures of the Old Ones. They all smile and look healthy and happy. Their homes are bright and beautiful, their motor carriages shine in the sunlight. Between the pictures, texts describe what life was like in the Old Age. It must have been heaven. </Description>
+		<Effect>None. Tiny item. </Effect>
+		<Req>-</Req>
+		<Bonus>Culture +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>MAP OF THE ZONE</Name>
+		<Description>This brittle and torn map shows what the Zone looked like in the Old Age. It is very valuable to a Stalker to navigate among the ruins, but can also bring valuable knowledge to the People. </Description>
+		<Effect>Gear Bonus +3 to Find the Path. Tiny item. </Effect>
+		<Req>Culture 10 </Req>
+		<Bonus>Culture +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>MOTOR BOAT</Name>
+		<Description>A dinghy in cracked and dirty plastic. It still seems to float. It has an outboard motor, but to make it run again a Gearhead needs to make a Jury-Rig roll. The motor can run on gasoline or booze (one dose per sector traveled in the Zone). </Description>
+		<Effect>The boat can carry up to seven mutants, increases the movement speed in combat and cuts the time it takes to explore a coastal Zone sector by half. It can also be used to escape from threats or to ram enemies at sea. How vehicles work is fully explained on page 94. Gear Bonus: +3. Resilience: 2.</Effect>
+		<Req>Technology 20</Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>PAINKILLERS</Name>
+		<Description>These little pills quickly numb the pain from your wounds and bruises. </Description>
+		<Effect>On eating these pills, you immediately heal all damage points that you have suffered. They have no effect against critical injuries. There are only enough pills left for D6 doses. When you have consumed them all, you must discard this artifact. Tiny item.</Effect>
+		<Req>Technology 20 </Req>
+		<Bonus>-</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>PAINTING</Name>
+		<Description>A large piece of art in a wooden frame. The image shows a skinny man on a bridge, holding his hands to his face and screaming. The Old Ones were truly a strange lot. This artifact is of no obvious use, but you can always use it to adorn the walls in your den - or hand it in to the Dawn Vault. </Description>
+		<Effect>None. </Effect>
+		<Req>-</Req>
+		<Bonus>Culture +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>PERFUME BOTTLE</Name>
+		<Description>A small, thick glass bottle with a clear liquid inside. When you press the button on top, a small spray of liquid comes out. You have never smelled anything this good before. </Description>
+		<Effect>Gear Bonus +2 to the Manipulate skill. Tiny item.</Effect>
+		<Req>Culture 10 </Req>
+		<Bonus>Culture +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>PROTECTIVE SUIT</Name>
+		<Description>A coverall made of a thick yellow fabric. It's worn and dirty but actually seems intact. </Description>
+		<Effect>Protection Rating 6 against the Rot (page 126).</Effect>
+		<Req>Technology 10 </Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>REGEN</Name>
+		<Description>A short orange plastic rod with a button at one end and a sharp needle at the other. The text along the side is worn away, but still legible, spelling the word REGEN. </Description>
+		<Effect>The clear liquid in this autoinjector is the legendary drug REGEN. On injection you immediately heal all permanent trauma that you have suffered (page 70). You keep all of your mutations. The autoinjector only contains one dose. Tiny item.</Effect>
+		<Req>Technology 30</Req>
+		<Bonus>-</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>REVOLVER</Name>
+		<Description>A gun made of heavy steel, resting comfortably in your hand. The weapon is a little rusty, but still in surprisingly good condition. It's easy to use too. </Description>
+		<Effect>Gear Bonus +3 to the Shoot skill. Weapon damage 2, Short range. Has a drum that can be loaded with several bullets, so you don't need to reload after every bullet fired.</Effect>
+		<Req>Technology 10</Req>
+		<Bonus>Technology +D6, Warfare +1</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>SCOOTER</Name>
+		<Description>Two wheels, an engine and a rusted handle - the perfect Zone vehicle. To make the scooter operational a Gearhead must first make a roll for the Jury-Rig skill. The engine can run on gasoline or on booze (one dose per two Zone sectors traveled). </Description>
+		<Effect>The scooter can carry two mutants, increases the movement speed in combat and cuts the time it takes to explore a sector in the Zone by half. It can also be used to escape from threats or to ram enemies. How vehicles work is fully explained on page 94. Gear Bonus: +2. Resilience: 1.</Effect>
+		<Req>Technology 10 </Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>SEMI-AUTOMATIC PISTOL</Name>
+		<Description>A light-weight and easily concealable handgun, small enough to hide in your sleeve. Very handy in a tight spot. </Description>
+		<Effect>Light item. Gear Bonus +2 to the Shoot skill. Weapon damage 2, Short range. Has a clip, meaning you don't need to reload after every shot.</Effect>
+		<Req>Technology 10 </Req>
+		<Bonus>Technology +D6, Warfare +1</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>SHOTGUN</Name>
+		<Description>A sawed-off firearm with two heavy barrels. At close range it is a fearsome weapon that inspires awe in every mutant in the Ark. </Description>
+		<Effect>Light item. Gear Bonus +3 to the Shoot skill. Weapon damage 3, Short range. Can be fired twice before it needs to be reloaded.</Effect>
+		<Req>Technology 10 </Req>
+		<Bonus>Technology +D6, Warfare +1</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>SMOKE GRENADE</Name>
+		<Description>With a hissing noise, this old metal tube spews out black smoke that blocks vision. You can use this effect to escape from a fight that is going against you. </Description>
+		<Effect>You can use the smoke grenade to escape from conflict (page 81) instead of using the Move skill. You can even roll first and use the grenade if the roll fails.</Effect>
+		<Req>Technology 10 </Req>
+		<Bonus>Technology +1, Warfare +1</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>SODA CAN</Name>
+		<Description>A red can with white, squiggly text on it. The brown drink inside it is bubbly and very refreshing to tired Zone wanderers. The Old Ones' drinks were really something else. </Description>
+		<Effect>When you drink this, you immediately heal three points of damage. Once you have opened your can, you must discard this artifact. Light item.</Effect>
+		<Req>Technology 10</Req>
+		<Bonus>-</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>STIMULANTS</Name>
+		<Description>These tiny white pills look unimposing, but if you eat them they will immediately sharpen your senses and make you very alert. You might not sleep for a few days though. </Description>
+		<Effect>When eating these pills, you immediately heal all confusion points that you have suffered. There are only enough pills left for D6 doses. When you have consumed them all, you must discard this artifact. Tiny item.</Effect>
+		<Req>Technology 20 </Req>
+		<Bonus>-</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>SUNGLASSES</Name>
+		<Description>A pair of glasses with darkened lenses. The glass is scratched but intact and covers your eyes - a useful edge in tough negotiations. </Description>
+		<Effect>Gear Bonus +2 to the Manipulate and Intimidate skills. Tiny item.</Effect>
+		<Req>-</Req>
+		<Bonus>Culture + 1</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>TUXEDO</Name>
+		<Description>A set of clothes with a black jacket, pants and a shirt. On the front of the shirt, a wrinkled strip of cloth hangs. These ancient clothes will impress everyone around you. </Description>
+		<Effect>Gear Bonus +2 to Manipulate. Does not count as an item when you wear it.</Effect>
+		<Req>Culture 10 </Req>
+		<Bonus>Culture +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>UMBRELLA</Name>
+		<Description>With a simple motion you can unfold this contraption to create a protective dome of cloth and metal - useful against the Rot and the acid rain in the Zone. </Description>
+		<Effect>Protection Rating 3 against the Rot (page 126).</Effect>
+		<Req>Technology 10 </Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>VIDEO CAMERA (METAPLOT)</Name>
+		<Description>A fist-sized device with a tube at one end. Along the side, there are several buttons and a small screen that can be folded out. This contraption needs a Generator or a Battery to work (artifact or project). </Description>
+		<Effect>This device can record moving images and sound. Perhaps something is already recorded on it? Comment: This artifact can help the PCs into Eden. Read more in Chapter 16.</Effect>
+		<Req>Technology 30 </Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+	<Artifact>
+		<Name>WRENCH</Name>
+		<Description>A heavy metal tool from the Old Age, rusted but worth its weight in gold for Gearheads. Useful for bludgeoning other mutants too</Description>
+		<Effect>Gear Bonus +3 to the Jury-Rig skill and +2 to the Fight skill. Weapon damage 1.</Effect>
+		<Req>Technology 10</Req>
+		<Bonus>Technology +D6</Bonus>
+	</Artifact>
+</Artifacts>
