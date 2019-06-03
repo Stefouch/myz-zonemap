@@ -12,10 +12,14 @@ new Vue({
 	data: {
 		name: 'Find My Path',
 		zonemap: null,
-		version: '2.0.0',
+		version: '2.1.0',
 		github: 'https://github.com/Stefouch/myz-zonemap',
 		sectorDim: 64,
-		mapLangs: [{ text: 'English', value: 'en' }, { text: 'Français', value: 'fr' }],
+		mapLangs: [
+			{ text: 'English', value: 'en' },
+			{ text: 'Français', value: 'fr' },
+			{ text: 'Svenska', value: 'se' }
+		],
 		typeIcons: {
 			zone: 'mdi-terrain',
 			ark: 'mdi-home-variant',

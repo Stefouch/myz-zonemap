@@ -1,0 +1,360 @@
+{
+	"rotLvl": {
+		"roll": "D66",
+		"data": {
+			"11": 0,
+			"13": 1,
+			"56": 2
+		}
+	},
+	"threats": {
+		"roll": "D6",
+		"data": {
+			"1": {
+				"roll": "D66",
+				"define": "Humanoider",
+				"data": {
+					"11": "Djurmutanter",
+					"13": "Exilmutanter",
+					"15": "Expedition från annan Ark",
+					"22": "Kannibaler",
+					"25": "Minneslös",
+					"26": "Morlocker",
+					"33": "Motorskallar",
+					"35": "Patrull (från Folkets Ark)",
+					"41": "Sekten Nova",
+					"43": "Skrotorakel",
+					"45": "Smittade",
+					"51": "Undergångskult",
+					"53": "Vandrare",
+					"55": "Vattenhandlare",
+					"61": "Vrakrövare",
+					"63": "Zongastar"
+				}
+			},
+			"3": {
+				"roll": "D66",
+				"define": "Monster",
+				"data": {
+					"11": "Asgnagare",
+					"13": "Betesdjur",
+					"15": "Dråparträd",
+					"16": "Drömblomster",
+					"21": "Etterbestar",
+					"23": "Frätargräs",
+					"25": "Jordslukare",
+					"31": "Magtorsk (smittat vatten)",
+					"32": "Maskinvarelse",
+					"33": "Masksvärm",
+					"34": "Parasitsvamp (smittad varelse)",
+					"35": "Psi-mygg",
+					"36": "Raggbest",
+					"42": "Ruinspindel",
+					"44": "Rötmyror",
+					"46": "Skrädesvråk",
+					"51": "Skövlare",
+					"52": "Skrotkråkor",
+					"54": "Strykarhundar",
+					"56": "Tjärnmal",
+					"61": "Zongetingar",
+					"63": "Zoniglar",
+					"65": "Zontöme",
+					"66": "Ärgflyn"
+
+				}
+			},
+			"6": {
+				"roll": "D66",
+				"define": "Fenomen",
+				"data": {
+					"11": "(Fenomen) Askvind",
+					"13": "(Fenomen) Atomköld / Extremhetta",
+					"15": "(Fenomen) Blindgångare",
+					"21": "(Fenomen) Dammtornado",
+					"23": "(Fenomen) Elektrisk storm",
+					"25": "(Fenomen) Ljuspelare",
+					"31": "(Fenomen) Magnetfält",
+					"33": "(Fenomen) Misärvind",
+					"35": "(Fenomen) Nattsken",
+					"41": "(Fenomen) Obelisk",
+					"42": "(Fenomen) Röthärd",
+					"44": "(Fenomen) Slukhål",
+					"46": "(Fenomen) Splittervind",
+					"51": "(Fenomen) Spöksken",
+					"52": "(Fenomen) Synvilla",
+					"53": "(Fenomen) Syraregn",
+					"56": "(Fenomen) Tröghetsfält",
+					"61": "(Fenomen) Vakuum",
+					"62": "(Fenomen) Zongölar",
+					"64": "(Fenomen) Zonsmog"
+
+				}
+			}
+		}
+	},
+	"environments": {
+		"roll": "D66",
+		"data": {
+			"11": "Tät skog",
+			"13": "Busklandskap",
+			"16": "Träsk",
+			"22": "Död skog",
+			"25": "Asköken",
+			"31": "Enorm krater",
+			"32": "Fält av glas",
+			"33": "Övervuxna ruiner",
+			"36": "Söndervittrade ruiner",
+			"43": "Förfallna ruiner",
+			"52": "Välbevarade ruiner",
+			"61": "Öde industrilandskap",
+			"65": "Bosättning"
+		}
+	},
+	"normalRuins": {
+		"roll": "D66",
+		"data": {
+			"11": [
+				"Flygplansvrak",
+				"En enorm metalltub ligger knäckt och sönderbruten på marken. Den är svedd av eld och inuti syns mängder av forntida fåtöljer, svartbrända av lågorna. I ett avlångt fält som sträcker sig bort från tuben är marken sargad och alla hus ödelagda, som om tuben störtat från himlen i fruktansvärd hastighet."
+			],
+			"12": [
+				"Nöjesfält",
+				"En bisarr samling maskiner och stora tält i färger som en gång varit bjärta står och vittrar sönder. Resterna av tältduken slår i vinden. På en bild syns en leende man med vitmålat ansikte och röd näsa. En maskin har formen av en stor rund träplatta med plasthästar på. Plattan är monterad på en motor och verkar ha kunnat rotera."
+			],
+			"13": [
+				"Slagfält",
+				"Området är fullkomligt ödelagt. Rostiga armeringsjärn spretar ur knäckta betongblock som en gång varit husväggar. Ruinerna är svedda av explosioner och genomborrade av kulhål, marken sargad av kratrar."
+			],
+			"14": [
+				"Busstation",
+				"Bland flagnade skyltar med oläsliga siffror och bokstäver på står flera avlånga fornkärror och rostar. Vissa är röda, andra är blå, och flera har stora dragspel på mitten. Ännu ett av den gamla världens mysterier."
+			],
+			"15": [
+				"Parkeringshus",
+				"Betongpelarna har vikt sig och hela den runda byggnaden har säckat ihop som ett sammanpressat dragspel. Men i rasmassorna mellan våningsplanen döljer sig mängder av motorkärror från den gamla världen. Bilar, kallades de före undergången."
+			],
+			"16": [
+				"Kyrka",
+				"Det uråldriga stentornet på denna byggnad når högt i skyn, dess vassa spets går förlorad i Zonens dis. Inne i byggnaden står rader av murkna träbänkar vända mot en mansfigur som hänger på ett kors. Hit gick fornfolket för att prata med sin hövding i himlen. Nu är det tyst. Om det funnits en gud har den för länge sedan övergivit denna plats."
+			],
+			"21": [
+				"Biograf",
+				"Intill en stor entré i en husfasad hänger en mängd gulnade planscher i ramar, alla visar dramatiska motiv från tiden före undergången. Här inne tittade den gamla världens människor på rörliga bilder på en duk."
+			],
+			"22": [
+				"Krater",
+				"Ett gigantiskt hål gapar i zonmarken, minst 50 meter tvärs över. Här måste något fornvapen av horribel styrka slagit ned och förintat allt i närheten. I botten av kratern har en liten sjö bildats av grönaktigt zonsjukt vatten."
+			],
+			"23": [
+				"Kråkslott",
+				"Detta mörka och fallfärdiga hus var gammalt redan före undergången. Det är byggt av trä och har på något sätt överlevt katastrofens härjningar."
+			],
+			"24": [
+				"Snabbmatsrestaurang",
+				"Ett stort M i form av två smutsgula bågar pryder fasaden på denna ruin. Liknande byggnader finns på massor av ställen i Zonen, minst en i varje sektor. Vad som fanns där förr vet ingen längre, men M-husen undviks av de flesta zonstrykare på grund av den starka rötan i dem."
+			],
+			"25": [
+				"Bensinstation",
+				"Under ett öppet tak vid en låg byggnad står några motorkärror och rostar. Under taket finns maskiner med slangar och kranar. Den zonkloke vet att fornfolket reparerade sina fordon och fyllde dem med bränsle på platser som denna."
+			],
+			"26": [
+				"Motorväg",
+				"Asfalten är sprucken och de vita strecken har nästan flagnat bort. Före undergången susade den gamla världens folk fram här i hisnande hastighet i sina blänkande motorkärror. Nu står fordonen utbrända och sönderrostade längs vägkanten."
+			],
+			"31": [
+				"Sjukhus",
+				"Till detta betongkomplex sökte sig den gamla världens folk i horder när apokalypsen kom. Nu är huset en fallfärdig ruin. Överallt i salar och korridorer, på sängar och britsar och golv, ligger förtorkade lik."
+			],
+			"32": [
+				"Jaktaffär",
+				"Bland välta hyllor går det att hitta både fiskespön, krokar och linor. En zonstrykare kan ta reda på i vilka av Zonens vatten man vågar fiska. På väggarna sitter halvt sönderrivna bilder på gevär med kikarsikten. I ett hörn står ett tungt låst metallskåp högt som en mutant, som kan innehålla något värdefullt."
+			],
+			"33": [
+				"Affärsgalleria",
+				"En stad i staden öppnar sig, en enorm sal med forntida affärer och restauranger i flera våningar längs väggarna. Allt är illa härjat av lågorna och täckt av tjocka lager sot, men kanske gömmer sig något värdefullt under askan? Här och var står svarta figurer i förbränd plast i märkliga ställningar, som om de talade om den gamla världens viktiga kunskaper."
+			],
+			"34": [
+				"Ödelagd marina",
+				"Vid strandkanten ligger otaliga båtvrak från den gamla tiden, halvt nedsjunkna i det osunda vattnet. Segelbåtar, motorbåtar och kanoter, som folk roade sig med i den gamla världen har förvandlats till ett rev av sprucken plast."
+			],
+			"35": [
+				"Museum",
+				"En mäktig trappa i sprucken sten leder upp till en pampig byggnad. Där inne finns mörka salar med märkliga föremål från den gamla världen och ännu tidigare världar, uppställda i montrar för fornfolket att beskåda."
+			],
+			"36": [
+				"Kontorskomplex",
+				"I denna mörka ruin finns sal efter sal med oräkneliga mängder identiska bord i varsitt litet bås. På golvet ligger gulnade papper utspridda. Före undergången pågick säkert något viktigt arbete här. Nu virvlar zondammet in genom de krossade fönstren."
+			],
+			"41": [
+				"Förvildad park",
+				"Spretiga träd och buskar växer vilt och ohejdat här. Bänkar, gångvägar och fontäner göms under tjockt sly och gräsmattorna har förvandlats till ett vattensjukt träsk. Det går många rykten om farliga varelser som döljer sig i Zonens forna parker."
+			],
+			"42": [
+				"Lekplats",
+				"Bildäck hänger i rostiga kättingar från en ställning. En trälåda med sand i har blivit en osund lerpöl. Syraregn har för länge sedan frätt sönder rutschkanan. Här lekte den gamla världens människor med sina barn. Några spruckna plastleksaker har överlevt tidens tand och sticker upp ur gruset."
+			],
+			"43": [
+				"Polisstation",
+				"Utanför den stora byggnaden vilar vrak som en gång var identiska fordon. Däcken är sedan länge borta, men takens blå plastkåpor finns kvar. Rummen i byggnadens källare går inte att öppna inifrån."
+			],
+			"44": [
+				"Radiostation",
+				"En skog av rostiga antenner och buckliga plåtfat sträcker sig mot zonhimlen från taket på denna massiva byggnad. En skylt på fasaden visar en antenn med ringar omkring."
+			],
+			"45": [
+				"Miljonprogram",
+				"Flera likformade byggnader i grå och skadad betong. Mellan husen finns manshöga ställningar av förvridet skrot, halvt raserade staket och trasiga bänkar. Otaliga vrak pryder också området. I husen har tydligt någon sorts bostäder legat. Varje enhet tycks lik de andra och varierar minimalt. Det tycks enbart vara antalet rum som skiljer dem åt. Rester av forntida möbler, husgeråd och annat finns i de flesta av utrymmena."
+			],
+			"46": [
+				"Vägtunnel",
+				"Mynningen till en bred tunnel gapar svart och hotfull. Utanför tunneln trängs en oräknelig mängd motorkärror, sönderrostade och tätt sammanpressade. Vilken fasa fordonens passagerare än flytt ifrån är det uppenbart att få lyckades komma undan."
+			],
+			"51": [
+				"Raserad bro",
+				"Högt i Zonens gula dis reser sig resterna av en majestätisk bro. Den har rasat åt både väster och öster och bara två tjocka pelare står kvar, men den som vågar klättra upp har hittat en perfekt utkiksplats över Zonens ruiner."
+			],
+			"52": [
+				"Övergiven skola",
+				"På det fallfärdiga tegelhusets fasad hänger en vit klocka som stannat för länge sedan. Längre ner på väggen har någon målat text, vad som står går inte längre att läsa. På asfaltplanen framför byggnaden står två rostiga metallstavar nedkörda i marken, drygt två meter höga och med varsin ring högst upp."
+			],
+			"53": [
+				"Skyddsrum",
+				"En massiv rostig stålport i bergväggen leder ner i djupet. Där nere sökte den gamla världens folk skydd mot fasorna i ytvärlden. Ett perfekt ställe att leta efter artefakter. Men vem vet vad som gömmer sig där nere, och vem mer som kan ha hittat hit?"
+			],
+			"54": [
+				"Höghusruin",
+				"Ett högt torn reser sig mot Zonens guldisiga himmel. Betongen är sargad och sprucken, och alla fönster har för länge sedan fallit ur sina ramar. Zonvinden viner genom våningsplanen, som gapar öppna och mörka. Varje våning är fylld av små och likformade bostadsenheter eller kontor. Bara de översta våningarna skiljer sig med markant större och lyxigare bostäder."
+			],
+			"55": [
+				"Sporthall",
+				"En stor och rymlig byggnad i ärgad korrugerad plåt. Där inne finns märkliga saker som tjocka madrasser i röd plast, stora uppspända nät, klubbor med hål i och bollar i olika storlekar och färger. Väggarna är täckta av trästegar som nu har murknat och fallit loss. Det sägs att folk före katastrofen gick hit för att träna."
+			],
+			"56": [
+				"Villaområde",
+				"En smal gata med små, identiska hus i jämna rader på varje sida. Trädgårdarnas gräs och buskar har vittrat bort, allt är täckt av damm och aska. Inne i husen ligger multnade kläder och prylar kvar, invånarna verkar ha flytt i en hast. Fordonsvrak och mängder av spruckna och förstörda lämningar från dem som en gång bott i området finns överallt. Förfallet är markant och många av husen har haft svårt att motstå tidens tand."
+			],
+			"61": [
+				"Tunnelbana",
+				"På en sargad husfasad hänger en flagnad skylt med ett blått T i en vit cirkel. Alla zonstrykare vet vad symbolen betyder. Här finns en nedgång till tunnlarna som löper under Zonen. I djupet ruvar stora faror - men kanske också orörda artefakter."
+			],
+			"62": [
+				"Snabbköp",
+				"En storslagen byggnad reser sig bland ruinerna. Dess stora skyltfönster är krossade för länge sedan och zondammet driver in obehindrat. Före undergången rymde byggnaden en oändlig mängd kläder, skor, böcker, köksartiklar, möbler och andra prylar som folk konsumerade i den gamla världen. Nu är det mesta bränt och söndervittrat."
+			],
+			"63": [
+				"Badhus",
+				"Inne i denna stora ruin finns stora bassänger fyllda av gyttja och slemmiga gröna alger. Motbjudande och osunda ångor möter besökare som försöker ta sig in. Det är svårt att tänka sig att fornfolket frivilligt gick hit och doppade sig i bassängerna."
+			],
+			"64": [
+				"Stridsvagn",
+				"En skräckinjagande metalltingest blockerar vägen. Dess enorma larvfötter har för länge sedan rostat fast och ingen död och förintelse har skjutits ur kanonröret på otaliga år, men att närma sig pansarbesten väcker ändå oro och smygande fasa."
+			],
+			"65": [
+				"Teater",
+				"Inne i denna mörka ruin finns en stor sal, fylld med långa rader av fåtöljer framför en stor scen med en mäktig röd ridå. Hit gick den gamla världens folk för att se sång, dans och skådespel."
+			],
+			"66": [
+				"Tågstation",
+				"På rostiga och övervuxna spår står flera forntida rälsvagnar och vittrar sakta sönder. I dessa trängde den gamla världens folk in sig för att snabbt och effektivt resa tillsammans kors och tvärs i den stora staden. Nu sveper vinden genom vagnarnas krossade fönster."
+			]
+		}
+	},
+	"industrialRuins": {
+		"roll": "D66",
+		"data": {
+			"11": [
+				"Fabrik",
+				"Plåttaket har rasat in på denna stora barackliknande byggnad. Under taket finns maskiner och märkliga fordon med stora gafflar längst fram. Det mesta är sargat av väder och vind. Några rostiga tunnor har vält och en grönaktig sörja har runnit ut på marken..."
+			],
+			"14": [
+				"Militärbas",
+				"En stor öppen grusplan är omgiven av tegelbyggnader på alla fyra sidor. I husen finns ett stort antal likadana rum med våningssängar i metall. Bortanför byggnaderna finns en jättelik garagebyggnad och utanför står ett utbränt skelett av en stridsvagn. Stridsvagnen kommer aldrig mer att röra sig, men kan utgöra ett bra skydd vid ett hastigt överfall."
+			],
+			"21": [
+				"Oljecistern",
+				"Den stora cylinderformade byggnaden har en trappa som slingrar sig runt utsidan upp till taket. Uppe på taket kan man upptäcka faror på stort avstånd. Byggnaden innehåller en svart klibbig vätska som en skrotskalle skulle kunna använda som drivmedel. Det gäller bara att få ut det..."
+			],
+			"24": [
+				"Pipeline",
+				"Ett grovt och rostigt metallrör löper genom Zonen, stort nog att krypa i. Det har för länge sedan slutat flöda gas eller olja i röret, nu duger det bara till metallskrot."
+			],
+			"31": [
+				"Reningsverk",
+				"Stanken tilltar för varje steg närmare denna anläggning, men alla zonstrykare vet att lukten av förruttnelse kan dölja en ovärderlig skatt. De stora maskinerna här renade fornmänniskans avloppsvatten och gjorde det drickbart igen. Rent vatten kanske ännu finns i någon av cisternerna?"
+			],
+			"34": [
+				"Kraftledning",
+				"Ett högt torn byggt av rostiga stålbalkar reser sig mellan ruinerna. Det är knäckt på mitten, och den spretiga toppen är vikt ned mot marken. Därifrån löper tjocka ledningar, som en gång försåg hela Zonen med elektricitet."
+			],
+			"41": [
+				"Radiomast",
+				"Ett högt metalltorn reser sig över ruinlandskapet. Det är uppstagat av mäktiga vajrar och i toppen spretar stora rostiga antenner. Därifrån sändes etersändningar ut till nytta och nöje för den gamla världens folk, sägs det. Nu hörs bara zonvinden."
+			],
+			"44": [
+				"Raffinaderi",
+				"Ett helt landskap av rostiga och sönderfallande maskiner breder ut sig här. Enorma cisterner binds samman av metallrör, vissa tjocka nog för en fullvuxen mutant att krypa in i. Den som vågar kan klättra omkring i det metalliska mardrömslandskapet på rostiga stegar och lejdare."
+			],
+			"51": [
+				"Soptipp",
+				"Ett berg av avskräde skymmer sikten. Här dumpade den gamla världens folk allt de inte fann värt att spara. Mycket hade gnagts till stoft av tidens tand, men plastprylar och stora stycken rostig metall sticker upp ur bråten. Trots åren som gått hänger en fadd stank i luften."
+			],
+			"54": [
+				"Fartygsvrak",
+				"Ett stort rostigt fartyg ligger förlist vid strandkanten, halvt nedsjunket under vattenytan. De runda gluggarna i skrovet får båten att se ut som ett stort strandat valkadaver. Det kan finnas skrot kvar i maskinrummet."
+			],
+			"61": [
+				"Skjutbana",
+				"Under taket som sträcker sig längs ena sidan av den öppna ytan går det fortfarande att hitta tomhylsor. I andra änden av planen finns en hög vall och i ett rangligt skjul ligger måltavlor som föreställer både människor och djur. I den gamla världen hade man råd att använda patroner till att skjuta på pappfigurer."
+			],
+			"64": [
+				"Vindkraftverk",
+				"Ett runt vitt torn i nu rostig metall reser sig ur ruinerna. Högst upp sitter en enorm propeller. Det sägs att den gamla världens människor började bygga vindsnurror som den här för att få energi när oljan i marken sinade. Det var förstås alldeles för sent."
+			],
+			"66": [
+				"Vattencistern",
+				"Det lutande taket bredvid ett cementerat hål i marken är byggt för att samla regnvatten. Är hålet fyllt av rötvatten släcker det bara den desperates törst. Är vattnet däremot rent kommer den som kontrollerar det att bli rik, men genast få många fiender."
+			]
+		}
+	},
+	"moods": {
+		"roll": "D66",
+		"data": {
+			"11": "(Humanoider) Vandrare i fjärran. En siluett syns mot horisonten. Vem vandrar i Zonen?",
+			"12": "(Humanoider) Läger. Resterna av en lägerplats, kanske glöder kolen fortfarande.",
+			"13": "(Humanoider) Sista vilan. T6 enkla gravar med något inristat. Vilka vilar här?",
+			"14": "(Humanoider) Offer. Ett lik, upphängt eller fastsurrad på en påle. Vem gjorde detta och varför?",
+			"15": "(Humanoider) Klotter. Något är målat på en ruinvägg. Vad står det, hur gammalt är det?",
+			"16": "(Humanoider) Spår. Leder genom Zonen, vem har gått här och var leder de?",
+			"21": "(Natur) Sten. En jättelik stenbumling. Skydd för zonvinden eller en utmärkt utkiksplats?",
+			"22": "(Natur) Träd. Ett ensamt träd/växt lever fortfarande i det karga landskapet. Döljer det någon hemlighet?",
+			"23": "(Natur) Fors. Ett porlande vattendrag rinner igenom landskapet. En källa för liv eller rötsmittad död?",
+			"24": "(Natur) Zonblomster. Det karga landskapet bryts av ett fält av märkliga blommor i starka färger.",
+			"25": "(Natur) Tistlar. En tät och snårig undervegetation breder ut sig över sektorn. Kängor fastnar, utrustning trasslar in sig. Döljer växtligheten något?",
+			"26": "(Natur) Rankor. Mängder av rankor täcker ruinerna. Är de förtorkade eller levande?",
+			"31": "(Väder) Skyfall. Ett plötsligt störtregn/kraftigt snöfall öser ner. Bäst att söka skydd och slå läger.",
+			"32": "(Väder) Dimma. En tjock dimma lägger sig över området. Sikten minimeras, ljud dämpas. Vad ruvar i diset?",
+			"33": "(Väder) Brännande sol. En bländande sol skiner på zonfararna. Huden bränner, kläderna skaver och svetten rinner.",
+			"34": "(Väder) Himmel. Smutsgula moln skingras för en stund, en oändlig blå himmel tornar fram. Det är både vackert och skrämmande på samma gång.",
+			"35": "(Väder) Mörka moln. Himlen mörknar och vinden tilltar, snart viner den genom ruinerna. Damm virvlar och småsten rasslar över sprucken asfalt. Ovädret är på väg.",
+			"36": "(Väder) Åska. Mullrande åska rullar över zonen. Ruinlandskapet lyses upp av kraftiga blixtar.",
+			"41": "(Forntiden) Skylt. En skylt av plåt står ensamt kvar. Visar den vägen eller varnar den för något?",
+			"42": "(Forntiden) Vrak. Ett sönderrostat fordonsvrak. Märkt av tiden, men fortfarande intakt. Har någon sökt skydd där? Kanske tjänar vraket som lägerplats?",
+			"43": "(Forntiden) Fönster mot forntiden. En affisch från forntiden visar en märklig scen.",
+			"44": "(Forntiden) De döda. T6 forntida skelett, förstenade i döden. Vilken historia berättar de?",
+			"45": "(Forntiden) Postering. En vägspärr från forntidens sista skälvande dagar. Kanske finns lämningarna av de satar som bemannade den?",
+			"46": "(Forntiden) Räls. Överväxt järnvägsräls. Kanske finns här övergivna vagnar och lok?",
+			"51": "(Händelser) Hål. Ett mörkt hål öppnar sig i landskapet framför gruppen. Kanske en gammal brunn, eller en väg ner i underjorden?",
+			"52": "(Händelser) Ylande. Ett omänskligt, långdraget vrål ekar över Zonen. Är någon i nöd - eller närmar sig ett zonmonster?",
+			"53": "(Händelser) Ras. En ruin kollapsar med ett öronbedövande brak. Kanske kommer något i ny dager?",
+			"54": "(Händelser) Fåglar. EN flock zonfåglar störtar mot himlen. Har något skrämt dem?",
+			"55": "(Händelser) Oljud. Ett dovt brölande ljud mullrar över Zonen. Det återkommer ett par gånger innan det tystnar.",
+			"56": "(Händelser) Hydda. Någon har byggt ett bo eller en hydda av skrot. Är någon hemma?",
+			"61": "(Landskap) Tjärn. En mörk tjärn av svart vatten sträcker sig ut över Zonen. Vad döljer sig under ytan?",
+			"62": "(Landskap) Brant. En kulle, eller ett mindre berg av sten och ruiner tornar upp sig framför er. Kanske finns något på dess topp?",
+			"63": "(Landskap) Spricka. Marken tar slut framför er. En skåra flera mutantlängder bred skär genom landskapet. Hur ska ni komma förbi?",
+			"64": "(Landskap) Träskmark. Flera vattenfyllda hål täcker ruinlandskapet. Här och var har ruiner sjunkit ner i hålen - är det säkert att färdas här?",
+			"65": "(Landskap) Sumpskog. En klunga träd kastar mörka skuggor över ruinerna. Vad kan dölja sig bland träden?",
+			"66": "(Landskap) Myrmark. En blöt och kall myr breder ut sig mellan ruinerna. Svart vatten sipprar in i kängor och fukten är tung."
+		}
+	}
+}

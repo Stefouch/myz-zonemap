@@ -84,7 +84,7 @@
 	<v-navigation-drawer
 		v-model="optionsDialog"
 		fixed
-		right
+		left
 		temporary
 		hide-overlay
 		touchless

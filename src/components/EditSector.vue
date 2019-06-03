@@ -103,7 +103,7 @@
 								dark
 							>
 								<v-avatar color="#888888">
-									<v-icon>{{ data.item.search(/ph(e|é)nom(e|è)n/i) > -1 ? 'mdi-alert-octagram-outline' : 'mdi-space-invaders' }}</v-icon>
+									<v-icon>{{ data.item.search(/(ph|f)(e|é)nom(e|è)n/i) > -1 ? 'mdi-alert-octagram-outline' : 'mdi-space-invaders' }}</v-icon>
 								</v-avatar>
 								{{ data.item }}
 							</v-chip>
