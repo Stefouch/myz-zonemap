@@ -176,7 +176,7 @@ class ZoneSector {
 	 * @readonly
 	 */
 	get hasNormalRuin() {
-		return /ruine?r?s?/i.test(this.environment);
+		return /ruin(e|a)?r?s?/i.test(this.environment);
 	}
 
 	/**
@@ -185,7 +185,7 @@ class ZoneSector {
 	 * @readonly
 	 */
 	get hasIndustrialRuin() {
-		return /(industry|industries|usine|industrilandskap)/i.test(this.environment);
+		return /(industry|industries|usine|industrilandskap|fábricas)/i.test(this.environment);
 	}
 
 	/**

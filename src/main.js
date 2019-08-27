@@ -18,7 +18,8 @@ new Vue({
 		mapLangs: [
 			{ text: 'English', value: 'en' },
 			{ text: 'Français', value: 'fr' },
-			{ text: 'Svenska', value: 'se' }
+			{ text: 'Svenska', value: 'se' },
+			{ text: 'Español', value: 'es' }
 		],
 		typeIcons: {
 			zone: 'mdi-terrain',

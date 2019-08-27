@@ -6,5 +6,6 @@
 module.exports = {
 	en: require('../data/sector-generator-en.json'),
 	fr: require('../data/sector-generator-fr.json'),
-	se: require('../data/sector-generator-se.json')
+	se: require('../data/sector-generator-se.json'),
+	es: require('../data/sector-generator-es.json')
 };
