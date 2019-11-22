@@ -12,7 +12,7 @@ new Vue({
 	data: {
 		name: 'Find My Path',
 		zonemap: null,
-		version: '2.1.0',
+		version: '2.0.1',
 		github: 'https://github.com/Stefouch/myz-zonemap',
 		sectorDim: 64,
 		mapLangs: [
