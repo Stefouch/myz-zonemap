@@ -10,24 +10,24 @@
   },
   "dependencies": {
     "dragscroll": "0.0.8",
-    "vue": "^2.6.10",
-    "vue-router": "^3.0.6",
-    "vuetify": "^1.5.14",
-    "vuex": "^3.1.1"
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.6",
+    "vuetify": "^1.5.24",
+    "vuex": "^3.3.0"
   },
   "devDependencies": {
-    "@mdi/font": "^3.6.95",
-    "@vue/cli-plugin-babel": "^3.8.0",
-    "@vue/cli-plugin-eslint": "^3.8.0",
-    "@vue/cli-service": "^3.8.0",
+    "@mdi/font": "^3.9.97",
+    "@vue/cli-plugin-babel": "^3.12.1",
+    "@vue/cli-plugin-eslint": "^3.12.1",
+    "@vue/cli-service": "^3.12.1",
     "@vue/eslint-config-prettier": "^4.0.1",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "stylus": "^0.54.5",
+    "eslint-plugin-vue": "^5.2.3",
+    "stylus": "^0.54.7",
     "stylus-loader": "^3.0.1",
     "vue-cli-plugin-vuetify": "^0.5.0",
-    "vue-template-compiler": "^2.6.10",
-    "vuetify-loader": "^1.2.2"
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.4.3"
   }
 }
