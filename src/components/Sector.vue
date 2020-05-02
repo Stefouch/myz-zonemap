@@ -11,7 +11,7 @@
 	<v-tooltip
 		v-if="sector"
 		content-class="sector-tooltip-content"
-		open-delay="1000"
+		open-delay="500"
 		right
 		lazy
 	>
@@ -21,13 +21,14 @@
 			slot="activator"
 		>
 			<div class="sector-marker">
-				<v-icon large>{{ sectorIcon }}</v-icon>
+				<v-icon size="56">{{ sectorIcon }}</v-icon>
 			</div>
+			<div class="sector-coord">{{ id }}</div>
 			<div class="sector-icons" :class="{ hide: !gmeye }">
-				<v-icon small v-if="sector.hasThreat" class="sector-icon-threat">mdi-skull</v-icon>
-				<v-icon small v-if="sector.hasArtifact" class="sector-icon-arto">mdi-star</v-icon>
-				<v-icon small v-if="sector.rotLvl >= 2" class="sector-icon-rad">mdi-radioactive</v-icon>
-				<v-icon small v-if="sector.notes">mdi-notebook</v-icon>
+				<v-icon size="14" v-if="sector.hasThreat" class="sector-icon-threat">mdi-skull</v-icon>
+				<v-icon size="14" v-if="sector.hasArtifact" class="sector-icon-arto">mdi-star</v-icon>
+				<v-icon size="14" v-if="sector.rotLvl >= 2" class="sector-icon-rad">mdi-radioactive</v-icon>
+				<v-icon size="14" v-if="sector.notes" class="sector-icon-note">mdi-notebook</v-icon>
 			</div>
 			<div class="sector-name" :class="{ 'sector-name-empty': sector.isEmpty }">{{ processedName }}</div>
 		</v-flex>
@@ -87,7 +88,7 @@ export default {
 		},
 		processedName: function() {
 			let name = this.sector.name;
-			if (name.length > 18) name = `${name.slice(0, 16)}...`;
+			if (name.length > 18) name = `${name.slice(0, 16)}…`;
 			return name;
 		},
 		sectorIcon: function() {
@@ -131,6 +132,10 @@ export default {
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
+	display: flex;
+	/* justify-content: center; */
+	/* align-items: center; */
+	padding: 2px;
 }
 
 .sector-selected {
@@ -181,8 +186,21 @@ export default {
 	background-color: rgb(233, 233, 233);
 }
 
+.sector-coord {
+	position: absolute;
+	font-size: .50rem;
+	color: #000;
+	margin: 1px;
+}
+
 .sector-icons {
-	height: 16px;
+	position: absolute;
+	height: 14px;
+	width: 56px;
+	padding: 0;
+	margin: 0;
+	text-align: right;
+	line-height: 1;
 }
 
 .sector-icons > .sector-icon-threat {
@@ -202,11 +220,16 @@ export default {
 	color: #237F52;
 }
 
+.sector-icons > .sector-icon-note {
+	color: #005991;
+}
+
 .sector-name {
+	align-self: flex-end;
+	vertical-align: middle;
 	text-align: center;
-	margin-top: 4px;
-	margin-left: 2px;
-	margin-right: 2px;
+	width: 100%;
+	bottom: 0;
 	line-height: 1.10;
 	text-shadow: -1px 1px 0 #fff,
 				1px 1px 0 #fff,
@@ -215,22 +238,21 @@ export default {
 }
 
 .sector-name-empty {
-	color: #7F7F7F;
-	text-shadow: none;
+	color: #C8C8C8;
+	/* text-shadow: none; */
 }
 
 .sector-marker {
 	position: absolute;
 	z-index: -999;
-	width: 60px;
-	height: 60px;
+	width: 56px;
+	height: 56px;
 	display: flex;
 	justify-content: center;
-	align-items: flex-end;
+	align-items: center;
 }
 
 .sector-marker > .v-icon {
-	margin-bottom: 4px;
 	color: #535353;
 }
 
