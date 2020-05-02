@@ -7,7 +7,7 @@
 
 	<!-- TYPE & ENV -->
 	<p>{{ sector.environment }}
-		<span v-if="sector.ruins">with <b>{{ sector.ruins }}</b></span>
+		<span v-if="sector.ruins">+&nbsp;<b>{{ sector.ruins }}</b></span>
 	</p>
 
 	<!-- THREATS -->
