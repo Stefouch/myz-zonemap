@@ -1,9 +1,7 @@
 <template>
 <v-card class="edit-dialog-bg">
 	<v-toolbar class="edit-dialog-toolbar" fixed dark dense :color="sectorColor">
-		<v-btn icon dark @click="close()">
-			<v-icon>mdi-close</v-icon>
-		</v-btn>
+		
 		<v-toolbar-title>{{ coordinates }} – <b>{{ sector.name }}</b></v-toolbar-title>
 		<v-spacer></v-spacer>
 		<v-toolbar-items>
@@ -17,6 +15,10 @@
 				<v-icon>mdi-delete</v-icon>&nbsp;Delete
 			</v-btn>
 		</v-toolbar-items>
+		<v-spacer></v-spacer>
+		<v-btn icon dark @click="close()">
+			<v-icon>mdi-close</v-icon>
+		</v-btn>
 	</v-toolbar>
 
 	<v-container grid-list-xl scrollable py-5>
@@ -143,7 +145,7 @@
 					label="Ruins Description"
 					prepend-icon="mdi-file-document"
 					auto-grow
-					rows="1"
+					rows="6"
 					box
 				>
 					<template v-slot:append>
@@ -164,6 +166,14 @@
 					clearable
 					box
 				/>
+				<v-textarea
+					v-model="sector.mood"
+					label="Mood"
+					auto-grow
+					rows="2"
+					box
+				>
+				</v-textarea>
 
 			</v-flex>
 			<v-flex xs12 lg4>
