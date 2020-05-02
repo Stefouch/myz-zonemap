@@ -140,7 +140,7 @@ class ZoneMap extends Collection {
 	static parse(text) {
 		const data = JSON.parse(text);
 
-		// Parses all sectors for API 1.0.
+		// Parses all sectors from API 1.0.
 		if (data.map_version === '1.0.0') {
 			const sectors = [];
 
