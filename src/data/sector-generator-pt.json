@@ -1,0 +1,351 @@
+{
+	"rotLvl": {
+		"roll": "D66",
+		"data": {
+			"11": 0,
+			"13": 1,
+			"56": 2
+		}
+	},
+	"threats": {
+		"roll": "D6",
+		"data": {
+			"1": {
+				"roll": "D66",
+				"define": "Humanoids",
+				"data": {
+					"11": "Amnésica",
+					"12": "Feras Mutantes",
+					"14": "Canibais",
+					"21": "Cultistas da Perdição",
+					"23": "Mutantes Exilados",
+					"26": "Expedição de outra Arca",
+					"33": "Helldrivers",
+					"36": "Morlocks",
+					"43": "Cultistas Nova",
+					"45": "Patrulha da Arca",
+					"51": "Oráculo da Sucata",
+					"53": "Nômades",
+					"55": "Mercador de Água",
+					"61": "Demolidores",
+					"63": "Carniçais da Zona"
+				}
+			},
+			"3": {
+				"roll": "D66",
+				"define": "Monsters",
+				"data": {
+					"11": "Grama Ácida",
+					"13": "Caravela Aérea",
+					"14": "Autômato",
+					"15": "Bestamargas",
+					"21": "Verme Mortal",
+					"23": "Devorador",
+					"25": "Pastejadores",
+					"31": "Peixe-Tripa (água infectada)",
+					"32": "Árvore Assassina ",
+					"33": "Mosquitos Mentais",
+					"34": "Flores-Pesadelo",
+					"35": "Fungo Parasita",
+					"36": "Javardo",
+					"41": "Formigas da Podridão",
+					"43": "Peixe da Podridão",
+					"44": "Corvos Sucateiros",
+					"46": "Gavião do Lixo",
+					"51": "Enxame de Vermes",
+					"52": "Cães da Zona",
+					"55": "Sanguessugas da Zona",
+					"61": "Ratos da Zona",
+					"64": "Aranha da Zona",
+					"65": "Vespas da Zona"
+				}
+			},
+			"6": {
+				"roll": "D66",
+				"define": "Phenomenons",
+				"data": {
+					"11": "(Fenômeno) Chuva Ácida",
+					"14": "(Fenômeno) Tempestade de Cinzas",
+					"16": "(Fenômeno) Tornado de Poeira",
+					"22": "(Fenômeno) Tempestade Elétrica",
+					"24": "(Fenômeno) Fogo-Fátuo",
+					"25": "(Fenômeno) Campo de Inércia",
+					"26": "(Fenômeno) Campo Magnético",
+					"32": "(Fenômeno) Miragem",
+					"33": "(Fenômeno) Poças de Lama",
+					"35": "(Fenômeno) Luzes Noturnas",
+					"41": "(Fenômeno) Obelisco",
+					"42": "(Fenômeno) Pilares de Luz",
+					"44": "(Fenômeno) Foco de Podridão",
+					"51": "(Fenômeno) Vento Podre",
+					"53": "(Fenômeno) Cratera Súbita ",
+					"55": "(Fenômeno) Queda de Temperatura / Onda de Calor",
+					"61": "(Fenômeno) Armas Não-Deflagradas",
+					"63": "(Fenômeno) Vácuo",
+					"64": "(Fenômeno) Smog da Zona"
+				}
+			}
+		}
+	},
+	"environments": {
+		"roll": "D66",
+		"data": {
+			"11": "Mata Densa",
+			"13": "Matagal",
+			"16": "Pântano",
+			"22": "Mata Morta",
+			"25": "Deserto de Cinzas",
+			"31": "Cratera Enorme",
+			"32": "Campo Vitrificado",
+			"33": "Ruínas Encobertas",
+			"36": "Ruínas Desabando",
+			"43": "Ruínas Deterioradas",
+			"52": "Ruínas Intactas",
+			"61": "Fábricas Abandonadas",
+			"65": "Povoado"
+		}
+	},
+	"normalRuins": {
+		"roll": "D66",
+		"data": {
+			"11": [
+				"Avião Caído",
+				"Um imenso tubo metálico jaz no chão quebrado e esmagado. Está chamuscado por fogo e dentro dele há fileiras de assentos, todos enegrecidos pelas chamas. Se afastando dele, o chão está queimado e todas as casas destruídas, como se tivesse descido dos céus numa velocidade incrível."
+			],
+			"12": [
+				"Parque de Diversões",
+				"Uma amontoado bizarro de máquinas enferrujadas e grandes tendas decrépitas, em cores que um dia foram intensas. Os resquícios do tecido ainda sacodem ao vento. Em uma pintura, um homem com rosto branco e um grande nariz vermelho sorri para vocês. Uma das máquinas é um grande disco de madeira com cavalos plásticos montados nele. O disco está sobre um motor e parecia ser capaz de rodar."
+			],
+			"13": [
+				"Campo de Batalha",
+				"Esta área está completamente devastada. Vergalhões enferrujados projetam-se de blocos quebrados de concreto que um dia serviram de paredes para lares. As ruínas estão queimadas por explosões e repletas de buracos de bala. Pequenas crateras pontilham o chão."
+			],
+			"14": [
+				"Rodoviária",
+				"O concreto está rachado e as marcas na superfície da estrada já foram praticamente apagadas. Antes da Queda, os Antigos passavam por aqui em velocidades incríveis em suas brilhantes carruagens motorizadas. Agora, os velhos carros ficam parados no acostamento, tão detonados e enferrujados que não há como consertá-los."
+			],
+			"15": [
+				"Estacionamento",
+				"Os pilares de concreto cederam e todo o prédio circular desmoronou como uma sanfona fechada. Nos escombros, vários veículos motorizados da Velha Era estão enterrados. Será que alguns podem ser consertados?"
+			],
+			"16": [
+				"Igreja",
+				"A torre de pedra do edifício se estende diante do céu, sua ponta perdida na névoa da Zona. Lá dentro há fileiras de bancos de madeira apodrecida, todos virados na direção da figura de um homem pendurado em uma cruz. Os Antigos costumavam vir aqui falar com seu Chefão no céu. Agora, tudo está quieto. Se há um deus, ele abandonou esse lugar faz muito tempo. Comentário: Essa ruína pode obviamente ser substituída por um templo ou mesquita, se isso encaixar melhor no ambiente da sua campanha."
+			],
+			"21": [
+				"Cinema",
+				"Próximo à grande entrada que leva ao interior escuro deste prédio, há alguns pôsteres amarelados em molduras enormes. Cada um deles retrata temas dramáticos da Velha Era. Neste edifício cavernoso, os Antigos viam imagens se moverem em uma tela."
+			],
+			"22": [
+				"Cratera",
+				"Um buraco gigantesco aparece no chão, de pelo menos 50 metros de diâmetro. Alguma arma de aniquilação antiga deve ter explodido aqui, destruindo tudo ao redor. No fundo da cratera, há um pequeno lago de água contaminada esverdeada."
+			],
+			"23": [
+				"Mansão Arruinada",
+				"Essa casa escura e decrépita já era velha antes mesmo da Queda. É feita de madeira e pedra, e, de alguma forma, resistiu a décadas de negligência. O que pode estar escondido em seus corredores escuros?"
+			],
+			"24": [
+				"Lanchonete Fast-Food",
+				"Um grande M na forma de dois arcos amarelos sujos adorna a fachada deste prédio arruinado. Existem muitas instalações como esta na Zona. O que elas costumavam ser, ninguém sabe, mas os Batedores costumam evitá-las por causa da forte Podridão lá dentro."
+			],
+			"25": [
+				"Posto de Gasolina",
+				"Sob um telhado aberto próximo a uma casa baixa, algumas carcaças de carros estão abandonadas enferrujando. Próximo a elas estão máquinas com bicas e mangueiras. Qualquer um que entende da Zona sabe que esse era um lugar onde os Antigos consertavam seus veículos e os enchiam de combustível."
+			],
+			"26": [
+				"Rodovia",
+				"Entre placas descascadas com números e letras ilegíveis, grandes veículos motorizados velhos encontram-se enferrujados. Alguns tem dois andares, outros têm um mecanismo similar a uma sanfona no meio que os permite dobrar. As máquinas dos Antigos são realmente misteriosas."
+			],
+			"31": [
+				"Hospital",
+				"Quando o Apocalipse veio, os Antigos compareceram em massa a esse grande prédio de concreto, querendo desesperadamente ser salvos. Agora, é uma ruína quase desabando. Corpos apodrecidos jazem em todo canto nos quartos e correrores, em camas e no chão."
+			],
+			"32": [
+				"Loja de Caça",
+				"Entre as prateleiras decrépitas deste lugar, você encontra varas de pesca, anzóis e linhas. Um Batedor habilidoso pode usar esses itens para localizar peixes comestíveis nas águas da Zona (página 59). Nas paredes, estão penduradas fotos amareladas de rifles. Em um canto, há um armário de metal tão alto quanto um mutante — será que há alguma coisa valiosa dentro?"
+			],
+			"33": [
+				"Shopping",
+				"Uma cidade dentro da cidade se revela, grandes corredores com lojas antigas e restaurantes em muitos andares. Tudo aqui foi consumido pelo fogo faz muito tempo e está coberto de fuligem, mas será que alguma coisa valiosa está escondida entre as cinzas? Aqui e ali estranhas figuras de plástico ficam paradas em poses estranhas, como se estivessem pregando para uma multidão."
+			],
+			"34": [
+				"Marina",
+				"Logo além da costa estão várias carcaças de navios, meio afundados na água contaminada. Barcos de pesca, motorizados e canoas que os Antigos usavam para recreação se tornaram um perigoso recife de plástico rachado e vigas de metal."
+			],
+			"35": [
+				"Museu",
+				"Grandes degraus de pedra quebrada levam até essa construção grandiosa. Dentro dela, corredores escuros com itens estranhos da Velha Era e mesmo de eras antes dela, todos expostos para que os Antigos os vissem."
+			],
+			"36": [
+				"Edifício de Escritórios",
+				"Nesta ruína escura, vocês encontram grandes corredores, todos cheios de mesas idênticas em pequenas baias. No chão, papéis amarelados espalhados por todos os lados. Antes da Queda, provavelmente faziam trabalhos importantes aqui. Agora, a poeira da Zona entra pelas janelas quebradas."
+			],
+			"41": [
+				"Parque Encoberto",
+				"Árvores altas e grossos arbustos cresceram livremente aqui e encobriram completamente a área. Bancos, calçadas e fontes são ocultas pelas grossas ervas e os gramados se tornaram pântanos. Existem muitos rumores sobre as criaturas que vagam pelos velhos parques da Zona."
+			],
+			"42": [
+				"Playground",
+				"Há pneus de carro pendurados em correntes enferrujadas saindo de uma armação metálica. Uma caixa de madeira cheia de areia se tornou uma fedorenta poça de lama. Chuvas ácidas roeram buracos através dos escorregadores metálicos há tempos atrás. Aqui, os Antigos brincavam com suas crianças. Alguns poucos brinquedos de plástico rachados sobreviveram a décadas de desgaste e ainda permanecem abandonados na areia."
+			],
+			"43": [
+				"Delegacia de Polícia",
+				"Do lado de fora deste prédio, carcaças de carros azuis e brancos idênticos vão se enferrujando. Os pneus se foram faz tempo, mas as lâmpadas vermelhas de plástico em seus tetos ainda estão lá. No porão do prédio, há quartos que não podem ser abertos por dentro."
+			],
+			"44": [
+				"Estação de Rádio",
+				"Uma floresta de antenas enferrujadas e discos metálicos se projeta do teto deste prédio imenso. Uma placa na fachada mostra uma antena com anéis em volta dela."
+			],
+			"45": [
+				"Bairro Residencial",
+				"Diversos prédios altos idênticos, feitos de concreto, que agora está rachado e caindo aos pedaços. No chão entre esses monolitos, bancos apodrecidos e vegetação alta. Carcaças de carros estão por toda parte, a maioria enferrujada demais para consertar. Cada um dos prédios tem uma grande quantidade de apartamentos idênticos. Lá dentro, vocês encontram mobília decrépita, roupas e outros itens."
+			],
+			"46": [
+				"Túnel",
+				"A entrada para esse largo túnel parece a boca de uma enorme fera. Do lado de fora, uma quantidade incontável de carros, caminhões e ônibus amontoados uns colados nos outros, lentamente enferrujando até não sobrar nada. Independente de qual horror os ocupantes desses veículos estivessem fugindo, obviamente poucos sobreviveram."
+			],
+			"51": [
+				"Ponte Arruinada",
+				"Os restos de uma ponte majestosa se erguem alto na névoa da Zona. Ela desmoronou em ambas as direções e só dois grossos pilares sobraram, mas vocês podem escalar até o que restou da estrada para ter um bom ponto de vigia."
+			],
+			"52": [
+				"Escola",
+				"Na fachada de tijolos arruinados desse prédio está um relógio que parou faz muito tempo. Abaixo dele, alguém escreveu um texto na parede, não mais legível. No chão de concreto, em frente ao prédio, há três hastes de metal enferrujado, em três alturas diferentes, com resquícios do que um dia fora alguma espécie de tecido em sua ponta."
+			],
+			"53": [
+				"Abrigo",
+				"Uma imensa porta enferrujada de metal na encosta leva bem fundo no subterrâneo. Lá embaixo, os Antigos buscaram refúgio dos horrores da superfície. Agora, é um lugar perfeito para procurar artefatos. Mas quem sabe o que se esconde lá, quem mais pode ter encontrado essa caverna cheia de tesouros?"
+			],
+			"54": [
+				"Arranha-céus",
+				"Um prédio alto se lança contra a névoa amarelada do céu da Zona. O concreto é desgastado e quebrado, todas as centenas de janelas caíram de suas molduras há muito tempo. Agora, o vento da Zona sopra através dos muitos andares deste prédio majestoso. Cada andar é repleto de pequenos e idênticos apartamentos ou escritórios. Somente o último andar parece diferente, com acomodações maiores e mais luxuosas — se você conseguir chegar lá em cima..."
+			],
+			"55": [
+				"Centro Esportivo",
+				"Um saguão grande e espaçoso feito de aço ondulado enferrujado. Dentro dele, muitos objetos estranhos, como grossos cobertores envoltos em plástico vermelho, grandes redes em armações, clavas com buracos nelas e bolas de todas as cores e tamanhos. Dizem que os Antigos iam a lugares como este para se exercitar."
+			],
+			"56": [
+				"SubÚrbio",
+				"Uma rua com pequenas casas idênticas em fileiras regulares de cada lado. A grama e os arbustos secaram faz muito tempo, tudo coberto por cinzas. Dentro das casas, sobraram roupas se decompondo e outros itens pessoais. Os habitantes devem ter fugido com pressa. Abundam carcaças de carros e outros vestígios dos Antigos que costumavam viver aqui. Muito se deteriorou com o tempo e algumas das casas desmoronaram completamente."
+			],
+			"61": [
+				"Estação de Metrô",
+				"Ao lado de uma escada levando para o subterrâneo está pendurada uma placa grande com tinta descascada. Todos os Batedores sabem o que essa placa signfica. Esta é uma entrada para os túneis sob a Zona. Lá embaixo, terríveis perigos os aguardam — mas talvez também haja artefatos intactos."
+			],
+			"62": [
+				"Supermercado",
+				"Uma grande construção se ergue dentre as ruínas. Suas grandes janelas foram quebradas muitas décadas atrás e a poeira da Zona flutua irrestrita. Antes da Queda, esse prédio abrigava uma quantidade inimaginável de comida, bebida, utensílios de cozinha e outras coisas que os Antigos consumiam a uma velocidade estonteante. Agora, a maior parte já foi roubada, queimada ou apodreceu."
+			],
+			"63": [
+				"Piscina Pública",
+				"Dentro desta grande ruína estão grandes poços cheios de lama e algas gosmentas. Vapores tóxicos e nocivos recepcionam qualquer um que entrar. É difícil imaginar que os Antigos vinham aqui voluntariamente se banhar nesses poços."
+			],
+			"64": [
+				"Tanque",
+				"Um grande e impressionante veículo metálico bloqueia o caminho. Suas esteiras enormes enferrujaram e ficaram presas faz tempo, e faz muitas décadas que seu canhão não cospe morte ou destruição, mas chegar perto desta fera de metal ainda estremece de medo quase qualquer andarilho da Zona."
+			],
+			"65": [
+				"Teatro",
+				"Dentro desta ruína escura está um grande saguão, repleto de fileiras de assentos de frente para um grande palco com uma vistosa cortina vermelha. Os Antigos vinham aqui para ver cantores, dançarinos e peças teatrais."
+			],
+			"66": [
+				"Estação de Trem",
+				"Velhos vagões de trem estão enferrujando nos trilhos encobertos por vegetação. Neles, os Antigos costumavam viajar rápida e efetivamente por toda a Zona e além. Agora, os únicos passageiros são corpos apodrecidos."
+			]
+		}
+	},
+	"industrialRuins": {
+		"roll": "D66",
+		"data": {
+			"11": [
+				"Fábrica",
+				"O teto metálico deste edifício largo e plano desabou faz muito tempo. Lá dentro há máquinas e veículos estranhos com grandes garfos na dianteira. Tudo aqui devastado por décadas de chuva e vento. Alguns velhos barris caíram e uma gosma verde vazou no chão."
+			],
+			"14": [
+				"Base Militar",
+				"Um grande pátio quadrado com prédios de tijolos em cada lado. Nos prédios, um grande número de quartos idênticos com beliches de metal. Além deles há uma grande garagem cheia de veículos queimados."
+			],
+			"21": [
+				"Tanque de Petróleo",
+				"Esta grande construção de metal em formato cilíndrico tem uma escadaria estreita em volta de sua parede externa, seguindo até o topo. Lá de cima, você conseguiria enxergar quaisquer ameaças de uma distância segura. A construção contém um grande tanque cheio de um líquido negro e grudento. Um Engenhoqueiro poderia usá-lo como combustível. O problema é tirar dali..."
+			],
+			"24": [
+				"Tubulação",
+				"Um grosso tubo metálico corre por essa parte da Zona. É largo o bastante para um mutante se arrastar por dentro. O gás e o óleo que passavam por eles pararam faz muito tempo. Agora, só servem como sucata."
+			],
+			"31": [
+				"Estação Depuradora",
+				"O fedor se intensifica a cada passo na direção desse prédio. Mas Batedores sabem que o cheiro de decomposição pode ocultar tesouros valiosos. Esses grandes poços, tanques e máquinas purificavam a água potável dos Antigos. Será que ainda há água limpa em algum dos tanques?"
+			],
+			"34": [
+				"Linha Elétrica",
+				"Uma torre alta feita de vigas de metal enferrujado se lança contra o céu da Zona. Ela já desabou pela metade e sua ponta afiada se dobrou na direção do solo. Cabos grossos, que uma vez supriram eletricidade para toda a Zona, agora estão jogados pelo chão."
+			],
+			"41": [
+				"Torre de Rádio",
+				"Uma torre de metal alta se destaca no horizonte da Zona. É sustentada por grossos cabos metálicos e no topo brota uma grande antena enferrujada. Uma vez, transmisões sem fio foram enviadas daqui para as pessoas da Velha Era, para seu entretenimento e educação. Agora, não há nada para ouvir além do vento da Zona."
+			],
+			"44": [
+				"Refinaria",
+				"Uma paisagem inteira repleta de maquinário enferrujado e apodrecendo cobre essa parte da Zona. Tanques enormes estão conectados por tubos metálicos, alguns largos o bastante para que um mutante se arraste por eles. Se vocês ousarem, podem escalar essa terra de ninguém metálica através das escadas, vigas e passarelas."
+			],
+			"51": [
+				"Lixão",
+				"Uma montanha de lixo bloqueia o seu caminho. Aqui, os Antigos jogavam tudo que eles não queriam. A maior parte já virou poeira com a passagem do tempo, mas itens de plástico e grandes pedaços de metal enferrujado são visíveis no amontoado."
+			],
+			"54": [
+				"Navio Encalhado",
+				"Um grande navio enferrujado jaz encalhado logo além da costa, meio afundado entre as ondas. As portinholas vazias fazem o navio parecer uma enorme baleia encalhada. Será que sobrou sucata útil na sala de máquinas?"
+			],
+			"61": [
+				"Clube de Tiro",
+				"Cápsulas vazias cobrem o chão desta grande área aberta. Em uma ponta, uma grande barreira com muitas marcas de balas. Ali perto, em uma cabana, alvos na forma de animais e humanos. Na Velha Era, eles podiam até desperdiçar balas atirando em figuras de papel."
+			],
+			"64": [
+				"Moinho de Vento",
+				"Uma esguia torre branca se ergue alta sobre a Zona. No topo, uma grande hélice está montada. Dizem que os Antigos começaram a construir moinhos de vento como esse para obter energia quando o óleo de dentro do chão começasse a acabar. Já era muito tarde, é claro."
+			]
+		}
+	},
+	"moods": {
+		"roll": "D66",
+		"data": {
+			"11": "(Pessoas) Nômades. Algumas silhuetas são vistas ao longe. Quem caminha pela Zona?",
+			"12": "(Pessoas) Acampamento. Os vestígios de um acampamento, talvez com brasas ainda ardendo na fogueira.",
+			"13": "(Pessoas) Descanso Final. D6 covas rasas, marcadas com sucata. Quem está enterrado aqui?",
+			"14": "(Pessoas) Vítima. Um corpo, enforcado ou amarrado a um poste. Quem fez isso e por que?",
+			"15": "(Pessoas) Mensagem. Alguém escreveu alguma coisa na parede. O que é, e quão recente é?",
+			"16": "(Pessoas) Rastros. Eles levam Zona adentro. Quem passou por aqui e para onde foi?",
+			"21": "(Natureza) Rochedo. Uma rocha imensa. Proteção contra os ventos da Zona ou um bom ponto de vigia?",
+			"22": "(Natureza) Árvore. Uma árvore solitária ainda cresce no ermo desolado. Será que ela esconde algum segredo?",
+			"23": "(Natureza) Córrego. Uma corrente estreita passa através do terreno. É uma fonte de vida ou de morte pela Podridão?",
+			"24": "(Natureza) Flores da Zona. Deslocado nas terras pálidas da Zona, um campo de flores cresce com cores vibrantes.",
+			"25": "(Natureza) Arbustos. Vegetação rasteira grossa cobre o setor. Botas e equipamentos ficam presos nela. Será que os arbustos escondem algum segredo?",
+			"26": "(Natureza) Cipós. Muitos cipós grossos cobrem as ruínas aqui. Eles estão mortos e secos ou ainda vivos?",
+			"31": "(Clima) Chuva Torrencial. Um súbito pé d'água ou uma nevasca que atinge os PJs. É melhor eles procurarem abrigo.",
+			"32": "(Clima) Neblina. Uma névoa grossa cobre a área. Visibilidade é reduzida para alguns metros e os sons são abafados. O que se esconde na neblina?",
+			"33": "(Clima) Sol Intenso. O sol inclemente cozinha os PJs. Sua pele queima e suas roupas logo estão encharcadas de suor.",
+			"34": "(Clima) Céu Azul. A névoa suja sempre presente na Zona subitamente desaparece, revelando um céu absolutamente azul. É tão bonito quanto é assustador.",
+			"35": "(Clima) Nuvens Escuras. O céu escurece e o vento aumenta. Poeira rodopia pela calçada velha e gasta. Uma tempestade está se formando.",
+			"36": "(Clima) Trovão. O profundo som de um trovão distante ressoa pela Zona. Relâmpagos súbitos pelas ruínas.",
+			"41": "(Vestígios) Placa de Trânsito. Uma placa de metal sozinha, remanescente da Velha Era. Ela mostra o caminho para algo ou avisa de algum perigo?",
+			"42": "(Vestígios) Lata Velha. Os restos de algum veículo velho, enferrujado demais para consertar. Sua carcaça de metal continua intacta. Alguém se abrigou aqui?",
+			"43": "(Vestígios) Pôster de Filme. Um velho pôster gasto e rasgado da Velha Era mostra uma cena estranha. O que os PJs vão achar disso?",
+			"44": "(Vestígios) Os Mortos. D6 esqueletos minguados da Velha Era. Que história esses velhos ossos poderiam contar?",
+			"45": "(Vestígios) Cancela. Um bloqueio dos últimos dias da Velha Era. Será que ainda tem sucata útil aqui?",
+			"46": "(Vestígios) Trilho de Trem. Esses velhos trilhos enferrujados estão cobertos de vegetação. Para onde o trilho leva?",
+			"51": "(Eventos) Buraco. Há um buraco grande e escuro no chão em frente aos PJs. É um poço velho ou um caminho para os túneis abaixo?",
+			"52": "(Eventos) Uivo. Um longo uivo inumano ecoa pela Zona. Será que alguém está precisando muito de ajuda ou tem um monstro da Zona por perto?",
+			"53": "(Eventos) Desmoronamento. Um prédio arruinado simplesmente desmorona com um estrondo ensurdecedor. Será que alguma coisa interessante será revelada?",
+			"54": "(Eventos) Pássaros. Um bando de pequenos pássaros da Zona subitamente se lança ao ar. Alguma coisa os assustou?",
+			"55": "(Eventos) Barulho. Um grito intenso ecoa pela Zona. É repetido algumas vezes e então para.",
+			"56": "(Eventos) Cabana. Alguém construiu um nicho ou cabana feito de sucata. Tem alguém em casa?",
+			"61": "(Terreno) Lago. Um pequeno lago negro aparece na névoa da Zona. O que está escondido abaixo de sua superfície espelhada?",
+			"62": "(Terreno) Escarpa. Uma escarpa íngrime surge subitamente diante dos PJs. Como os PJs descem por ela e o que os espera lá embaixo?",
+			"63": "(Terreno) Fissura. Uma fenda profunda, de vários metros de largura, corta a paisagem. Como os PJs a atravessam?",
+			"64": "(Terreno) Pântano. Água imunda da Zona tomou a área, submergindo as velhas ruas arruinadas. Água fria e escura entra nos sapatos dos PJs.",
+			"65": "(Terreno) Bosque. Um bosque escuro de árvores mortas e escuras lança sua sombra sobre os PJs. O que pode estar escondido entre elas?",
+			"66": "(Terreno) Colina. Uma colina ou monte íngreme aparece no meio da Zona. O que é, o que tem no topo?"
+		}
+	}
+}
