@@ -105,6 +105,7 @@ export default {
 		exploreOrCreate: function(id, sector){
 			if(sector){
 				sector.explore();
+				this.$emit('change', [id, sector]);
 			} else{
 				let newSector = new ZoneSector({
 					explored: true,
