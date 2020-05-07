@@ -210,7 +210,6 @@ class ZoneSector {
 
 	// EXPLORATION =========================================================
 	explore() {
-		console.log('hello');
 		this.explored = true;
 	}
 
