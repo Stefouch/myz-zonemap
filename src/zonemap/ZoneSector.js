@@ -208,6 +208,12 @@ class ZoneSector {
 		return true;
 	}
 
+	// EXPLORATION =========================================================
+	explore() {
+		console.log('hello');
+		this.explored = true;
+	}
+
 	// SECTOR ROLLERS =========================================================
 	/**
 	 * Randomizes the Rot level.
