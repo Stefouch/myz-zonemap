@@ -60,6 +60,7 @@
 				:gmeye="gmeye"
 				:sector="zonemap.get(coord(x, y))"
 				@open="edition($event)"
+				@change="changeSector($event)"
 			/>
 		</v-layout>
 	</v-layout>
@@ -303,10 +304,13 @@ export default {
 			this.selectedCoord = data[0];
 			this.editDialog = true;
 		},
-		changeSector(sector) {
+		changeSector(data) {
+			let id = data[0];
+			let sector = data[1];
+			console.log(sector);
 			this.zonemapChangeCount++;
-			if (sector) this.zonemap.set(this.selectedCoord, sector);
-			else this.zonemap.delete(this.selectedCoord);
+			if (sector) this.zonemap.set(id, sector);
+			else this.zonemap.delete(id);
 		},
 		saveZonemap() {
 			localStorage.zonemap = ZoneMap.stringify(this.zonemap);

@@ -1,11 +1,12 @@
 <template>
 <div
 	class="sector"
-	:class="{ 'sector-fog': hasFog, 'sector-selected': selected }"
+	:class="{ 'sector-fog': hasFog, 'sector-grayed': isGrayed, 'sector-selected': selected }"
 	:id="id"
 	:gmeye="gmeye"
 	:sector="sector"
 	@dblclick="$emit('open', [id, sector])"
+	@click.ctrl="exploreOrCreate(id, sector)"
 	@contextmenu.prevent="$emit('open', [id, sector])"
 >
 	<v-tooltip
@@ -23,7 +24,7 @@
 			<div class="sector-marker">
 				<v-icon size="56">{{ sectorIcon }}</v-icon>
 			</div>
-			<div class="sector-coord">{{ id }}</div>
+			<div v-if="!sector || !sector.explored" class="sector-coord">{{ id }}</div>
 			<div class="sector-icons" :class="{ hide: !gmeye }">
 				<v-icon size="14" v-if="sector.hasThreat" class="sector-icon-threat">mdi-skull</v-icon>
 				<v-icon size="14" v-if="sector.hasArtifact" class="sector-icon-arto">mdi-star</v-icon>
@@ -69,7 +70,11 @@ export default {
 	computed: {
 		hasFog: function() {
 			if (!this.sector) return true;
-			return !this.sector.explored;
+			return !this.sector.explored && !this.sector.discovered;
+		},
+		isGrayed: function() {
+			if (!this.sector) return false;
+			return !this.sector.explored && this.sector.discovered;
 		},
 		sectorThemeClasses: function() {
 			return {
@@ -79,12 +84,12 @@ export default {
 				'sector-rothotspot': this.sector.rotLvl >= 3,
 				'sector-special': this.sector.type === SectorTypes.special,
 				'sector-ark': this.sector.type === SectorTypes.ark,
-				'hide': !this.gmeye && !this.sector.explored
+				'hide': !this.gmeye && !this.sector.explored && !this.sector.discovered
 			}
 		},
 		hideNullSector: function() {
 			if (!this.sector) return false;
-			return this.gmeye || this.sector.explored;
+			return this.gmeye || this.sector.explored || this.sector.discovered;
 		},
 		processedName: function() {
 			let name = this.sector.name;
@@ -94,6 +99,18 @@ export default {
 		sectorIcon: function() {
 			if (this.sector) return this.sector.icon;
 			else return '';
+		}
+	},
+	methods: {
+		exploreOrCreate: function(id, sector){
+			if(sector){
+				sector.explore();
+			} else{
+				let newSector = new ZoneSector({
+					explored: true,
+				}, this.lang);
+				this.$emit('change', [id, newSector]);
+			}
 		}
 	},
 	components: {
@@ -179,11 +196,19 @@ export default {
 }
 
 .sector-fog {
-	background-color: rgba(211, 211, 211, .50);
+	background-color: rgba(111, 111, 111, .50);
 }
 
 .sector-fog:not([gmeye]) {
-	background-color: rgb(233, 233, 233);
+	background-color: rgb(133, 133, 133);
+}
+
+.sector-grayed {
+	background-color: rgba(211, 211, 211, .50);
+}
+
+.sector-grayed:not([gmeye]) {
+	background-color: rgba(211, 211, 211, .50);
 }
 
 .sector-coord {

@@ -400,11 +400,11 @@ export default {
 			this.showSnackbar('Sector reset!');
 		},
 		deleteSector() {
-			this.$emit('change', null);
+			this.$emit('change', [this.coordinates, null]);
 			this.close();
 		},
 		saveSector(sectorToReturn) {
-			this.$emit('change', sectorToReturn);
+			this.$emit('change', [this.coordinates, sectorToReturn]);
 			this.showSnackbar('Sector saved!');
 		},
 		showSnackbar(text) {
