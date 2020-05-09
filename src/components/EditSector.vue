@@ -38,10 +38,12 @@
 						box
 					/>
 				</v-layout>
-				<v-switch
-					v-model="sector.explored"
+				<v-select
+					v-model="sector.status"
 					prepend-icon="mdi-compass"
-					:label="sector.explored ? 'Explored' : 'Not explored'"
+					:items="fogTypes"
+					label="Exploration Status"
+					box
 				/>
 				<v-slider
 					v-model="sector.rotLvl"
@@ -274,6 +276,7 @@
 import zmIconPicker from '@/components/IconPicker.vue';
 import ZoneSector from '@/zonemap/ZoneSector';
 import SectorTypes from '@/zonemap/ZoneSectorTypes';
+import FogTypes from '@/zonemap/FogTypes';
 import SectorTables from '@/zonemap/ZoneSectorTables';
 import Util from '@/util/Util';
 
@@ -281,7 +284,6 @@ export default {
 	props: {
 		editedSector: {
 			type: ZoneSector,
-			// default: null
 			default: () => new ZoneSector()
 		},
 		coordinates: {
@@ -317,7 +319,7 @@ export default {
 		// The function ensures the entries are refreshed each time the dialog is activated.
 		coordinates: function() {
 			this.sector = this.editedSector.clone();
-			if (!this.sector.name) this.sector.name = this.coordinates;
+			//if (!this.sector.name) this.sector.name = this.coordinates;
 		}
 	},
 	computed: {
@@ -345,6 +347,9 @@ export default {
 		},
 		sectorTypes: function() {
 			return Object.keys(SectorTypes);
+		},
+		fogTypes: function() {
+			return Object.keys(FogTypes);
 		},
 		sectorEnvironments: function() {
 			return Object.values(SectorTables[this.lang].environments.data).sort();
@@ -392,7 +397,7 @@ export default {
 		resetSector() {
 			this.sector = new ZoneSector({
 				name: this.sector.name,
-				explored: this.sector.explored,
+				status: this.sector.status,
 				// type: this.sector.type,
 				icon: this.sector.icon,
 				notes: this.sector.notes

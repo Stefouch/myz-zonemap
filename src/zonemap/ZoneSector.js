@@ -2,6 +2,7 @@ const { rollData } = require('../util/YZGenerator');
 const { RollParser, Roll } = require('../util/RollParser');
 const { clamp, rand } = require('../util/Util');
 const Types = require('./ZoneSectorTypes');
+const FogTypes = require('./FogTypes');
 const RandomTables = require('./ZoneSectorTables');
 
 /**
@@ -33,10 +34,11 @@ class ZoneSector {
 		this.name = data.name || '';
 
 		/**
-		 * Number of times the sector was explored.
-		 * @type {number}
+		 * Whether the sector was explored.
+		 * @type {string}
+		 * @see {FogTypes}
 		 */
-		this.explored = data.explored || 0;
+		this.status = data.status || FogTypes.UNEXPLORED;
 
 		/**
 		 * Sector's icon.
@@ -206,11 +208,6 @@ class ZoneSector {
 		if (this.hasThreat) return false;
 		for (const item in this.finds) if (this.finds[item] > 0) return false;
 		return true;
-	}
-
-	// EXPLORATION =========================================================
-	explore() {
-		this.explored = true;
 	}
 
 	// SECTOR ROLLERS =========================================================

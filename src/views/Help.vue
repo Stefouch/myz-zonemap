@@ -161,7 +161,7 @@
 				</v-container>
 
 				<h3><i class="mdi mdi-compass"></i> Exploration status</h3>
-				<p>Either if this sector is explored or not. Checking this checkbox will remove the gray background from the map's square.</p>
+				<p>A sector can be explored, discovered or unexplored. Changing this value will remove and/or change the opacity of the gray background from the map's square.</p>
 
 				<h3><i class="mdi mdi-radioactive"></i> Rot level</h3>
 				<ol start="0">

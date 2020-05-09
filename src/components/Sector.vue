@@ -1,14 +1,16 @@
 <template>
 <div
 	class="sector"
-	:class="{ 'sector-fog': hasFog, 'sector-grayed': isGrayed, 'sector-selected': selected }"
+	:class="{ 'sector-plain-fog': hasPlainFog, 'sector-light-fog': hasLightFog, 'sector-selected': selected }"
 	:id="id"
 	:gmeye="gmeye"
 	:sector="sector"
-	@dblclick="$emit('open', [id, sector])"
-	@click.ctrl="exploreOrCreate(id, sector)"
+	:lang="lang"
+	@click.ctrl="toggleExploreOrCreate(id, sector)"
+	@click.alt="$emit('change', [id, null])"
 	@contextmenu.prevent="$emit('open', [id, sector])"
 >
+	<span class="sector-coord" :class="{ hide: !hasPlainFog && !hasLightFog }">{{ id }}</span>
 	<v-tooltip
 		v-if="sector"
 		content-class="sector-tooltip-content"
@@ -24,7 +26,6 @@
 			<div class="sector-marker">
 				<v-icon size="56">{{ sectorIcon }}</v-icon>
 			</div>
-			<div v-if="!sector || !sector.explored" class="sector-coord">{{ id }}</div>
 			<div class="sector-icons" :class="{ hide: !gmeye }">
 				<v-icon size="14" v-if="sector.hasThreat" class="sector-icon-threat">mdi-skull</v-icon>
 				<v-icon size="14" v-if="sector.hasArtifact" class="sector-icon-arto">mdi-star</v-icon>
@@ -38,7 +39,7 @@
 			:sector="sector"
 		/>
 	</v-tooltip>
-	<span class="sector-null" :class="{ hide: hideNullSector }">{{ id }}</span>
+	
 </div>
 </template>
 
@@ -46,6 +47,7 @@
 import zmSectorTooltip from '@/components/SectorTooltip.vue'
 import ZoneSector from '@/zonemap/ZoneSector'
 import SectorTypes from '@/zonemap/ZoneSectorTypes'
+import FogTypes from '@/zonemap/FogTypes'
 
 export default {
 	name: 'sector',
@@ -59,6 +61,10 @@ export default {
 			default: null
 			// default: () => new ZoneSector()
 		},
+		lang: {
+			type: String,
+			default: null
+		},
 		gmeye: {
 			type: Boolean,
 			default: true
@@ -68,13 +74,13 @@ export default {
 		selected: false
 	}),
 	computed: {
-		hasFog: function() {
-			if (!this.sector) return true;
-			return !this.sector.explored && !this.sector.discovered;
-		},
-		isGrayed: function() {
+		hasLightFog: function() {
 			if (!this.sector) return false;
-			return !this.sector.explored && this.sector.discovered;
+			return this.sector.status === FogTypes.DISCOVERED;
+		},
+		hasPlainFog: function() {
+			if (!this.sector) return true;
+			return this.sector.status === FogTypes.UNEXPLORED;
 		},
 		sectorThemeClasses: function() {
 			return {
@@ -84,12 +90,8 @@ export default {
 				'sector-rothotspot': this.sector.rotLvl >= 3,
 				'sector-special': this.sector.type === SectorTypes.special,
 				'sector-ark': this.sector.type === SectorTypes.ark,
-				'hide': !this.gmeye && !this.sector.explored && !this.sector.discovered
+				'hide': !this.gmeye && this.sector.status != FogTypes.EXPLORED
 			}
-		},
-		hideNullSector: function() {
-			if (!this.sector) return false;
-			return this.gmeye || this.sector.explored || this.sector.discovered;
 		},
 		processedName: function() {
 			let name = this.sector.name;
@@ -102,15 +104,29 @@ export default {
 		}
 	},
 	methods: {
-		exploreOrCreate: function(id, sector){
-			if(sector){
-				sector.explore();
-				this.$emit('change', [id, sector]);
-			} else{
-				let newSector = new ZoneSector({
-					explored: true,
-				}, this.lang);
-				this.$emit('change', [id, newSector]);
+		toggleExploreOrCreate(id, sector){
+			if (sector) {
+				console.log("hi");
+				if (sector.status === FogTypes.EXPLORED) {
+					sector.status = FogTypes.UNEXPLORED;
+				} else if (sector.status === FogTypes.DISCOVERED) {
+					sector.status = FogTypes.EXPLORED;
+				} else {
+					sector.status = FogTypes.DISCOVERED;
+				}
+				console.log(sector);
+				console.log(sector.clone());
+				console.log(new ZoneSector());
+				console.log(() => new ZoneSector());
+				this.$emit('change', [id, sector])
+			} else {
+				console.log("hello");
+				let newSector = new ZoneSector({status : FogTypes.DISCOVERED}, this.lang);
+				console.log(newSector);
+				console.log(newSector.clone());
+				console.log(new ZoneSector());
+				console.log(() => new ZoneSector());
+				this.$emit('change', [id, newSector])
 			}
 		}
 	},
@@ -166,7 +182,7 @@ export default {
 	border: 1px dashed #A0DB8E;
 }
 
-.sector-fog .sector-rotoasis:not(.sector-ark):not(.sector-special) {
+.sector-plain-fog .sector-rotoasis:not(.sector-ark):not(.sector-special) {
 	background-color: rgba(160, 219, 142, .10);
 }
 
@@ -174,7 +190,7 @@ export default {
 	border: 1px dashed #E55600;
 }
 
-.sector-fog .sector-rotstrong {
+.sector-plain-fog .sector-rotstrong {
 	background-color: rgba(229, 87, 0, .10);
 }
 
@@ -182,7 +198,7 @@ export default {
 	border: 1px dashed #9B2423;
 }
 
-.sector-fog .sector-rothotspot {
+.sector-plain-fog .sector-rothotspot {
 	background-color: rgba(155, 36, 35, .10);
 }
 
@@ -196,27 +212,16 @@ export default {
 	background-color: rgba(0, 118, 190, .25);
 }
 
-.sector-fog {
-	background-color: rgba(111, 111, 111, .50);
+.sector-plain-fog {
+	background-color: rgba(133, 133, 111, .75);
 }
 
-.sector-fog:not([gmeye]) {
+.sector-plain-fog:not([gmeye]) {
 	background-color: rgb(133, 133, 133);
 }
 
-.sector-grayed {
-	background-color: rgba(211, 211, 211, .50);
-}
-
-.sector-grayed:not([gmeye]) {
-	background-color: rgba(211, 211, 211, .50);
-}
-
-.sector-coord {
-	position: absolute;
-	font-size: .50rem;
-	color: #000;
-	margin: 1px;
+.sector-light-fog {
+	background-color: rgba(111, 111, 111, .50);
 }
 
 .sector-icons {
@@ -282,7 +287,8 @@ export default {
 	color: #535353;
 }
 
-.sector-null {
+.sector-coord {
+	position : absolute;
 	font-size: .65rem;
 	color: #C8C8C8;
 	margin: 2px;

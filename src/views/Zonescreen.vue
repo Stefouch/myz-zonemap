@@ -58,6 +58,7 @@
 				:id="coord(x, y)"
 				:ref="coord(x, y)"
 				:gmeye="gmeye"
+				:lang="zonemap.lang"
 				:sector="zonemap.get(coord(x, y))"
 				@open="edition($event)"
 				@change="changeSector($event)"
@@ -234,6 +235,7 @@ import zmEditSector from '@/components/EditSector.vue';
 import zmFileInput from '@/components/FileInput.vue';
 import dragscroll from 'dragscroll';
 import ZoneMap from '@/zonemap/ZoneMap';
+import ZoneSector from '@/zonemap/ZoneSector';
 import Util from '@/util/Util';
 
 export default {
@@ -307,7 +309,6 @@ export default {
 		changeSector(data) {
 			let id = data[0];
 			let sector = data[1];
-			console.log(sector);
 			this.zonemapChangeCount++;
 			if (sector) this.zonemap.set(id, sector);
 			else this.zonemap.delete(id);
