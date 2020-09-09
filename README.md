@@ -8,7 +8,7 @@ Are you lost in the Zone? You're chased by a group of *Zone Ghouls* and you can'
 
 ## How to Play
 
-https://stefouch.github.io/myz-zonemap
+https://stefouch.github.io/myz-zonemap/
 
 ## How to Use
 
