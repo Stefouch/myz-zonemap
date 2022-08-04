@@ -6,6 +6,7 @@
  * * SE: Sweden
  * * ES: Spanish
  * * PT: Portuguese
+ * * PL: Polish
  * * RU: Russian
  */
 module.exports = {
@@ -15,5 +16,6 @@ module.exports = {
 	se: require('../data/sector-generator-se.json'),
 	es: require('../data/sector-generator-es.json'),
 	pt: require('../data/sector-generator-pt.json'),
+	pl: require('../data/sector-generator-pl.json'),
 	ru: require('../data/sector-generator-ru.json')
 };

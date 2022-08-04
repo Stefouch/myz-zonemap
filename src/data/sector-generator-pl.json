@@ -1,0 +1,351 @@
+{
+	"rotLvl": {
+		"roll": "D66",
+		"data": {
+			"11": 0,
+			"13": 1,
+			"56": 2
+		}
+	},
+	"threats": {
+		"roll": "D6",
+		"data": {
+			"1": {
+				"roll": "D66",
+				"define": "Humanoidy",
+				"data": {
+					"11": "Nieogar",
+					"12": "Zwierzęcy mutanci",
+					"14": "Kanibale",
+					"21": "Kultyści Zagłady",
+					"23": "Wygnańcy",
+					"26": "Wyprawa z innej Arki",
+					"33": "Piekielni Jeźdźcy",
+					"36": "Morloki",
+					"43": "Kultyści Błysku",
+					"45": "Patrol z Arki",
+					"51": "Śmieciowy wieszcz",
+					"53": "Tułacze",
+					"55": "Handlarz wodą",
+					"61": "Złomowcy",
+					"63": "Strefowe ghule"
+				}
+			},
+			"3": {
+				"roll": "D66",
+				"define": "Potwory",
+				"data": {
+					"11": "Kwasowa trawa",
+					"13": "Latające meduzy",
+					"14": "Automat",
+					"15": "Kwaszczury",
+					"21": "Zabójczy czerw",
+					"23": "Pożeracz",
+					"25": "Trawożercy",
+					"31": "Flakożuj (skażona woda)",
+					"32": "Zabójcze drzewo",
+					"33": "Komary apatii",
+					"34": "Kwiaty koszmaru",
+					"35": "Pasożytniczy grzyb",
+					"36": "Odyniec",
+					"41": "Mrówki Zgnilizny",
+					"43": "Ryba-olbrzym",
+					"44": "Śmieciowe sroki",
+					"46": "Złomołów",
+					"51": "Kłębowisko glist",
+					"52": "Strefowe psy",
+					"55": "Strefowe pijawki",
+					"61": "Strefowe szczury",
+					"64": "Strefowy pająk",
+					"65": "Strefowe osy"
+				}
+			},
+			"6": {
+				"roll": "D66",
+				"define": "Zjawiska",
+				"data": {
+					"11": "(Zjawisko) Kwaśny deszcz",
+					"14": "(Zjawisko) Popielna zamieć",
+					"16": "(Zjawisko) Pyłowe tornado",
+					"22": "(Zjawisko) Burza elektryczna",
+					"24": "(Zjawisko) Błędne ogniki",
+					"25": "(Zjawisko) Pole bezruchu",
+					"26": "(Zjawisko) Pole magnetyczne",
+					"32": "(Zjawisko) Miraż",
+					"33": "(Zjawisko) Żywe błota",
+					"35": "(Zjawisko) Nocne zorze",
+					"41": "(Zjawisko) Obelisk",
+					"42": "(Zjawisko) Słupy światła",
+					"44": "(Zjawisko) Kaputnik",
+					"51": "(Zjawisko) Zgniły wiatr",
+					"53": "(Zjawisko) Zapadlisko",
+					"55": "(Zjawisko) Fala zimna / fala gorąca",
+					"61": "(Zjawisko) Niewypał",
+					"63": "(Zjawisko) Próżnia",
+					"64": "(Zjawisko) Strefowy smog"
+				}
+			}
+		}
+	},
+	"environments": {
+		"roll": "D66",
+		"data": {
+			"11": "Gęsty las",
+			"13": "Zarośla",
+			"16": "Mokradła",
+			"22": "Martwy las",
+			"25": "Popielna pustynia",
+			"31": "Ogromny krater",
+			"32": "Zeszklone pole",
+			"33": "Zarośnięte ruiny",
+			"36": "Kruszejące ruiny",
+			"43": "Marszejące ruiny",
+			"52": "Nietknięte ruiny",
+			"61": "Opuszczony teren przemysłowy",
+			"65": "Osiedle"
+		}
+	},
+	"normalRuins": {
+		"roll": "D66",
+		"data": {
+			"11": [
+				"Wrak samolotu",
+				"Na ziemi leży olbrzymia, metalowa tuba. Jest pęknięta i zmiażdżona. Widać na niej ślady ognia, a wewnątrz są rzędy wiekowych siedzeń, poczerniałych od płomieni. Za tubą ciągnie się pas wypalonej ziemi. Wszystkie domy obok są zniszczone - tak, jakby tuba spadła z nieba z niewiarygodną prędkością."
+			],
+			"12": [
+				"Park rozrywki",
+				"Przedziwne skupisko pordzewiałych maszyn i zniszczonych, wielkich namiotów, które niegdyś miały jaskrawe kolory. Pozostałości klapy namiotu łopoczą na wietrze. Człowiek na obrazku uśmiecha się do was. Ma białą twarz i czerwony nos. Jedna z maszyn to wielki drewniany dysk z przymocowanymi do niego plastikowymi końmi. Całość umieszczona jest na silniku i kiedyś chyba się obracała."
+			],
+			"13": [
+				"Pole walki",
+				"Ten obszar jest całkowicie zniszczony. Zardzewiałe pręty zbrojeniowe sterczą z pękniętych cementowych bloków, które kiedyś były ścianami domów. Ruiny są osmalone eksplozjami i podziurawione kulami. Ziemię znaczą małe kratery."
+			],
+			"14": [
+				"Dworzec autobusowy",
+				"Pośród obłażących z farby znaków drogowych, pokrytych nieczytelnymi cyframi i literami, stoi kilka wielkich, rdzewiejących pojazdów. Niektóre mają dwa poziomy, inne mają przegub przypominający miech akordeonu i chyba mogły zginać się wpół. Maszyny Starożytnych są doprawdy przedziwne."
+			],
+			"15": [
+				"Parking",
+				"Betonowe filary załamały się i cały okrągły budynek zapadł się jak ściśnięty akordeon. Pośród gruzów utknęło wiele pojazdów z Dawnych Czasów. Może niektóre da się naprawić?"
+			],
+			"16": [
+				"Kościół",
+				"Wiekowa wieża tego kamiennego budynku sięga wysoko w niebo. Jej ostra iglica niknie w strefowej mgle. Wewnątrz stoją rzędy zbutwiałych, drewnianych ławek, zwrócone w kierunku figury wiszącego na krzyżu mężczyzny. Starożytni przychodzili tu, by pogadać z ich Szefem w niebie. Teraz panuje tu cisza. Jeśli istnieje jakiś bóg, już dawno opuścił to miejsce. Komentarz: te ruiny mogą być oczywiście meczetem lub inną świątynią, zależnie od twojej kampanii."
+			],
+			"21": [
+				"Kino",
+				"Obok obszernego wejścia, prowadzącego do mrocznego wnętrza budynku, wisi rząd pożółkłych plakatów oprawionych w ramy. Każdy z nich przedstawia dramatyczne sceny z Dawnych Czasów. W tym przepastnym budynku Starożytni oglądali obrazy poruszające się na ekranie."
+			],
+			"22": [
+				"Krater",
+				"Gigantyczna dziura w ziemi ma szerokość przynajmniej 50 metrów. Jakaś starożytna broń masowej zagłady musiała uderzyć w to miejsce i zniszczyć wszystko w okolicy. Na dnie krateru widać małe jeziorko wypełnione zielonkawą, Zgniłą wodą."
+			],
+			"23": [
+				"Zapuszczona willa",
+				"Ten mroczny, rozpadający się dom był stary już przed Upadkiem. Zbudowano go z drewna i kamienia i jakimś cudem przetrwał bez napraw całe dekady. Co kryje się w jego mrocznych korytarzach?"
+			],
+			"24": [
+				"Bar szybkiej obsługi",
+				"Fasadę tego rozpadającego się budynku zdobi wielka litera M, złożona z dwóch przybrudzonych, żółtych łuków. W Strefie jest wiele takich obiektów. Nikt już nie wie, co w nich kiedyś było, ale Szperacze ich unikają, bo wewnątrz zwykle jest dużo Zgnilizny."
+			],
+			"25": [
+				"Stacja benzynowa",
+				"Pod otwartym dachem, obok niskiego domu, stoi zbiorowisko pordzewiałych wraków aut. Obok nich znajduje się szereg maszyn z wężami i zaworami. Każdy mutant obeznany ze Strefą wie, że w takich miejscach Starożytni naprawiali swoje pojazdy i napełniali je paliwem."
+			],
+			"26": [
+				"Autostrada",
+				"Beton jest popękany, a oznaczenia na powierzchni niemal zupełnie się wytarły. Przed Upadkiem Starożytni mknęli tędy z niesamowitymi prędkościami w swoich błyszczących wozach mechanicznych. Teraz stare pojazdy stoją na poboczu, wypalone i przerdzewiałe tak bardzo, że nie nadają się do naprawy."
+			],
+			"31": [
+				"Szpital",
+				"Gdy nadeszła Apokalipsa, fala Starożytnych zalała tego betonowego kolosa, desperacko próbując się ratować. Teraz to rozpadająca się ruina. Zgniłe trupy leżą wszędzie: w pokojach, korytarzach, na łóżkach i na podłogach."
+			],
+			"32": [
+				"Sklep mysliwski",
+				"Pośród rozpadających się półek możecie tu znaleźć wędki, haczyki i żyłki. Doświadczony Szperacz może użyć tych przedmiotów, by łowić jadalne ryby w wodach Strefy (strona 56). Na ścianach wiszą pożółkłe zdjęcia strzelb. W rogu stoi ciężka, metalowa szafa wysokości mutanta. Czy kryje się w niej coś wartościowego?"
+			],
+			"33": [
+				"Centrum handlowe",
+				"Otwiera się przed wami miasto w mieście. Na kilku poziomach, wzdłuż wielkich korytarzy, biegną rzędy starych sklepów i restauracji. Dawno temu wszystko tu spalił ogień i pokryła sadza, ale może wśród popiołu da się znaleźć coś wartościowego? Tu i ówdzie w dziwnych pozach stoją specyficzne plastikowe figury. Jakby przemawiały do tłumu."
+			],
+			"34": [
+				"Przystań",
+				"Niedaleko brzegu, częściowo zanurzone w Zgniłej wodzie, spoczywają liczne wraki łodzi. Żaglówki, motorówki i kajaki, których Starożytni używali do rekreacji, zmieniły się w niebezpieczną rafę z połamanego plastiku i metalowych belek."
+			],
+			"35": [
+				"Muzeum",
+				"Do tego monumentalnego budynku prowadzą wielkie stopnie z popękanego kamienia. Wewnątrz kryją się mroczne hale z dziwnymi przedmiotami z Dawnych Czasów, a nawet z jeszcze dawniejszej przeszłości, wystawione na pokaz dla Starożytnych."
+			],
+			"36": [
+				"Biurowiec",
+				"W tych mrocznych ruinach znajdziecie wielkie pomieszczenia wypełnione identycznymi stołami, zamkniętymi w małych zagrodach. Na piętrze pełno jest pożółkłych papierów. Pewnie przed Upadkiem wykonywano tu ważną pracę. Teraz strefowy pył dostaje się przez wybite szyby."
+			],
+			"41": [
+				"Zarośnięty park",
+				"Rosną tu zdziczałe, wysokie drzewa i gęste krzewy, które całkowicie zarosły okolicę. Ławki, ścieżki i fontanny pokrywają gęste zarośla, a trawniki zmieniły się w mokradła. Krąży wiele plotek o istotach, które grasują po starych parkach w Strefie"
+			],
+			"42": [
+				"Plac zabaw",
+				"Opony zwisają smętnie na zardzewiałych łańcuchach z metalowej ramy. Drewniana piaskownica zmieniła się w śmierdzący zbiornik pełen błota. Kwaśne deszcze dawno temu wyżarły dziury w metalowych zjeżdżalniach. Starożytni bawili się tu z dziećmi. Kilka połamanych, plastikowych zabawek przetrwało dekady złej pogody i nadal leży porzucona w piasku."
+			],
+			"43": [
+				"Komisariat policji",
+				"Przed tym wielkim budynkiem stoją rdzewiejące wraki identycznych, niebiesko-białych aut. Opony zniknęły dawno temu, ale pojazdy wciąż mają na dachach niebieskie lampy. W piwnicy budynku są pomieszczenia, których nie da się otworzyć od wewnątrz."
+			],
+			"44": [
+				"Rozgłośnia radiowa",
+				"Las pordzewiałych anten i metalowych dysków wyrasta na dachu tego wielkiego budynku. Znak na fasadzie przedstawia antenę otoczoną kręgami."
+			],
+			"45": [
+				"Bloki mieszkalne",
+				"Grupa identycznych, wysokich budynków, wykonanych z betonu, który popękał i osypuje się. Na obszarze między tymi monolitami są zbutwiałe ławki i wysokie krzaki. Wszędzie pełno waków aut. W większości są tak przerdzewiałe, że nie sposób ich naprawić. W każdym z budynków znajdują się identyczne mieszkania. Można w nich znaleźć rozlatujące się meble, ubrania i inne przedmioty."
+			],
+			"46": [
+				"Tunel drogowy",
+				"Wjazd do tego szerokiego tunelu wygląda jak paszcza olbrzymiej bestii. Przed nim tłoczą się niezliczone auta, ciężarówki i autobusy, które powoli pożera rdza. Nie wiadomo, przed jakim okropieństwem uciekali pasażerowie tych pojazdów, ale jest jasne, że niewielu się to udało."
+			],
+			"51": [
+				"Zawalony most",
+				"Ruiny majestatycznego mostu wznoszą się ponad strefowy smog. Konstrukcja zapadła się po obu stronach i pozostały tylko dwa grube filary, ale jeśli zdołacie wspiąć się na pozostały odcinek, znajdziecie świetny punkt obserwacyjny."
+			],
+			"52": [
+				"Szkoła",
+				"Na osypującej się, ceglanej fasadzie tego budynku wisi zegar, który zatrzymał się dawno temu. Pod nim był jakiś napis, ale nie da się go już odczytać. Na betonowym podłożu przed budynkiem stoją dwa pordzewiałe metalowe pręty. Oba są nieco wyższe od mutanta i mają na końcach metalowe pierścienie."
+			],
+			"53": [
+				"Schron",
+				"Masywne, zardzewiałe, metalowe drzwi w skalnej ścianie prowadzą głęboko pod ziemię. Starożytni próbowali schronić się tu przed koszmarami powierzchni. Teraz to świetne miejsce do szukania artefaktów. Ale kto wie, co się tu czai? Kto jeszcze mógł odkryć te podziemia pełne skarbów?"
+			],
+			"54": [
+				"Drapacz chmur",
+				"Wysoki budynek wystrzela ku żółtawym chmurom strefowego nieba. Beton jest popękany i kruszy się, a wszystkie szyby wypadły z okien dawno temu. Teraz strefowy wiatr hula po piętrach tego majestatycznego kolosa. Wszystkie piętra wypełniają identyczne, małe mieszkania lub biura. Tylko najwyższy poziom wygląda inaczej. Znajdziecie tam większe i bogatsze wnętrza... o ile zdołacie się tam wspiąć..."
+			],
+			"55": [
+				"Ośrodek sportowy",
+				"Obszerna hala z pordzewiałej blachy falistej. Wewnątrz są dziwnie rzeczy, takie jak grube materace pokryte czerwonym plastikiem, wielkie siatki rozpięte na ramach, pałki z dziurami i piłki we wszelkich kolorach i rozmiarach. Podobno Starożytni chodzili do takich miejsc, by ćwiczyć."
+			],
+			"56": [
+				"Przedmieścia",
+				"Po obu stronach ulicy stoją w równych rzędach identyczne domki. Trawniki i krzewy już dawno zwiędły. Wszystko pokrywa popiół. W domach pozostały rozkładające się ubrania i inne osobiste przedmioty. Wygląda na to, że mieszkańcy opuszczali budynki w pośpiechu. Wokół pełno wraków aut i innych pozostałości po Starożytnych, którzy tu żyli. Większość domów z biegiem czasu obróciła się w ruinę, a niektóre całkowicie się zawaliły."
+			],
+			"61": [
+				"Stacja metra",
+				"Obok schodów prowadzących do podziemi wisi wielki znak z łuszczącą się farbą. Wszyscy Szperacze wiedzą, co znaczy ten symbol. To wejście do tuneli pod Strefą. W ich głębi czekają wielkie niebezpieczeństwa, ale być może również wiele nienaruszonych artefaktów."
+			],
+			"62": [
+				"Supermarket",
+				"Pośród ruin wznosi się ogromny budynek. Wielkie szyby wybito dawno temu i strefowy pył bez przeszkód niesie się do środka. Przed Upadkiem w tym budynku przechowywano niewyobrażalne ilości jedzenia, napojów, przyborów kuchennych i innych towarów, które Starożytni konsumowali w oszałamiającym tempie. Teraz większość tego zrabowano, spalono lub uległo rozkładowi."
+			],
+			"63": [
+				"Basen",
+				"Wewnątrz tych masywnych ruin znajdują się wielkie zbiorniki wypełnione błotem i oślizgłymi wodorostami. Szkodliwe, toksyczne opary witają każdego, kto tu wchodzi. Trudno sobie wyobrazić, że Starożytni dobrowolnie przychodzili tu, by kąpać się w zbiornikach."
+			],
+			"64": [
+				"Czołg",
+				"Potężny i budzący podziw metalowy pojazd blokuje wam drogę. Jego szerokie gąsienice kompletnie zardzewiały dawno temu, a działo nie sieje śmierci i zniszczenia od wielu dekad, lecz zbliżanie się do tej metalowej bestii wciąż budzi strach w sercu niemal każdego strefowego wędrowca."
+			],
+			"65": [
+				"Teatr",
+				"Wewnątrz tych mrocznych ruin kryje się obszerna sala z rzędami siedzeń, zwróconymi w kierunku wielkiej sceny z olbrzymią, czerwoną kurtyną. Starożytni przychodzili tu na koncerty, występy taneczne i przedstawienia."
+			],
+			"66": [
+				"Dworzec kolejowy",
+				"Pradawne wagony kolejowe rdzewieją na zarośniętych torach. Kiedyś Starożytni podróżowali w nich szybko i sprawnie po całej Strefie, a nawet dalej. Teraz jedynymi pasażerami są rozkładające się trupy."
+			]
+		}
+	},
+	"industrialRuins": {
+		"roll": "D66",
+		"data": {
+			"11": [
+				"Fabryka",
+				"Metalowy dach tego ogromnego, płaskiego budynku zapadł się dawno temu. Wewnątrz kryją się maszyny i dziwne pojazdy z wielkimi widłami z przodu. Wszystko wokół zniszczyły dekady oddziaływania deszczu i wiatru. Niektóre pordzewiałe, stare beczki przewróciły się i wypływa z nich na podłogę zielonkawy szlam."
+			],
+			"14": [
+				"Baza wojskowa",
+				"Obszerny dziedziniec na planie kwadratu, otoczony ceglanymi budynkami. Wewnątrz jest wiele identycznych pokoi z metalowymi, piętrowymi łóżkami. Za budynkami stoi duży garaż. Wewnątrz znajduje się kilka spalonych pojazdów."
+			],
+			"21": [
+				"Cysterna na ropę",
+				"Ten potężny, cylindryczny, metalowy budynek opasują wąskie schody biegnące wzdłuż zewnętrznej ściany aż na szczyt. Na górze można z bezpiecznej odległości wypatrywać nadchodzących zagrożeń. W budynku znajduje się olbrzymi zbiornik wypełniony lepkim czarnym płynem. Monter mógłby go wykorzystać w roli paliwa. Pytanie, jak go stąd wydostać..."
+			],
+			"24": [
+				"Rurociąg",
+				"Tę część Strefy przecina szeroka, pordzewiała, metalowa rura. W rurociągu jest wystarczająco dużo miejsca, by mógł się wewnątrz czołgać mutant. Paliwo i ropa nie płyną tymi rurami od dawna. Teraz to wyłącznie złom."
+			],
+			"31": [
+				"Oczyszczalnia ścieków",
+				"Smród jest silniejszy z każdym krokiem wykonanym w kierunku tego budynku. Ale Szperacze wiedzą, że zapach rozkładu może maskować bezcenne skarby. Te wielkie baseny, zbiorniki i maszyny oczyszczały kiedyś wodę pitną Starożytnych. Może zostało jeszcze trochę czystej wody w którymś zbiorniku?"
+			],
+			"34": [
+				"Linia elektryczna",
+				"Wysoka wieża, zbudowana z pordzewiałych, metalowych belek, wznosi się ku niebu Strefy. Złamała się w połowie i jej ostra iglica chyli się ku dołowi. Grube kable, które zapewniały kiedyś prąd całej okolicy, obecnie leżą na ziemi."
+			],
+			"41": [
+				"Maszt radiowy",
+				"Wysoki, metalowy maszt wznosi się ponad krajobrazem Strefy. Przytrzymują go grube, metalowe liny, a przy wierzchołku widać zbiorowisko anten. Niegdyś wysyłano stąd bezprzewodowe wiadomości do ludzi z Dawnych Czasów, by zapewnić im rozrywkę i wiedzę. Teraz hula tu tylko strefowy wiatr."
+			],
+			"44": [
+				"Rafineria",
+				"Całą okolicę pokrywa rdzewiejąca i rozpadająca się maszyneria. Olbrzymie zbiorniki połączone są metalowymi rurami. Przez niektóre zdoła przeczołgać się mutant. Jeśli macie jaja, możecie wędrować przez te metaliczne pustkowia używając drabinek, belek i pomostów."
+			],
+			"51": [
+				"Wysypisko śmieci",
+				"Drogę blokuje wam góra śmieci. Starożytni wyrzucali tu wszystko, czego nie potrzebowali. Większość z tych rzeczy czas zmielił na proch, ale z niektórych stert wystają plastikowe przedmioty i duże kawałki pordzewiałego metalu."
+			],
+			"54": [
+				"Wrak statku",
+				"Wielki rdzewiejący statek leży niedaleko brzegu, zanurzony do połowy pod falami. Puste bulaje sprawiają, że wygląda jak wyrzucony na plażę wieloryb. Czy w maszynowni wciąż da się znaleźć jakieś przydatne śmieci?"
+			],
+			"61": [
+				"Strzelnica",
+				"Puste łuski po nabojach walają się po tej ogromnej, otwartej przestrzeni. Na jednym końcu jest duży nasyp z licznymi śladami po kulach. W pobliskiej szopie zeskładowano tarcze w kształcie ludzi i zwierząt. Starożytni mogli sobie pozwolić na marnowanie naboi strzelając do papierowych postaci."
+			],
+			"64": [
+				"Wiatrak",
+				"Ponad Strefą wznosi się wysoka, biała wieża. Na jej szczycie zamocowano wielkie śmigło. Podobno Starożytni zaczęli budować takie konstrukcje, by pozyskać energię, gdy zaczęło brakować ropy. Oczywiście było już za późno."
+			]
+		}
+	},
+	"moods": {
+		"roll": "D66",
+		"data": {
+			"11": "(Ludzie) Wędrowcy. W oddali widać jakieś sylwetki. Kto wędruje przez Strefę?",
+			"12": "(Ludzie) Obóz. Pozostałości obozowiska. Być może węgle w ognisku jeszcze się tlą?",
+			"13": "(Ludzie) Wieczny odpoczynek. K6 płytkich grobów oznaczonych śmieciami. Kogo tu pochowano?",
+			"14": "(Ludzie) Ofiara. Powieszone lub przywiązane do słupa zwłoki. Kto je tam umieścił i dlaczego?",
+			"15": "(Ludzie) Wiadomość. Ktoś napisał cośna ścianie. Co tam napisano i jak dawno temu?",
+			"16": "(Ludzie) Ślady. Prowadzą w głąb Strefy. Kto tędy szedł i dokąd powędrował?",
+			"21": "(Natura) Głaz. Wielki kawał skały. Osłona przed strefowym wiatrem czy dobry punkt obserwacyjny?",
+			"22": "(Natura) Drzewo. Samotne drzewo wciąż rośnie na bezludnych pustkowiach. Czy skrywa jakąś tajemnicę?",
+			"23": "(Natura) Strumień. Wąski strumyk wije się po ziemi. Niesie życie czy śmierć od Zgnilizny?",
+			"24": "(Natura) Strefowe kwiaty. Kontrastujące z wyblakłym terenem Strefy pole dziwnych kwiatów o żywych kolorach.",
+			"25": "(Natura) Krzaki. Sektor pokrywa gęsta roślinność. Mogą w niej utknąć buty i ekwipunek. Czy zarośla skrywają jakiś sekret?",
+			"26": "(Natura) Pnącza. Ruiny pokrywa ściana gęstych pnączy. Są martwe i zwiędłe czy nadal żyją?",
+			"31": "(Pogoda) Ulewny deszcz. PG nagle muszą stawić czoła ulewie lub zamieci śnieżnej. Lepiej niech poszukają schronienia.",
+			"32": "(Pogoda) Mgła. Okolicę spowija gęsta mgła. Widoczność spada do kilku metrów, a dźwięki są wytłumione. Co kryje się w oparze?",
+			"33": "(Pogoda) Palące słońce. Żar leje się z nieba wprost na PG. Przypieka im skórę, a ich ubrania wkrótce są przesiąknięte potem.",
+			"34": "(Pogoda) Czyste niebo. Wszechobecny, brudny smog strefy nagle się rozwiewa, odsłaniając lazurowe niebo. To jednocześnie piękne i przerażające.",
+			"35": "(Pogoda) Ciemne chmury. Niebo ciemnieje i wzmaga się wiatr. Pył wiruje na popękanym, starym chodniku. Zbliża się burza.",
+			"36": "(Pogoda) Grzmot. Głęboki grzmot przetacza się przez Strefę. Nagle ruiny rozjaśnia błyskawica.",
+			"41": "(Pozostałości) Znak drogowy. Przy drodze stoi samotny, metalowy znak - pozostałość z Dawnych Czasów. Pokazuje drogę czy ostrzega przed niebezpieczeństwem?",
+			"42": "(Pozostałości) Wrak. Pozostałości starego samochodu. Auto wewnątrz zardzewiało tak bardzo, że nie nadaje się już do naprawy. Jednak metalowa karoseria pozostała nienaruszona. Czy ktoś szukał tu schronienia?",
+			"43": "(Pozostałości) Plakat filmowy. Zniszczony, stary plakat z Dawnych Czasów ukazuje dziwną scenę. Co na nim widzą PG?",
+			"44": "(Pozostałości) Zmarli. K6 wysuszonych szkieletów z Dawnych Czasów. Jaką historię mogłyby opowiedzieć te kości?",
+			"45": "(Pozostałości) Punkt kontrolny. Blokada drogowa z ostatnich dni Dawnych Czasów. Może są tu jakieś przydatne śmieci?",
+			"46": "(Pozostałości) Tory kolejowe. Te pordzewiałe, stare tory są całkowicie zarośnięte. Dokąd prowadzą?",
+			"51": "(Wydarzenia) Dziura. PG widzą przed sobą głęboką, ciemną dziurę w ziemi. To stara studnia czy ścieżka do podziemnych tuneli?",
+			"52": "(Wydarzenia) Skowyt. Nieludzkie, długie wycie odbija się echem po Strefie. Ktoś potrzebuje pomocy, czy może w pobliżu czai się potwór?",
+			"53": "(Wydarzenia) Zawalenie. Zrujnowany budynek nagle wali się z ogłuszającym łoskotem. Może odsłiniło się coś ciekawego?",
+			"54": "(Wydarzenia) Ptaki. Stado małych, strefowych ptaków nagle zzrywa się do lotu. Czy coś je przestraszyło?",
+			"55": "(Wydarzenia) Hałas. Głęboki ryk przetacza się przez Strefę. Powtarza się kilka razy, a następnie milknie.",
+			"56": "(Wydarzenia) Chata. Ktoś zbudował ze śmieci gniazdo lub chatę. Czy teraz jest w domu?",
+			"61": "(Teren) Jezioro. Małe, czarne jezioro ukazuje się w oparach Strefy. Co kryje się pod jego lustrzaną powierzchnią?",
+			"62": "(Teren) Skarpa. Przed PG pojawia się nagle stromy stok. Jak po nim zejdą i co czeka na nie na dole?",
+			"63": "(Teren) Rozpadlina. Teren przecina głęboka szczelina, szeroka na kilka metrów. Jak PG się przez nią przedostaną?",
+			"64": "(Teren) Bagno. Ohydna strefowa woda pokrywa całą okolicę, zalewając stare, rozpadające się ulice. Ciemna i zimna breja przesiąka przez buty PG.",
+			"65": "(Teren) Zagajnik. Mroczny gaj, pełen martwych drzew, rzuca cień na PG. Co może się tam kryć?",
+			"66": "(Teren) Wzgórze. Wysokie wzgórze lub kopiec pojawia się na horyzoncie Strefy. Czym jest i co znajduje się na jego szczycie?"
+		}
+	}
+}
